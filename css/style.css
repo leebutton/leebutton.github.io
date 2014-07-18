@@ -627,6 +627,7 @@ footer {
   position: fixed;
   clear: both;
   bottom: 0;
+  z-index:99;
 }
 
 #footer-text-first {
