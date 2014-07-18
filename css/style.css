@@ -609,6 +609,17 @@ header nav ul li a:active {s
   margin-bottom:0px!important;
 }
 
+
+.navbar-toggle {
+  float:left!important;
+}
+
+.navbar-collapse {
+width:100%!important;
+box-shadow:none!important;
+}
+
+
 footer {
   background-color: #434A4D;
   width: 100%;
