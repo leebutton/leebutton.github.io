@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-         <div class="container">
+  <div class="container">
            <div id="mobile-Logo">
              <img src="img/Final-logo.PNG" width="100%">
            </div>
@@ -11,84 +11,87 @@ layout: default
            <div id="mobile-search">
              <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
            </div>
-         
-           <div class="col-md-8">
-            <div class="blog-text">
+           
+           {% for post in site.posts %}
+               <div class="col-md-8">
+                <div class="blog-text">
 
-                   <div id="blog-sidebar">
-                     <h3>CATERGORY</h3>
-                     <ul>
-                         <li><img src="img/top-icon.png"></li>
-                         <li><h3>May</h3></li>
-                         <li><p>19.2013</p></li>
-                         <li><img src="img/line.png"></li>
-                         <li><img src="img/tag-icon.png"></li>
-                         <li><p>Tag One</p></li>
-                         <li><p>Tag Two</p></li>
-                         <li><p>Tag Three</p></li>
-                         <li><img src="img/line.png"></li>
-                         <li><img src="img/comment.png"></li>
-                         <li><h3>4</h3></li>
-                         <li><p>Comments</p></li>
-                     </ul>
-                   </div>
+                       <div id="blog-sidebar">
+                         <h3>CATERGORY</h3>
+                         <ul>
+                             <li><img src="img/top-icon.png"></li>
+                             <li><h3>May</h3></li>
+                             <li><p>19.2013</p></li>
+                             <li><img src="img/line.png"></li>
+                             <li><img src="img/tag-icon.png"></li>
+                             <li><p>Tag One</p></li>
+                             <li><p>Tag Two</p></li>
+                             <li><p>Tag Three</p></li>
+                             <li><img src="img/line.png"></li>
+                             <li><img src="img/comment.png"></li>
+                             <li><h3>4</h3></li>
+                             <li><p>Comments</p></li>
+                         </ul>
+                       </div>
  
-       	        <div id="blog-image">
-                  <img src="img/blog-image-1.jpg">
-                </div><!--end blog sidebar-->
+           	        <div id="blog-image">
+                      <img src="img/blog-image-1.jpg">
+                    </div><!--end blog sidebar-->
 
-       	         <h1>STANDARD THEME<br>HEADING ONE.</h1>
-                 <p>Obitat lam, cumque velignis rerum coribusae ditatur aborem<br>inctoribus eic te consed quodi blaborum rest, utemquiation<br>pro de rem aut as dolorpo riassequam ratatiorrum.</p>
+           	        <h1>{{post.title}}</h1>
+                    <p>{{post.excerpt}}</p>
 
-              <div id="continue-reading">
-                <a href="index.html" title="Continue Reading" class="btn btn-download-continue">CONTINUE READING</a>
-              </div><!--end continue reading-->
+                  <div id="continue-reading">
+                    <a href="index.html" title="Continue Reading" class="btn btn-download-continue">CONTINUE READING</a>
+                  </div><!--end continue reading-->
 
-            </div>	<!--end blog-text-->
-           </div><!--end col md 8-->
 
-    
- 
-  
+                </div>	<!--end blog-text-->
+              </div><!--end col md 8-->
+        
+          {% endfor %}
+
+
+<div class="container">
+
       <div class="col-md-4">
-        <div id="Logo">
-      	  <img src="img/Final-logo.PNG">
-        </div>	
+        
+          <div id="Logo">
+        	  <img src="img/Final-logo.PNG">
+          </div>	
    
-        <div id="Portrait">
-      	  <img src="img/Portrait.jpg" width="100%">
-        </div>
+          <div id="Portrait">
+        	  <img src="img/Portrait.jpg" width="100%">
+          </div>
 
-        <div id="Intro">
-      	  <h3><i>"Refinement in Process"</i></h3>
-      	  <p>I'am Lee Button. cumque velignis rerum coribusae ditatur aborem inctoribus eic te consed quodi blau</p>
-        </div>
+          <div id="Intro">
+        	  <h3><i>"Refinement in Process"</i></h3>
+        	  <p>I'am Lee Button. cumque velignis rerum coribusae ditatur aborem inctoribus eic te consed quodi blau</p>
+          </div>
       
-        <div id="search">
-          <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
-        </div>
+          <div id="search">
+            <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
+          </div>
    
-        <div id="Category-1">
-          <h2>CATEGORY 1</h2>
-        </div><!--end category-1-->
+          <div id="Category-1">
+            <h2>CATEGORY 1</h2>
+          </div><!--end category-1-->
     
-        <div id="Category-2">
-          <h2>CATEGORY 2</h2>
-        </div><!--end category-1-->
+          <div id="Category-2">
+            <h2>CATEGORY 2</h2>
+          </div><!--end category-1-->
 
-        <div id="Category-3">
-          <h2>CATEGORY 3</h2>
-        </div><!--end category-1-->
+          <div id="Category-3">
+            <h2>CATEGORY 3</h2>
+          </div><!--end category-1-->
    
-        <div id="Category-4">
-          <h2>CATEGORY 4</h2>
-        </div><!--end category-1-->
+          <div id="Category-4">
+            <h2>CATEGORY 4</h2>
+          </div><!--end category-1-->
         
       </div>
+
+  
+
+
   </div><!--end container-->
-  
-  
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>

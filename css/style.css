@@ -22,8 +22,13 @@ body {
 
 .container{
   width:960px!important;
+  margin-bottom: 30px;
 }
 
+#aside {
+  position:absolute;
+  
+}
 
 
 form {
@@ -174,6 +179,9 @@ a.btn.btn-download {
   box-shadow: 0 0 5px rgba(0,0,0,0,8) inset;
 }	
 
+#continue-reading {
+  height:60px;
+}
 
 /*---------------------
 Layout
@@ -359,8 +367,8 @@ Blog
   background-color:#fff;
   color:#222;
   text-align:center;
-  height: 574px;
   margin-top:30px;
+  height:100%;
 }
 
 .blog-text h1 {
@@ -389,6 +397,7 @@ Blog
 
 #continue-reading {
   margin-right:10px;
+  height:65px;
 }
 
 
