@@ -26,10 +26,11 @@ body {
 }
 
 #aside {
+  top:-515px;
+  left:30px;
   position:absolute;
   
 }
-
 
 form {
   padding-top: 5px !important;
@@ -697,6 +698,12 @@ Media Queries
 }
 }
 
+@media (min-width:991px) {
+  #mobile-aside {
+    display:none;
+  }
+}
+
 @media (max-width:991px) {
 
 .container {
@@ -704,6 +711,10 @@ Media Queries
 }
 .container {
   width: 100%!important;
+}
+
+#aside {
+  display:none;
 }
 
 nav ul {
