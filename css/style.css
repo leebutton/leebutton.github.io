@@ -525,14 +525,15 @@ Comments
   margin-top:30px;
   height:100%;
   position:relative;
+  margin-bottom: 85px;
 }
 #comment-top {
   background-color: #434A4D;
   height:100%;
 }
 #comment img {
-  position:absolute;
-  top:20;
+  position:relative;
+  top:0;
   left:0;
   width:25%;
 }
@@ -573,6 +574,7 @@ Comments
   color:#434a4e !important;
   text-align:left !important;
   margin-top:15px !important;
+  padding-top:10px !important;
 }
 
 
