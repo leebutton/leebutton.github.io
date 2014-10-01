@@ -8,7 +8,6 @@ html {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-
 body {
   font-family: 'Roboto';
   font-size: 14px;
@@ -18,34 +17,27 @@ body {
   background-color: #eaeaea !important;
   text-align: center !important;
 }
-
-
 .container{
   width:960px!important;
   margin-bottom: 30px;
   position:relative;
 }
-
 .wrap {
   height:100%;
   padding-bottom:40px;
 }
-
 .aside {
   top:14px;
   right:0px;
   position:absolute;
 }
-
 form {
   padding-top: 5px !important;
 }
-
 input {
   float: right;
   border: none !important;
 }
-
 .search-area {
   padding-top: 5px !important;
   margin-right: 118px !important;
@@ -58,9 +50,6 @@ input {
   background-repeat:repeat-x;
 }
 
-
-
-
 /*---------------------
 Typography
 -----------------------*/
@@ -70,12 +59,10 @@ h1, h2, h3{
   margin: 0px;
   line-height: 45px;
 }
-
 h4, h5, h6{
   font-weight: bold;
   margin: 5px, 0px, 5px, 0px;
 }
-
 h1{
   font-size: 55px !important;
   font-family: 'Roboto' !important;
@@ -84,11 +71,9 @@ h1{
   line-height: 1 !important;
   color: #fff;
 }
-
 h2{
   font-size: 24px;
 }
-
 h3 {
   font-family: 'Roboto' !important;
   font-weight: 100 !important;
@@ -98,20 +83,16 @@ h3 {
   text-align: center !important;
   display:block !important;
 }
-
 h4 {
   font-size: 18px;
   margin: 10px,0px, 10px, 0px;
   font-weight: bold;
-
 }	
-
 h5{
   font-size: 13px;
   margin: 0px;
   text-transform: uppercase;
 }
-
 p {
   display: block;
   font-size: 16px!important;
@@ -121,9 +102,6 @@ p {
   margin-top: -20px !important;
 }
 
-
-
-
 /*---------------------
 Buttons
 -----------------------*/
@@ -131,16 +109,12 @@ Buttons
 .btn {
   padding: none!important;
 }
-
-
 a.btn.btn-download {
   margin-left: auto;
   margin-right: auto;
   top:50%; 
   left:50%;
-
 }
-
 .btn-download-continue {
   background: #fff;
   float:right;
@@ -156,9 +130,7 @@ a.btn.btn-download {
   margin-right: 10px;
   -webkit-transition: all ease 0.25s;
   transition: all ease 0.25s;
-
 }
-
 .btn-download {
   background: #fff;
   font-size: 18px!important;
@@ -172,11 +144,9 @@ a.btn.btn-download {
   -webkit-transition: all ease 0.25s;
   transition: all ease 0.25s;
 }
-
 .call-to-action .btn-download a:hover {
   color: #fff!important;
 }
-
 .btn-download  a:active {
 
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0,8) inset;
@@ -229,19 +199,21 @@ Intro
   margin-left: auto;
   background-color: #56c2b6;
   width: 100%;
-  height:100px;
+  height:140px;
 }
 
 #intro h3 {
   color: #fff !important;
   font-weight: 400!important;
   font-size: 20px !important;
+  padding-top:15px;
 }
 
 #intro p {
   font-size: 15px !important;
   margin:0px !important;
   padding-left:15px;
+  padding-top:15px;
 }
 
 #mobile-aside #intro {
