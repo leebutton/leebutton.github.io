@@ -589,8 +589,6 @@ Global Styles
 }
 
 
-
-
 /*---------------------
 Footer
 ----------------------*/
@@ -600,16 +598,10 @@ aside {
   padding-right: 5px;
   margin-top:-600px;
 }
-
-
-
-
 .end-of-page p {
   float: left;
   width: 280px;
 }
-
-
 .copyright {
   color: #808080;
   font-weight: 400 !important;
@@ -617,22 +609,15 @@ aside {
   margin-bottom: 50px !important;
   text-align: center;
 }
-
-
 form {
   display: inline;
-
 } 
-
 input {
   margin-bottom: -8px!important;
   height: 50px!important;
   -webkit-box-shadow: none!important;
   box-shadow: none!important;
-
 }
-
-
 textarea {
   margin-top: 10px!important;
   -webkit-box-shadow: none!important;
@@ -642,7 +627,6 @@ textarea {
 
 }
 
-
 /*---------------------
 Navigation
 -----------------------*/
@@ -651,27 +635,17 @@ Navigation
   background-color: #434A4D;
   height: 43px;
 }
-
 #first-navbar {
   float:left;
 }
-
 #second-navbar {
   float:right;
 }
-
-#first-navbar nav ul {
-
-}
-
 #first-navbar nav ul li a {
   padding-bottom: 17px;
 }
-
 #second-navbar nav ul  {
 }
-
-
 nav ul {
   margin: 0;
   padding:0;
@@ -679,13 +653,10 @@ nav ul {
   width: 100%;
   background-color: #434A4D;
 }
-
 nav ul li {
   list-style:none;
   float: left;
-
 }
-
 header #first-navbar nav ul li a {
   display:inline;
   width: 100%;
@@ -701,7 +672,6 @@ header #first-navbar nav ul li a {
   float: left;
   border-left: solid 1px, #333;
 }
-
 header #second-navbar nav ul li a {
   display:inline;
   width: 100%;
@@ -713,33 +683,25 @@ header #second-navbar nav ul li a {
   float: right;
   border-left: solid 1px, #333;
 }
-
 #second-navbar ul li a img {
   width:100%!important;
   margin-top: 5px;
 }
-
-
 header nav ul li a:hover {
   color: #efefef;
   text-decoration: none;
 }
-
 header nav ul li a:active {s
   -webkit-box-shadow: 0 0 5px rgba(0,0,0,0,8) inset;
   -moz-box-shadow: 0 0 5px rgba(0,0,0,0,8) inset;
   box-shadow: 0 0 5px rgba(0,0,0,0,8) inset;
 }	
-
 .navbar {
   margin-bottom:0px!important;
 }
-
-
 .navbar-toggle {
   float:left!important;
 }
-
 .navbar-collapse {
 width:100%!important;
 box-shadow:none!important;
@@ -788,7 +750,7 @@ footer {
   right: 0px;
   text-decoration: none;
   color: #fff;
-  background-color: #000;
+  background-color: #56c2b6;
   font-size: 12px;
   padding: 1em;
   display: none;
