@@ -502,15 +502,21 @@ Comments
 -----------------------*/
 
 .comments{
-  background-color:#fff;
   color:#222;
   text-align:center;
   margin-top:30px;
   height:100%;
+  position:relative;
 }
 #comment-top {
   background-color: #434A4D;
   height:100%;
+}
+#comment img {
+  position:absolute;
+  top:20;
+  left:0;
+  width:25%;
 }
 #comment-top h2 {
   color:#fff;
@@ -521,6 +527,11 @@ Comments
   padding-bottom:15px;
   text-align:left;
   margin-left:10px;
+}
+#comments-text {
+  background-color:#fff;
+  width: 75%;
+  float: right;
 }
 
 
