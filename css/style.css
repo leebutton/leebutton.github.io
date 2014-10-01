@@ -578,7 +578,25 @@ Comments
 }
 
 
-
+#comments-socials {
+  text-align:left;
+  margin-left:100px;
+}
+#comments-socials h2 {
+  font-weight:400 !important;
+  font-size:16px !important;
+  font-family:'Roboto' !important;
+  color:#434a4e !important;
+  text-align:left !important;
+  margin-left:12px !important;
+  margin-top:12px !important;
+}
+#comments-socials nav ul {
+  float:none;
+}
+#comments-socials nav ul li {
+  padding:0px !important;
+}
 
 #blog-image {
   height: 207px;
@@ -1227,6 +1245,10 @@ aside {
 .blog-text h3 {
   font-size:10px!important;
   margin-left:2px!important;
+}
+#comments-socials {
+  text-align:left;
+  margin-left:0px;
 }
 
 #portrait {
