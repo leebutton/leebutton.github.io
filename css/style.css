@@ -543,6 +543,7 @@ Comments
   height:100%;
   position:relative;
   background-color:#fff;
+  overflow:hidden;
 }
 #comment-top {
   background-color: #434A4D;
