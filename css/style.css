@@ -542,6 +542,14 @@ Comments
   margin-top:30px;
   height:100%;
   position:relative;
+  overflow:hidden;
+}
+.comments-form {
+  color:#222;
+  text-align:center;
+  margin-top:30px;
+  height:100%;
+  position:relative;
   background-color:#fff;
   overflow:hidden;
 }
