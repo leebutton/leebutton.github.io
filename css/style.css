@@ -438,23 +438,22 @@ Blog
   background-color: #434A4D;
   width:15%;
   float:left;
-  position: relative;
+  position: absolute;
+  top:0;
   z-index: 1;
 }
 
 #blog-sidebar h3 {
   font-size:12px;
   font-weight:600!important;
-
 }
-
-
 .blog-text {
   background-color:#fff;
   color:#222;
   text-align:center;
   margin-top:30px;
   height:100%;
+  position: relative;
 }
 
 .blog-text h1 {
