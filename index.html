@@ -10,16 +10,16 @@ layout: default
     <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
   </div>
 
-  {% for post in site.posts limit:5 %}
+<!-- This loops through the paginated posts -->
+{% for post in site.posts limit:5 %}
     <div class="col-md-8">
       <div class="blog-text">
 
         <div id="blog-sidebar">
-        <h3>CATERGORY</h3>
+          <h3>CATERGORY</h3>
           <ul>
             <li><img src="img/top-icon.png"></li>
-            <li><h3>May</h3></li>
-            <li><p>19.2013</p></li>
+             <li><p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
             <li><img src="img/line.png"></li>
             <li><img src="img/tag-icon.png"></li>
             <li><p>Tag One</p></li>
@@ -52,7 +52,7 @@ layout: default
         </div><!--end comments socials-->
 
         <div id="continue-reading">
-          <a href="index.html" title="Continue Reading" class="btn btn-download-continue">CONTINUE READING</a>
+          <a href="{{ post.url }}" class="btn btn-download-continue">CONTINUE READING</a>
         </div><!--end continue reading-->
       </div>	<!--end blog-text-->
     </div><!--end col md 8-->
@@ -98,6 +98,22 @@ layout: default
       </div><!--end comments form-->
     </div><!--end col md 8-->
   {% endfor %}
-
+  
+  <!-- Pagination links -->
+  <div class="col-md-8">
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="""{{ paginator.previous_page }}" class="previous">Previous</a>
+      {% else %}
+        <span class="previous">Previous</span>
+      {% endif %}
+      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% if paginator.next_page %}
+        <a href="""{{ paginator.next_page }}" class="next">Next</a>
+      {% else %}
+        <span class="next ">Next</span>
+      {% endif %}
+    </div> 
+  </div>
 
 

@@ -20,8 +20,7 @@ layout: home
         <h3>CATERGORY</h3>
         <ul>
           <li><img src="/img/top-icon.png"></li>
-          <li><h3>May</h3></li>
-          <li> <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
+          <li><p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
           <li><img src="/img/line.png"></li>
           <li><img src="/img/tag-icon.png"></li>
           <li><p>Tag One</p></li>
@@ -104,19 +103,34 @@ layout: home
 
   <!-- Pagination links -->
   <div class="col-md-8">
-    <div class="pagination">
+    {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+
       {% if paginator.previous_page %}
-        <a href="/home{{ paginator.previous_page }}" class="previous">Previous</a>
+      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
       {% else %}
-        <span class="previous">Previous</span>
+      <span>&laquo; Prev</span>
       {% endif %}
-      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+      {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+       <em>{{ page }}</em>
+      {% elsif page == 1 %}
+       <a href="{{ '/home' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+      {% else %}
+       <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+      {% endfor %}
+
+
       {% if paginator.next_page %}
-        <a href="/home{{ paginator.next_page }}" class="next">Next</a>
+      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
       {% else %}
-        <span class="next ">Next</span>
+      <span>Next &raquo;</span>
       {% endif %}
-    </div> 
+
+      </div>
+    {% endif %}
   </div>
 
 
