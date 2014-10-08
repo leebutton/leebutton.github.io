@@ -1,7 +1,7 @@
 
 
 /*---------------------
-General Styles
+General Layout
 -----------------------*/
 
 html {
@@ -699,11 +699,6 @@ Contact
 Footer
 ----------------------*/
 
-aside {
-  float: right;
-  padding-right: 5px;
-  margin-top:-600px;
-}
 .end-of-page p {
   float: left;
   width: 280px;
@@ -766,7 +761,6 @@ footer {
   margin-top: 0px !important;
   font-size: 12px !important;
 }
-
 .back-to-top {
   position: fixed;
   bottom: 6em;
@@ -801,8 +795,6 @@ Navigation
 }
 #first-navbar nav ul li a {
   padding-bottom: 17px;
-}
-#second-navbar nav ul  {
 }
 nav ul {
   margin: 0;
@@ -870,22 +862,22 @@ box-shadow:none!important;
 Media Queries
 -----------------------*/
 
-
 @media (max-width:768px) {
-
 .container {
   width: 100%!important;
 }
 }
 
 @media (min-width:991px) {
-  #mobile-aside {
-    display:none;
-  }
+#mobile-aside {
+  display:none;
+}
 }
 
 @media (max-width:991px) {
-
+/*---------------------
+General layout
+-----------------------*/
 .container {
   width: 100%!important;
 }
@@ -895,26 +887,11 @@ Media Queries
 .aside {
   display:none;
 }
-nav ul {
-  width:100%;
-}
-header nav ul li a  {
-  font-size: 10px;
+footer {
+  margin-top:85px;
 }
 #logo {
   display:none;
-}
-#Download-button {
-  margin-bottom: 20px;
-}
-a.btn.btn-download {
-  max-width: 50%;
-  font-size: 12px!important;
-  margin-top: -89px;
-}
-#second-navbar ul li a img {
-  width:100%!important;
-  margin-top: 6px;
 }
 html {
   -webkit-text-size-adjust: none;
@@ -933,14 +910,29 @@ input{
   margin-top: 100px !important;
   padding: 1px;
 }
-aside {
-  margin-top: 30px;
-  padding: 1px;
-  float:none!important;
-}
 .col-md-8 {
   padding-left:0px!important;
   padding-right:0px!important;
+}
+/*---------------------
+Buttons
+-----------------------*/
+#Download-button {
+  margin-bottom: 20px;
+}
+a.btn.btn-download {
+  max-width: 50%;
+  font-size: 12px!important;
+  margin-top: -89px;
+}
+/*---------------------
+Navigtation
+-----------------------*/
+nav ul {
+  width:100%;
+}
+header nav ul li a  {
+  font-size: 10px;
 }
 .navbar-collapse {
   border-top:none!important;
@@ -951,6 +943,13 @@ aside {
 #second-navbar {
   float:right;
 }
+#second-navbar ul li a img {
+  width:100%!important;
+  margin-top: 6px;
+}
+/*---------------------
+Blog post
+-----------------------*/
 .blog-text {
   width:100%;
 }
@@ -977,6 +976,9 @@ aside {
   font-size:14px!important;
   margin-left:4px!important;
 }
+/*---------------------
+Portrait
+-----------------------*/
 #portrait {
   float:none!important;
 }
@@ -985,10 +987,16 @@ aside {
   width:100%;
   margin-left:0px;
 }
+/*---------------------
+Intro
+-----------------------*/
 #intro {
   width:100%;
   margin-right:0px;
 }
+/*---------------------
+Search
+-----------------------*/
 #search {
   display:none;
 }
@@ -1000,6 +1008,9 @@ aside {
   background-repeat:no-repeat;
   background-position:right;
 }
+/*---------------------
+Category
+-----------------------*/
 #category-1 {
   width:100%;
   margin-right:0px;
@@ -1016,98 +1027,85 @@ aside {
   width:100%;
   margin-right:0px;
 }
-footer {
-  margin-top:85px;
-}
 
 }
 
 
 
 @media (max-width:768px) {
-
+/*---------------------
+General layout
+-----------------------*/
 .container {
   width: 100%!important;
-}
-
-nav ul {
-  width:100%;
-}
-
-header nav ul li a  {
-  font-size: 10px;
-}
-
-#first-navbar nav ul li {
-  float:none;
-  display:block;
 }
 #logo {
   display:none;
 }
-
-#Download-button {
-  margin-bottom: 20px;
-}
-
-
-a.btn.btn-download {
-  max-width: 50%;
-  font-size: 12px!important;
-  margin-top: -89px;
-}
-
-
-#second-navbar ul li a img {
-  width:100%!important;
-  margin-top: 6px;
-}
-
 html {
   -webkit-text-size-adjust: none;
 }  
-
-
 p {
   font-size: 12px !important;
   padding-top: 74px;
 }
-
-
 textarea {
   width: 100% !important;
 }
-
 input{
   width: 100% !important;
 }
-
 .copyright {
   margin-top: 100px !important;
   padding: 1px;
-}
-
-aside {
-  margin-top: 30px;
-  padding: 1px;
-  float:none!important;
 }
 .col-md-8 {
   padding-left:0px!important;
   padding-right:0px!important;
 }
-
+footer {
+  margin-top:85px;
+}
+/*---------------------
+Navigation
+-----------------------*/
+nav ul {
+  width:100%;
+}
+header nav ul li a  {
+  font-size: 10px;
+}
+#first-navbar nav ul li {
+  float:none;
+  display:block;
+}
+#second-navbar ul li a img {
+  width:100%!important;
+  margin-top: 6px;
+}
 .navbar-collapse {
   border-top:none!important;
 }
 #first-navbar {
   float:left;
 }
-
 #second-navbar {
   float:right;
 }
-
+/*---------------------
+Buttons
+-----------------------*/
+#Download-button {
+  margin-bottom: 20px;
+}
+a.btn.btn-download {
+  max-width: 50%;
+  font-size: 12px!important;
+  margin-top: -89px;
+}
+/*---------------------
+Blog posts
+-----------------------*/
 .blog-text {
   width:100%;
 }
@@ -1122,44 +1120,45 @@ aside {
   text-align:justify!important;
   font-size:14px!important;
 }
-
 .btn-download-continue {
   width:25%;
   font-size:10px!important;
   margin-top:2px!important;
 }
-
 #blog-image img {
   width:85%;
 }
 #blog-sidebar h3 {
   margin-left:10px!important;
 }
-
 .blog-text h3 {
   font-size:9px!important;
   margin-left:4px!important;
 }
-
+/*---------------------
+Portrait
+-----------------------*/
 #portrait {
   float:none!important;
 }
-
 #portrait img {
   margin-right:0px;
   width:100%;
   margin-left:0px;
 }
+/*---------------------
+Intro
+-----------------------*/
 #intro {
   width:100%;
   margin-right:0px;
 }
-
+/*---------------------
+Search
+-----------------------*/
 #search {
   display:none;
 }
-
-
 #mobile-search input {
   padding-left:10px;
   float:none!important;
@@ -1168,17 +1167,17 @@ aside {
   background-repeat:no-repeat;
   background-position:right;
 }
-
+/*---------------------
+Category
+-----------------------*/
 #category-1 {
   width:100%;
   margin-right:0px;
 }
-
 #category-2 {
   width:100%;
   margin-right:0px;
 }
-
 #category-3 {
   width:100%;
   margin-right:0px;
@@ -1188,105 +1187,92 @@ aside {
   margin-right:0px;
 }
 
-footer {
-  margin-top:85px;
-}
-
 }
 
 
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-
+/*---------------------
+General layout
+-----------------------*/
 .container {
   width: 100%;
 }
-
-nav ul {
-  width:100%;
-}
-
-header nav ul li a  {
-  font-size: 10px;
-}
-
-	  
-
 #logo {
   display:none;
 }
-
-#Download-button {
-  margin-bottom: 20px;
+#mobile-Logo {
+  width:100%;
 }
-
-
-a.btn.btn-download {
-  max-width: 50%;
-  font-size: 12px!important;
-  margin-top: -89px;
+#mobile-Logo img {
+  width:100%;
 }
-
-
-#second-navbar ul li a img {
-  width:100%!important;
-  margin-top: 6px;
+footer {
+  margin-top:85px;
 }
-
 html {
   -webkit-text-size-adjust: none;
 }  
-
-
 p {
   font-size: 12px !important;
   padding-top: 74px;
 }
-
-
 textarea {
   width: 100% !important;
 }
-
 input{
   width: 100% !important;
 }
-
 .copyright {
   margin-top: 100px !important;
   padding: 1px;
-}
-
-aside {
-  margin-top: 30px;
-  padding: 1px;
-
 }
 .col-md-8 {
   padding-left:0px!important;
   padding-right:0px!important;
 }
-
+/*---------------------
+Navigtaion
+-----------------------*/
+nav ul {
+  width:100%;
+}
+header nav ul li a  {
+  font-size: 10px;
+}
+#second-navbar ul li a img {
+  width:100%!important;
+  margin-top: 6px;
+}
 .navbar-collapse {
   border-top:none!important;
 }
 #first-navbar {
   float:left;
 }
-
 #second-navbar {
   float:right;
 }
-#mobile-Logo {
-  width:100%;
+/*---------------------
+Buttons
+-----------------------*/
+#Download-button {
+  margin-bottom: 20px;
 }
-
-#mobile-Logo img {
-  width:100%;
+a.btn.btn-download {
+  max-width: 50%;
+  font-size: 12px!important;
+  margin-top: -89px;
 }
-
-
+.btn-download-continue {
+  width:40%;
+  font-size:10px!important;
+  margin-top:20px!important;
+}
+/*---------------------
+Blog post
+-----------------------*/
 .blog-text {
   width:100%;
 }
@@ -1300,47 +1286,47 @@ aside {
   margin-left:20px!important;
   text-align:justify!important;
 }
-
-.btn-download-continue {
-  width:40%;
-  font-size:10px!important;
-  margin-top:20px!important;
-}
-
 #blog-image img {
   width:100%!important;
 }
 #blog-sidebar {
   display:none;
 }
-
 .blog-text h3 {
   font-size:10px!important;
   margin-left:2px!important;
 }
+/*---------------------
+Comments
+-----------------------*/
 #comments-socials {
   text-align:left;
   margin-left:0px;
 }
-
+/*---------------------
+Portrait
+-----------------------*/
 #portrait {
   float:none!important;
 }
-
 #portrait img {
   margin-right:0px;
   width:100%;
   margin-left:0px;
 }
+/*---------------------
+Intro
+-----------------------*/
 #intro {
   width:100%;
   margin-right:0px;
 }
-
+/*---------------------
+Search
+-----------------------*/
 #search {
   display:none;
 }
-
 #mobile-search {
   width:100%!important;
   background-color: #fff !important;
@@ -1352,7 +1338,6 @@ aside {
   color: #000;
   border: none!important;
 }
-
 #mobile-search input {
   padding-left:10px;
   float:none!important;
@@ -1361,17 +1346,17 @@ aside {
   background-repeat:no-repeat;
   background-position:right;
 }
-
+/*---------------------
+Category
+-----------------------*/
 #category-1 {
   width:100%;
   margin-right:0px;
 }
-
 #category-2 {
   width:100%;
   margin-right:0px;
 }
-
 #category-3 {
   width:100%;
   margin-right:0px;
@@ -1380,42 +1365,19 @@ aside {
   width:100%;
   margin-right:0px;
 }
-
-footer {
-  margin-top:85px;
 }
-
-}
-
 
 @media (max-width:480px) {
-
 .container {
   width:100%!important;
 }
-
 }
 
 @media (min-width:480px) {
 #mobile-Logo {
   display:none;
 }
-
 #mobile-search {
   display:none;
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-	
-  
