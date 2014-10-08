@@ -669,7 +669,25 @@ About
   color:#434a4e;
   margin-top:20px !important;
 }
-
+/*---------------------
+Contact
+-----------------------*/
+#contact {
+  margin-top:30px;
+  background-color:#fff;
+  padding-bottom:20px;
+  overflow:hidden;
+}
+#contact img {
+  width:100%;
+}
+#contact p {
+  color:#434a4e;
+  margin-top:20px !important;
+}
+#contact #comments-socials {
+  margin-left:10px;
+}
 /*---------------------
 Footer
 ----------------------*/
