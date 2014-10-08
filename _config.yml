@@ -11,3 +11,5 @@ github_username:  jekyll
 markdown: kramdown
 permalink: pretty
 
+paginate: 5
+paginate_path: "home/page:num"
