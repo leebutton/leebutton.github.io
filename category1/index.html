@@ -10,7 +10,10 @@ layout: about
     <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
   </div>
 
-  {% for post in site.posts %}
+  
+  {% for post in site.categories['category1'] %}
+
+
     <div class="col-md-8">
       <div class="blog-text">
 
@@ -98,5 +101,5 @@ layout: about
       </div><!--end comments form-->
     </div><!--end col md 8-->
     
-
-  {% endfor %}
+{% endfor %}
+ 
