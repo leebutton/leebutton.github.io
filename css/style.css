@@ -862,6 +862,10 @@ width:100%!important;
 box-shadow:none!important;
 }
 
+.pagination {
+  text-align:left !important;
+  display:block !important;
+}
 
 /*---------------------
 Media Queries
