@@ -1,101 +1,101 @@
 ---
 layout: home
 ---
-
-
 <div class="container">
-         <div id="mobile-Logo">
-           <img src="/img/final_logo.png">
-         </div>
-
-         <div id="mobile-search">
-           <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
-         </div>
-         
-         {% for post in site.posts limit:5 %}
-             <div class="col-md-8">
-              <div class="blog-text">
-
-                     <div id="blog-sidebar">
-                       <h3>CATERGORY</h3>
-                       <ul>
-                           <li><img src="/img/top-icon.png"></li>
-                           <li><h3>May</h3></li>
-                           <li><p>19.2013</p></li>
-                           <li><img src="/img/line.png"></li>
-                           <li><img src="/img/tag-icon.png"></li>
-                           <li><p>Tag One</p></li>
-                           <li><p>Tag Two</p></li>
-                           <li><p>Tag Three</p></li>
-                           <li><img src="/img/line.png"></li>
-                           <li><img src="/img/comment.png"></li>
-                           <li><h3>4</h3></li>
-                           <li><p>Comments</p></li>
-                       </ul>
-                     </div>
-
-                  <div id="blog-image">
-                    <img src="/img/blog-image-1.jpg">
-                  </div><!--end blog sidebar-->
-
-                  <h1>{{post.title}}</h1>
-                  <p>{{post.excerpt}}</p>
-        
-                  <div id="comments-socials">
-                    <h2>Share:</h2>
-                    <nav>	
-                      <ul>
-                        <li><a href="http://www.twitter.com" ><img src="/img/Twitter.png" alt="twitter icon"></a></li>
-                        <li><a href="http://www.facebook.com" ><img src="/img/Facebook.png" alt="facebook icon"></a></li>
-                        <li><a href="http://www.google.com" ><img src="/img/Google.png" alt="google icon"></a></li>
-                        <li><a href="http://www.rss.com" ><img src="/img/Rss.png" alt="rss icon"></a></li>
-                      </ul>
-                    </nav>
-                  </div><!--end comments socials-->
-
-                <div id="continue-reading">
-                  <a href="index.html" title="Continue Reading" class="btn btn-download-continue">CONTINUE READING</a>
-                </div><!--end continue reading-->
-              </div>	<!--end blog-text-->
-            </div><!--end col md 8-->
-            <div class="col-md-8">
-              <div class="comments">
-                <div id="comment-top">
-                  <h2><b>6 Comments to:</b> Standard theme post one</h2>
-                </div><!--end comment top-->
-
-                <div id="comment">
-                    <img src="/img/Portrait.jpg">
-                  <div id="comments-text">
-                    <h3>Lee Button</h3>
-                    <h4>May 24 2013</h4>
-                    <p>Obitat lam, cumque velignis rerum coribusae ditatur aborem inctoribus eic te consed quodi blaborum rest.</p>       
-                    <div id="continue-reading">
-                      <a href="index.html" title="Reply" class="btn btn-reply">Reply</a>
-                    </div><!--end continue reading-->
-
-                  </div><!--end comments text-->
-                </div><!--end comment-->
-              </div><!--end comments-->
-            </div><!--end col md 8-->
   
-            <div class="col-md-8">
-              <div class="comments-form">
-                <div id="comment-top">
-                  <h2>Leave a comment:</h2>
-                </div><!--end comment top-->
+  <div id="mobile-Logo">
+    <img src="/img/final_logo.png">
+  </div>
 
-                  <div id="comments-form">
-                    <form class="form-inline" role="form">
-                      <div class="form-group">
-                        <textarea class="form-control" rows="3"></textarea>
-                      </div>     
-                      <div id="post">
-                        <button type="submit" class="btn btn-post">Post</button>
-                      </div><!--end post-->
-                    </form>
-                  </div><!--end comments form-->
+  <div id="mobile-search">
+    <input type="text" name="E-Mail" placeholder="Search"  size="45"/>
+  </div>
 
-              </div><!--end comments form-->
-            </div><!--end col md 8-->
-        {% endfor %}
+  {% for post in site.posts limit:5 %}
+    <div class="col-md-8">
+      <div class="blog-text">
+
+        <div id="blog-sidebar">
+          <h3>CATERGORY</h3>
+          <ul>
+            <li><img src="/img/top-icon.png"></li>
+            <li><h3>May</h3></li>
+            <li><p>19.2013</p></li>
+            <li><img src="/img/line.png"></li>
+            <li><img src="/img/tag-icon.png"></li>
+            <li><p>Tag One</p></li>
+            <li><p>Tag Two</p></li>
+            <li><p>Tag Three</p></li>
+            <li><img src="/img/line.png"></li>
+            <li><img src="/img/comment.png"></li>
+            <li><h3>4</h3></li>
+            <li><p>Comments</p></li>
+          </ul>
+        </div>
+
+        <div id="blog-image">
+          <img src="/img/blog-image-1.jpg">
+        </div><!--end blog sidebar-->
+
+        <h1>{{post.title}}</h1>
+        <p>{{post.excerpt}}</p>
+
+        <div id="comments-socials">
+        <h2>Share:</h2>
+          <nav>	
+            <ul>
+              <li><a href="http://www.twitter.com" ><img src="/img/Twitter.png" alt="twitter icon"></a></li>
+              <li><a href="http://www.facebook.com" ><img src="/img/Facebook.png" alt="facebook icon"></a></li>
+              <li><a href="http://www.google.com" ><img src="/img/Google.png" alt="google icon"></a></li>
+              <li><a href="http://www.rss.com" ><img src="/img/Rss.png" alt="rss icon"></a></li>
+            </ul>
+          </nav>
+        </div><!--end comments socials-->
+
+        <div id="continue-reading">
+          <a href="index.html" title="Continue Reading" class="btn btn-download-continue">CONTINUE READING</a>
+        </div><!--end continue reading-->
+      </div>	<!--end blog-text-->
+    </div><!--end col md 8-->
+    
+    <div class="col-md-8">
+      <div class="comments">
+        <div id="comment-top">
+          <h2><b>6 Comments to:</b> Standard theme post one</h2>
+        </div><!--end comment top-->
+
+          <div id="comment">
+            <img src="/img/Portrait.jpg">
+            <div id="comments-text">
+              <h3>Lee Button</h3>
+              <h4>May 24 2013</h4>
+              <p>Obitat lam, cumque velignis rerum coribusae ditatur aborem inctoribus eic te consed quodi blaborum rest.</p>       
+              <div id="continue-reading">
+                <a href="index.html" title="Reply" class="btn btn-reply">Reply</a>
+              </div><!--end continue reading-->
+
+            </div><!--end comments text-->
+          </div><!--end comment-->
+      </div><!--end comments-->
+    </div><!--end col md 8-->
+
+    <div class="col-md-8">
+      <div class="comments-form">
+        <div id="comment-top">
+          <h2>Leave a comment:</h2>
+        </div><!--end comment top-->
+
+        <div id="comments-form">
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <textarea class="form-control" rows="3"></textarea>
+            </div>     
+            <div id="post">
+              <button type="submit" class="btn btn-post">Post</button>
+            </div><!--end post-->
+          </form><!--end form-->
+        </div><!--end comments form-->
+
+      </div><!--end comments form-->
+    </div><!--end col md 8-->
+  {% endfor %}
