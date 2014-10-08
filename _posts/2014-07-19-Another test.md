@@ -1,5 +1,6 @@
 ---
 layout: post
+title: Another test
 ---
 
 #Test Post
