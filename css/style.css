@@ -960,11 +960,7 @@ Buttons
 #Download-button {
   margin-bottom: 20px;
 }
-a.btn.btn-download {
-  max-width: 50%;
-  font-size: 12px!important;
-  margin-top: -89px;
-}
+
 /*---------------------
 Navigtation
 -----------------------*/
@@ -994,7 +990,6 @@ Blog post
   width:100%;
 }
 .blog-text h1 {
-  margin-top: 150px;
   font-size: 30px!important;
   margin-left: 220px!important;
 }
@@ -1003,11 +998,6 @@ Blog post
   margin-left:220px!important;
   text-align:justify!important;
   font-size:14px!important;
-}
-.btn-download-continue {
-  width:25%;
-  font-size:10px!important;
-  margin-top: -50px;
 }
 .blog-text h3 {
   font-size:14px!important;
@@ -1141,11 +1131,7 @@ Buttons
 #Download-button {
   margin-bottom: 20px;
 }
-a.btn.btn-download {
-  max-width: 50%;
-  font-size: 12px!important;
-  margin-top: -89px;
-}
+
 /*---------------------
 Blog posts
 -----------------------*/
@@ -1153,7 +1139,6 @@ Blog posts
   width:100%;
 }
 .blog-text h1 {
-  margin-top: 80px;
   font-size: 30px!important;
   margin-left: 120px!important;
 }
@@ -1162,17 +1147,16 @@ Blog posts
   text-align:justify!important;
   font-size:14px!important;
 }
-.btn-download-continue {
-  width:25%;
-  font-size:10px!important;
-  margin-top:2px!important;
-}
 #blog-sidebar h3 {
   margin-left:10px!important;
 }
 .blog-text h3 {
   font-size:9px!important;
   margin-left:4px!important;
+}
+
+#comments-socials {
+  margin-left:120px;
 }
 /*---------------------
 Portrait
@@ -1235,6 +1219,16 @@ Comments
 
 #comments-socials {
   margin-left:100px;
+}
+.btn-download-continue {
+  width:25%;
+  font-size:10px !important;
+}
+.btn-reply {
+  font-size:10px !important;
+}
+.btn-post {
+  font-size:10px !important;
 }
 }
 
