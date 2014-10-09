@@ -515,8 +515,6 @@ Blog
 }
 
 .blog-text p {
-  padding-top: 25px;
-  text-align:left !important;
   margin-left:105px !important;
 }
 
@@ -941,7 +939,6 @@ html {
 }  
 p {
   font-size: 12px !important;
-  padding-top: 74px;
 }
 textarea {
   width: 100% !important;
@@ -1094,7 +1091,6 @@ html {
 }  
 p {
   font-size: 12px !important;
-  padding-top: 74px;
 }
 textarea {
   width: 100% !important;
@@ -1162,7 +1158,6 @@ Blog posts
   margin-left: 120px!important;
 }
 .blog-text p {
-  margin-top:-10px!important;
   margin-left:120px!important;
   text-align:justify!important;
   font-size:14px!important;
@@ -1271,7 +1266,6 @@ html {
 }  
 p {
   font-size: 12px !important;
-  padding-top: 74px;
 }
 textarea {
   width: 100% !important;
@@ -1337,7 +1331,6 @@ Blog post
   margin-left: 20px!important;
 }
 .blog-text p {
-  margin-top:-10px!important;
   margin-left:20px!important;
   text-align:justify!important;
 }
