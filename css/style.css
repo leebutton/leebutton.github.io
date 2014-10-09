@@ -1219,6 +1219,8 @@ General layout
 }
 #mobile-Logo img {
   width:100%;
+  background-color:#fff;
+  margin-bottom:20px;
 }
 footer {
   margin-top:85px;
