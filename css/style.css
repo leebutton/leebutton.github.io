@@ -315,6 +315,9 @@ Categories
   padding-top: 30px;
   margin-top: 25px;
 }
+#category-1 a {
+  text-decoration:none;
+}
 
 #category-2 {
   background-color: #1f929a !important;
@@ -324,7 +327,9 @@ Categories
   padding-top: 30px;
   margin-top: 25px;
 }
-
+#category-2 a {
+  text-decoration:none;
+}
 #category-3 {
   background-color: #868d88 !important;
   margin-left: auto;
@@ -333,7 +338,9 @@ Categories
   padding-top: 30px;
   margin-top: 25px;
 }
-
+#category-3 a {
+  text-decoration:none;
+}
 #category-4 {
   background-color: #97ca3d !important;
   margin-left: auto;
@@ -343,7 +350,9 @@ Categories
   margin-top: 25px;
   margin-bottom:65px;
 }
-
+#category-4 a {
+  text-decoration:none;
+}
 
 #category-1 h2 {
   margin-top: 0px !important;
