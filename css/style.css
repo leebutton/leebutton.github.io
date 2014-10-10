@@ -895,28 +895,30 @@ box-shadow:none!important;
 .pagination {
   text-align:left !important;
   display:block !important;
+  padding-top:8px;
 }
 
 .pagination a {
-  color:#fff;
+  color:#56c2b6 ;
   background-color: #434A4D;
-  border:2px solid #868d88;
-  padding:8px;
+  border:1px solid #868d88;
+  padding:14px;
 }
-.pagination a:hover {
+.pagination a:hover{
   color:#56c2b6 !important;
+  text-decoration:none;
 }
 .pagination span {
   color:#fff;
   background-color: #434A4D;
-  border:2px solid #868d88;
+  border:1px solid #868d88;
   padding:8px;
 }
 .pagination em {
   color:#fff;
   background-color: #434A4D;
   border:1px solid #868d88;
-  padding:8px;
+  padding:14px;
 }
 
 /*---------------------
