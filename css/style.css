@@ -903,6 +903,9 @@ box-shadow:none!important;
   border:2px solid #868d88;
   padding:8px;
 }
+.pagination a:hover {
+  color:#56c2b6 !important;
+}
 .pagination span {
   color:#fff;
   background-color: #434A4D;
