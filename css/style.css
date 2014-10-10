@@ -523,7 +523,9 @@ Blog
   margin-right:10px;
   height:65px;
 }
-
+#blog-image {
+  overflow:hidden;
+}
 
 #blog-image img {
   width:100%;
