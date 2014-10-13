@@ -35,8 +35,11 @@ outline: none;
 {
   width:100%;;
 	padding-top: 0px;
-  padding-bottom:0px;
+  padding-bottom:10px;
 	margin: 0;
+  background-color:#fff;
+  margin-top: 30px;
+  
 }
 #tipue_search_loading
 {
@@ -70,6 +73,8 @@ outline: none;
   background-color: #434A4D;
 	color: #fff;
   margin-top:10px;
+  height:40px;
+  padding-top:10px;
 }
 .tipue_search_content_title
 {
