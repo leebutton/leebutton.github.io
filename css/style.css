@@ -585,6 +585,7 @@ Comments
   color:#222;
   text-align:center;
   margin-top:30px;
+  margin-bottom: 20px;
   height:100%;
   position:relative;
   background-color:#fff;
@@ -1453,9 +1454,6 @@ Category
   display:none;
 }
 #mobile-search {
-  display:none;
-}
-#tipue_search_content {
   display:none;
 }
 }
