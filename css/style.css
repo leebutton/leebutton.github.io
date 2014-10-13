@@ -242,6 +242,8 @@ logo
   background-color: #fff;
   width:100%;
 }
+
+
 /*---------------------
 Portrait
 -----------------------*/
@@ -1103,6 +1105,7 @@ General layout
 #logo {
   display:none;
 }
+
 html {
   -webkit-text-size-adjust: none;
 }  
@@ -1113,7 +1116,7 @@ textarea {
   width: 100% !important;
 }
 input{
-  width: 100% !important;
+  width: 90% !important;
 }
 .copyright {
   margin-top: 100px !important;
@@ -1272,8 +1275,9 @@ General layout
   display:none;
 }
 #mobile-Logo {
-  width:100%;
+  width:90% !important;
   margin-top:20px;
+  margin:auto;
 }
 #mobile-Logo img {
   width:100%;
@@ -1398,18 +1402,17 @@ Search
   display:none;
 }
 #mobile-search {
-  width:100%!important;
+  width:90%!important;
   background-color: #fff !important;
-  margin-left: auto;
+  margin: auto;
   height: 55px;
   padding-left:10px;
   padding-top: 5px !important;
-  width: 84.5%;
   color: #000;
   border: none!important;
 }
 #mobile-search input {
-  padding-left:10px;
+  padding-left:0px;
   float:none!important;
   width:95%;
   background-image: url(../img/Icon.png);
@@ -1448,6 +1451,9 @@ Category
   display:none;
 }
 #mobile-search {
+  display:none;
+}
+#tipue_search_content {
   display:none;
 }
 }
