@@ -670,6 +670,10 @@ Comments
   padding:0px !important;
 }
 
+/*---------------------
+Comments Social sign in
+-----------------------*/
+
 #social-sign-in {
   background-color: #eaeaea !important;
   height: 100%;
@@ -680,6 +684,52 @@ Comments
   padding-top:10px;
   padding-bottom:10px;
 }
+.comments-form-social .btn-post{
+  background: #fff;
+  float:right;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  border-radius: 4px !important;
+  text-shadow: 0 !important;
+  color: #222;
+  width:25%;
+  border: 1px solid #222;
+  border-radius:0px !important;
+  padding:5px;
+  margin-left:  auto;
+  margin-right: 10px;
+  -webkit-transition: all ease 0.25s;
+  transition: all ease 0.25s;
+}
+.comments-form-social .btn-post:hover {
+  background-color: #56c2b6;
+  color:#fff !important;
+  border: 1px solid #ffffff;
+  -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+.form-inline .radio, .form-inline .checkbox {
+  display:block !important;
+  text-align:left !important;
+}
+.radio label, .checkbox label {
+  display:block !important;
+}
+.checkbox {
+  margin-left:15px;
+  padding-top:10px !important;
+  
+}
+.checkbox input {
+  height:12px !important;
+}
+.checkbox label {
+  font-size: 12px!important;
+  font-family: 'Roboto' !important;
+  color: #434a4e !important;
+}
 #social-sign-in p {
   margin:0px !important;
   font-size: 12px!important;
@@ -688,14 +738,23 @@ Comments
   text-align: left !important;
   padding-top: 10px !important;
   margin-left:10px !important;
+  margin-bottom:20px !important;
 }
 #social-sign-in input {
   background-color:#fff !important;
-  margin-top:10px;
-  margin-bottom:10px !important;
+  margin-top:8px;
+  margin-bottom:8px !important;
   padding:8px !important;
   border-radius:0px!important;
   opacity:1 !important;
+}
+#social-sign-in-image {
+  float:left;
+  margin-left:15px !important;
+}
+#social-form {
+  float:right;
+  width:85%;
 }
 /*---------------------
 Comment form
