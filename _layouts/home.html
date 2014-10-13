@@ -17,5 +17,20 @@
     </div>
     {% include footer.html %}
     
+    <script>
+    $(document).ready(function() {
+    $('#tipue_search_input').tipuesearch({
+    'show': 10,
+    'newWindow': true,
+    'mode': 'live',
+    'highlightEveryTerm' : true,
+    'highlightTerms' : true,
+    'liveDescription': '*',
+    'liveContent': '*'
+    });
+    });
+    </script>
+    
+    
     </body>
 </html>
