@@ -1287,6 +1287,14 @@ Blog posts
 #comments-socials {
   margin-left:120px;
 }
+
+.checkbox input {
+  margin-bottom:0px !important;
+  float:none !important;
+  margin-left:0px !important;
+  width:100% !important;
+  
+}
 /*---------------------
 Portrait
 -----------------------*/
@@ -1536,6 +1544,11 @@ Category
 #category-4 {
   width:100%;
   margin-right:0px;
+}
+
+#social-form {
+  width:100%;
+  float:none;
 }
 }
 
