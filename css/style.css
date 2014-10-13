@@ -703,6 +703,7 @@ About
   margin-top:30px;
   background-color:#fff;
   padding-bottom:20px;
+  margin-bottom: 30px;
 }
 #about img {
   width:100%;
@@ -719,6 +720,7 @@ Contact
   background-color:#fff;
   padding-bottom:20px;
   overflow:hidden;
+  margin-bottom: 30px;
 }
 #contact img {
   width:100%;
@@ -1341,7 +1343,7 @@ a.btn.btn-download {
   margin-top: -89px;
 }
 .btn-download-continue {
-  width:40%;
+  width:45%;
   font-size:10px!important;
   margin-top:20px!important;
 }

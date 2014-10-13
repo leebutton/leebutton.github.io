@@ -21,7 +21,7 @@ var tipuesearch_stem = {"words": [
 ]};
 
 
-var tipuesearch_pages = ["http://localhost:4000/home/", "http://localhost:4000/about/", "http://localhost:4000/contact/", 
+var tipuesearch_pages = ["http://localhost:4000/home/","http://localhost:4000/search-results/",  "http://localhost:4000/about/", "http://localhost:4000/contact/", 
                         "http://localhost:4000/category1/", "http://localhost:4000/category1/newpost", "http://localhost:4000/test/"];
 
 
