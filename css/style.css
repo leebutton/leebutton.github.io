@@ -591,6 +591,16 @@ Comments
   background-color:#fff;
   overflow:hidden;
 }
+.comments-form-social {
+  color:#222;
+  text-align:center;
+  margin-top:30px;
+  margin-bottom: 20px;
+  height:100%;
+  position:relative;
+  background-color:#fff;
+  overflow:hidden;
+}
 #comment-top {
   background-color: #434A4D;
   height:100%;
@@ -660,6 +670,33 @@ Comments
   padding:0px !important;
 }
 
+#social-sign-in {
+  background-color: #eaeaea !important;
+  height: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+#social-sign-in p {
+  margin:0px !important;
+  font-size: 12px!important;
+  font-family: 'Roboto' !important;
+  color: #434a4e !important;
+  text-align: left !important;
+  padding-top: 10px !important;
+  margin-left:10px !important;
+}
+#social-sign-in input {
+  background-color:#fff !important;
+  margin-top:10px;
+  margin-bottom:10px !important;
+  padding:8px !important;
+  border-radius:0px!important;
+  opacity:1 !important;
+}
 /*---------------------
 Comment form
 -----------------------*/
