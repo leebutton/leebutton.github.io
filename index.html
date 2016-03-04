@@ -1,126 +1,353 @@
----
-layout: default
----
-<div class="container">
-<!-- This loops through the paginated posts -->
-{% for post in site.posts limit:5 %}
-    <div class="col-md-8">
-      <div class="blog-text">
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" /> 
+	
+	<!-- mobile meta tag -->		
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-        <div id="blog-sidebar">
-          <h3>CATEGORY</h3>
-          <ul>
-            <li><img src="img/top-icon.png"></li>
-             <li><p class="meta">{{ post.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p></li>
-            <li><img src="img/line.png"></li>
-            <li><img src="img/tag-icon.png"></li>
-            <li><p>Tag One</p></li>
-            <li><p>Tag Two</p></li>
-            <li><p>Tag Three</p></li>
-            <li><img src="img/line.png"></li>
-            <li><img src="img/comment.png"></li>
-            <li><h3>4</h3></li>
-            <li><p>Comments</p></li>
-          </ul>
-        </div><!--end blog sidebar-->
+	<title>Venture 52</title> 
+	
+	<!-- main style -->
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	
+	<!-- color scheme -->
+	<link rel="stylesheet" type="text/css" href="color-schemes/orange/orange.css" media="screen" />
+	
+	<!--miscellaneous-->
+	<link rel="stylesheet" type="text/css" href="css/superfish.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css" media="screen" />	
+	<link rel="stylesheet" type="text/css" href="css/animate.css" media="screen" />	
+	
+	<!-- revolution slider settings -->
+	<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />		
 
-        <div id="blog-image">
-          <img src="img/blog-image-1.jpg">
-        </div><!--end blog sidebar-->
+	<!-- responsive stylesheet -->		
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen" />			
+	
+	<!-- Google Web Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>	
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
+	
+	<!-- jQuery Scripts -->
+	<script type="text/javascript" src="js/modernizr.js"></script>		
+	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>	
+	<script type="text/javascript" src="js/jquery.parallax.js"></script>
 
-        <h1>{{post.title}}</h1>
-        <p>{{post.excerpt}}</p>
+</head> 
 
-        <div id="comments-socials">
-        <h2>Share:</h2>
-          <nav>
-            <ul>
-              <li><a href="http://www.twitter.com" ><img src="img/Twitter.png" alt="twitter icon"></a></li>
-              <li><a href="http://www.facebook.com" ><img src="img/Facebook.png" alt="facebook icon"></a></li>
-              <li><a href="http://www.google.com" ><img src="img/Google.png" alt="google icon"></a></li>
-              <li><a href="http://www.rss.com" ><img src="img/Rss.png" alt="rss icon"></a></li>
-            </ul>
-          </nav>
-        </div><!--end comments socials-->
+<body> 
+	<!-- preloader-->
+	<div class="whitebg">
+		<div id="spinner"></div>
+	</div>
 
-        <div id="continue-reading">
-          <a href="{{ post.url }}" class="btn btn-download-continue">CONTINUE READING</a>
-        </div><!--end continue reading-->
-      </div>	<!--end blog-text-->
-    </div><!--end col md 8-->
+	<header id="header" class="solid-header">
+		<div class="centered-wrapper">
+		
+			<div class="percent-one-fourth">
+				<div class="logo">
+					<a href="index.html"><h1 class="logoN">VENTURE<span class="title-name">52</span></h1></a>
+				</div>
+			</div><!--end one-fourth-->
+			
+			<a class="nav-btn"><i class="fa fa-bars"></i></a>
+			
+			<div class="percent-three-fourth column-last">					
+				<nav id="navigation">
+					<ul id="mainnav" class="sf-menu">
+						
+						<li><a href="index.html/#about"><span>About</span></a></li>					
+						<li><a href="index.html#services"><span>Services</span></a></li>
+						<li><a href="index.html#testimonials"><span>Testimonials</span></a></li>
+						<!-- <li><a href="index.html#events"><span>Events</span></a></li> -->
+						<li><a href="index.html#contact"><span class="title-name">Contact</span></a></li>
+					</ul>
+				</nav><!--end navigation-->
+			</div><!--end three-fourth-->
+			<div class="clear"></div>			
+		</div><!--end centered-wrapper-->
+	</header>	
+	
+<div id="wrapper">
 
-    <div class="col-md-8">
-      <div class="comments">
-        <div id="comment-top">
-          <h2><b>6 Comments to:</b> Standard theme post one</h2>
-        </div><!--end comment top-->
+	<!-- HELLO SECTION -->
+	
+	<section id="hello">
+	
+	<div class="menu-fixer"></div>
+	
+		<div class="fullscreenbanner-container">
+			<div class="fullscreenbanner">
+				<ul>
+					
+					<!-- THE FIRST SLIDE -->
+					<li data-transition="fade" data-slotamount="15" data-masterspeed="300">
+						<img src="images/slides/slide33.jpg" alt="" />
+						
+						<!-- THE CAPTIONS IN THIS SLIDE -->
+						<div class="caption tp-resizeme big-text lft ltt"  
+							 data-x="center" 
+							 data-y="center" 
+							 data-speed="300" 
+							 data-start="500" 
+							 data-easing="easeOutExpo">
+								<h1>Strategic Planning</h1>
+						</div>								
+					</li>	
+					
+					<!-- THE SECOND SLIDE -->
+					<li data-transition="slidedown" data-slotamount="15" data-masterspeed="300">
+						<img src="images/slides/slide11.jpg" alt="" />
+						
+						<div class="caption tp-resizeme big-text lft ltt"  
+							 data-x="center" 
+							 data-y="center" 
+							 data-speed="300" 
+							 data-start="500" 
+							 data-easing="easeOutExpo">
+							 	<h1>Gain Perspective</h1>
+						</div>			
+					</li>
+					
+					<!-- THE THIRD SLIDE -->
+					<li data-transition="fade" data-slotamount="15" data-masterspeed="300">						
+						<img src="images/slides/slide22.jpg" alt="" />
+																
+						<!-- THE CAPTIONS IN THIS SLDIE -->
+						<div class="caption tp-resizeme big-text lft ltt"  
+							 data-x="center" 
+							 data-y="center" 
+							 data-speed="300" 
+							 data-start="500" 
+							 data-easing="easeOutExpo">
+							 	<h1>Achieve Your Vision</h1>
+						</div>			
+					</li>				
+		
+				</ul>
+				<!-- Slider Timer Banner-->
+				<!--<div class="tp-bannertimer"></div>-->
+				
+			</div>	
+		</div>
 
-        <div id="comment">
-          <img src="img/Portrait.jpg">
-          <div id="comments-text">
-              <h3>Lee Button</h3>
-              <h4>May 24 2013</h4>
-              <p>Obitat lam, cumque velignis rerum coribusae ditatur aborem inctoribus eic te consed quodi blaborum rest.</p>
-            <div id="continue-reading">
-              <a href="index.html" title="Reply" class="btn btn-reply">REPLY</a>
-            </div><!--end continue reading-->
+	</section>
+	
+	<!-- ABOUT SECTION -->
+	
+	<section id="about">
+	
+		<div class="double-space"></div>
+		
+		<div class="centered-wrapper">	
+		
+			<h1 class="section-title">Welcome to Venture<span class="title-name">52</span></h1>	
+			
+			<div class="space"></div>
+		
+			<div class="percent-two-third box fadeInDown">
+				<h2 class="bold-style">ABOUT</h2>
+				<p>Achieve your vision with strategic planning from Venture52.
+				<p>Using our proven collaborative tools we bring insight to your organisation and revolutionise your processes.</p>
+				<p>Gain perspective. Plan and prioritise. Execute strategically.</p>
+			</div>
+			
+			<div class="percent-one-third column-last">
+				<div class="skillbar clearfix" data-percent="65%">
+					<div class="skillbar-title"><span>Businesses</span></div>
+					<div class="skillbar-bar"></div>
+				</div>	
+				
+				<div class="skillbar clearfix" data-percent="45%">
+					<div class="skillbar-title"><span>Individuals</span></div>
+					<div class="skillbar-bar"></div>
+				</div>		
 
-          </div><!--end comments text-->
-        </div><!--end comment-->
-      </div><!--end comments-->
-    </div><!--end col md 8-->
+				<div class="skillbar clearfix" data-percent="95%">
+					<div class="skillbar-title"><span>Churches &amp; Charities</span></div>
+					<div class="skillbar-bar"></div>
+				</div>		
+			</div>
 
-    <div class="col-md-8">
-      <div class="comments-form">
-        <div id="comment-top">
-          <h2>Leave a comment:</h2>
-        </div><!--end comment top-->
+			<div class="double-space"></div>
+		</div>
+		
+	</section>
+	
+	<!-- SERVICES SECTION -->
+	<section id="services">
+		<section class="centered-wrapper">	
 
-        <div id="comments-form">
-          <form class="form-inline" role="form">
-            <div class="form-group">
-              <textarea class="form-control" rows="3"></textarea>
-            </div><!--end form group-->
-            <div id="post">
-              <button type="submit" class="btn btn-post">POST</button>
-            </div><!--end post-->
-          </form><!--end form-->
-        </div><!--end comments form-->
+			<div class="double-space"></div>
+			
+			<h1 class="section-title">Services</h1>	
+			
+			<div class="space"></div>
+						
+			<div class="percent-one-third">
+				<ul class="customlist">
+					<li><i class="fa fa-angle-right"></i>Strategic Planning</li>					
+					<li><i class="fa fa-angle-right"></i>Digital Strategy</li>
+					<li><i class="fa fa-angle-right"></i>Operating Review</li>
+				</ul>
+			</div>
+			
+			<div class="percent-one-third">
+				<ul class="customlist">
+					<li><i class="fa fa-angle-right"></i>Workshops &amp; Events</li>
+					<li><i class="fa fa-angle-right"></i>Project Scoping &amp; Feasibility</li>
+					<li><i class="fa fa-angle-right"></i>Organisational Structure</li>
+				</ul>
+			</div>
+			
+			<div class="percent-one-third column-last">
+				<ul class="customlist">
+					<li><i class="fa fa-angle-right"></i>Mission &amp; Values Development</li>
+					<li><i class="fa fa-angle-right"></i>Team Development</li>
+					<li><i class="fa fa-angle-right"></i>Vision Casting</li>
+				</ul>
+			</div>
+				
+			<div class="double-space"></div>
+			
+		</section>
+	</section>
+	
+	
+	<!-- TWITTER SECTION -->
+	<!--
+	<section class="parallax-section" id="twitter">
+		<div class="darker-overlay">	
+			<section class="centered-wrapper">
+				<div class="double-space"></div>
+				
+				<h1 class="section-title"><i class="fa fa-twitter"></i></h1>	
+				<div class="half-space"></div>
+				
+				<div class="twitter-carousel box fadeInDown">	
+					
+					<div class="tweet"></div>
+				</div>	
+				
+				<div class="double-space"></div>
+			</section>	
+		</div>
+	</section>
+	-->
+	
+	<!-- TESTIMONIALS SECTION -->
+	<section id="testimonials">
+		<section class="centered-wrapper">
+			<div class="double-space"></div>
+			
+			<h1 class="section-title">Testimonials</h1>	
+			<div class="space"></div>
+			
+			<div class="testimonials-carousel">
+				<div id="owl-testimonials" class="owl-carousel box fadeInDown">		
+					<div class="testimonial-item">
+						<p>"I found Lee to be efficient in all areas of his work.  He spent the day at the project itself to get a real working understanding of the work, which meant that the bid proposed on our behalf was superb.  On the back of Venture52's bid we secured an 18 month contract. Thanks to all at Venture52 for your work."</p>
+						<p><span class="testimonial-name">Mike Graham</span>, <span class="testimonial-position">Lantern Project, Manager</span></p>
+					</div>
+					<div class="testimonial-item">
+						<p>"Lee's strategic thinking and passion for innovation has inspired our leadership teams and congregations to more effective working. Lee has helped us articulate more concisely who we are and what we are about, and has helped align our structures and governance with this purpose, including liaison with the Charity Commission."</p>
+						<p><span class="testimonial-name">Billy Kennedy</span>, <span class="testimonial-position">New Community Network, Pioneer Trust, President CTE</span></p>
+					</div>
+					<!--
+					<div class="testimonial-item">
+						<p>Text</p>
+						<p><span class="testimonial-name">DC</span>, <span class="testimonial-position">SJG</span></p>
+					</div>
+					-->		
+				</div>
+			</div><!--end carousel-->	
+			<div class="double-space"></div>
+		</section>
+	</section>
 
-      </div><!--end comments form-->
-    </div><!--end col md 8-->
+	<!-- CONTACT SECTION -->
+	<section class="parallax-section" id="contact">
+		<div class="darker-overlay">
+		<section class="centered-wrapper">
+			<div class="double-space"></div>
+			
+			<h1 class="section-title">Let's Connect</h1>	
+			<div class="space"></div>
+			<div class="percent-one-half box fadeInLeft">
+				<!-- <h3 class="title-bg"><span>Contact Info</span></h3> -->
+				<ul class="contact-info">
+					<li><i class="fa fa-envelope"></i><a href="mailto:hello@venture52.com">hello@venture52.com</a></li>
+					<li><i class="fa fa-phone"></i>+44 (0) 7747 488 310</li>
+					<li><i class="fa fa-map-marker"></i>Southampton, UK</li>					
+				</ul>
+			</div>
+			
+			<div class="percent-one-half column-last box fadeInRight">
+				<ul class="contact-info">
+					<li><i class="fa fa-facebook"></i><a href="https://www.facebook.com/venture52limited/">Like Us</a></li>
+					<li><i class="fa fa-twitter"></i><a href="https://twitter.com/Venture52UK">Follow Us</a></li>
+					<li><i class="fa fa-globe"></i><a href="#">www.venture52.com</a></li>
+				</ul>
+			</div>
+			
+			<div class="double-space"></div>
+		</section>
+		</div>
+	</section>
+	
+	<footer id="footer">		
+		<div id="bottomfooter">		
+			<div class="centered-wrapper">		
+				<div class="percent-two-third">
+					<p>Copyright &copy; 2016</p><br/>
+					<p>Venture 52 Limited Company number 09629348</p>
+				</div><!--end one-half-->
 
-  {% endfor %}
+				<div class="percent-one-third column-last">
+						
+				</div><!--end one-half-->
+			</div><!--end centered-wrapper-->				
+		</div><!--end bottomfooter-->
+		
+		<a href="#" class="totop"><i class="fa fa-angle-double-up"></i></a>
+		
+	</footer><!--end footer-->	
+	
+</div><!--end wrapper-->
 
-  <!-- Pagination links -->
-  <div class="col-md-8">
-    {% if paginator.total_pages > 1 %}
-      <div class="pagination">
+	<!-- JQUERY SCRIPTS -->
+	
+	<script type="text/javascript" src="js/waypoints.min.js"></script>		
+	<script type="text/javascript" src="js/hoverIntent.js"></script>
+	<script type="text/javascript" src="js/superfish.js"></script>
+	<script type="text/javascript" src="twitter/jquery.tweet.min.js"></script>
+	<script type="text/javascript" src="js/jflickrfeed.js"></script>
+	<script type="text/javascript" src="js/jquery.contact.js"></script>
+	<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+	<script type="text/javascript" src="js/smoothScroll.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fitvids.js"></script>
+	<script type="text/javascript" src="js/jquery.countTo.js"></script>
+	<script type="text/javascript" src="js/jack-in-the-box.js"></script>
+	<script type="text/javascript" src="js/jquery.scrollTo.js"></script>	
+	<script type="text/javascript" src="js/jquery.nav.js"></script>
 
-      {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-      {% else %}
-      <span>&laquo; Prev</span>
-      {% endif %}
+	<!-- ISOTOPE -->
+	<script type="text/javascript" src="js/jquery.isotope.min.js"></script>	
+	<script type="text/javascript" src="js/custom-isotope.js"></script>	
+	
+	<!-- REVOLUTION SLIDER -->
+	<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+	<script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="js/custom-revolution.js"></script>
+	
+	<!-- CUSTOM -->
+	<script type="text/javascript" src="js/custom.js"></script>
 
-      {% for page in (1..paginator.total_pages) %}
-      {% if page == paginator.page %}
-       <em>{{ page }}</em>
-      {% elsif page == 1 %}
-       <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-      {% else %}
-       <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-      {% endif %}
-      {% endfor %}
-
-
-      {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-      {% else %}
-      <span>Next &raquo;</span>
-      {% endif %}
-
-      </div>
-    {% endif %}
-  </div>
-
+</body> 
+</html>
