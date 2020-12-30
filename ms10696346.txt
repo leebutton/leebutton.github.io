@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "leebutton.co.uk",
+  "Id": "2c7da0c8-ffcc-4b95-9d2e-4dcd9e87ed43"
+}
