@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lee Button Associates | Healthcare Strategy & Organisational Development</title>
+  <meta name="description" content="Lee Button Associates helps healthcare, public sector and charity organisations turn strategy into practical action through facilitation, alignment and organisational development.">
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  >
+
+  <style>
+    :root {
+      --lba-dark: #433a4e;
+      --lba-green: #97ca3d;
+      --lba-blue: #1f929a;
+      --lba-turquoise: #56c2b6;
+      --lba-grey: #868d88;
+      --lba-light: #c5c5bd;
+      --lba-bg: #f7f7f6;
+      --lba-white: #ffffff;
+      --lba-line: rgba(31, 146, 154, 0.22);
+      --lba-border: rgba(67, 58, 78, 0.12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--lba-dark);
+      background-color: var(--lba-white);
+      font-size: 1.05rem;
+      line-height: 1.68;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5 {
+      color: var(--lba-dark);
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      max-width: 12ch;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 3vw, 2.55rem);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.22rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child,
+    ul:last-child,
+    blockquote:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--lba-blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+    }
+
+    .container-reading {
+      max-width: 1140px;
+    }
+
+    .content-narrow {
+      max-width: 720px;
+    }
+
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+
+    .section-soft {
+      background: var(--lba-bg);
+    }
+
+    .navbar {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(67, 58, 78, 0.06);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      color: var(--lba-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-link {
+      color: var(--lba-dark);
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+      color: var(--lba-blue);
+    }
+
+    .btn-lba {
+      background-color: var(--lba-green);
+      border-color: var(--lba-green);
+      color: var(--lba-dark);
+      font-weight: 600;
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+    }
+
+    .btn-lba:hover,
+    .btn-lba:focus {
+      background-color: #87b534;
+      border-color: #87b534;
+      color: var(--lba-dark);
+    }
+
+    /* Signature identity move: the Gold Line / Horizon Line */
+    .gold-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(31,146,154,0), rgba(31,146,154,0.45) 20%, rgba(31,146,154,0.45) 80%, rgba(31,146,154,0));
+      margin: 0 0 2rem 0;
+      position: relative;
+    }
+
+    .gold-line::after {
+      content: "";
+      position: absolute;
+      right: 18%;
+      top: -2px;
+      width: 56px;
+      height: 5px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--lba-green), var(--lba-turquoise));
+      opacity: 0.9;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: 9rem;
+      padding-bottom: 7.25rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(31,146,154,0.03), rgba(31,146,154,0)),
+        radial-gradient(circle at top right, rgba(86,194,182,0.12), transparent 28%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--lba-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .lead-copy {
+      font-size: 1.18rem;
+      max-width: 41rem;
+      color: var(--lba-dark);
+    }
+
+    .supporting-copy {
+      max-width: 42rem;
+      color: #5a5364;
+    }
+
+    .section-intro {
+      color: #5a5364;
+      max-width: 40rem;
+      margin-bottom: 2rem;
+    }
+
+    .bullet-list {
+      padding-left: 1.15rem;
+      margin-bottom: 0;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.8rem;
+      padding-left: 0.15rem;
+    }
+
+    .bridge-line {
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+
+    .section-divider {
+      width: 72px;
+      height: 1px;
+      background: rgba(67, 58, 78, 0.18);
+      margin: 0 0 1.4rem 0;
+    }
+
+    .plain-panel,
+    .method-card,
+    .fit-box,
+    .quote-panel {
+      background: var(--lba-white);
+      border: 1px solid var(--lba-border);
+      border-radius: 1.25rem;
+    }
+
+    .plain-panel {
+      padding: 1.4rem 1.45rem;
+    }
+
+    .method-card,
+    .fit-box {
+      height: 100%;
+      padding: 1.55rem;
+      box-shadow: 0 10px 30px rgba(67, 58, 78, 0.03);
+    }
+
+    .method-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .method-card::before {
+      content: "";
+      position: absolute;
+      left: 1.55rem;
+      right: 1.55rem;
+      top: 1rem;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(31,146,154,0.25), rgba(31,146,154,0.05));
+    }
+
+    .method-card h3,
+    .fit-box h3 {
+      margin-top: 0.9rem;
+    }
+
+    .method-step {
+      color: var(--lba-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .quote-panel {
+      padding: 2rem;
+      max-width: 48rem;
+    }
+
+    blockquote {
+      font-size: 1.28rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+
+    .small-note {
+      color: var(--lba-grey);
+      font-size: 0.96rem;
+    }
+
+    .fit-box ul li:last-child,
+    .method-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-control,
+    .form-control:focus {
+      border-radius: 0.85rem;
+      border-color: rgba(67, 58, 78, 0.18);
+      box-shadow: none;
+      min-height: 3rem;
+    }
+
+    textarea.form-control {
+      min-height: 9rem;
+    }
+
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(67, 58, 78, 0.08);
+      color: var(--lba-grey);
+    }
+
+    @media (max-width: 991.98px) {
+      .hero {
+        padding-top: 7.5rem;
+        padding-bottom: 5rem;
+      }
+
+      .section-padding {
+        padding-top: 4.5rem;
+        padding-bottom: 4.5rem;
+      }
+
+      .gold-line::after {
+        right: 8%;
+        width: 44px;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .section-padding {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+
+      .quote-panel,
+      .method-card,
+      .fit-box,
+      .plain-panel {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container container-reading">
+      <a class="navbar-brand" href="#top">Lee Button Associates</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-3 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#work">What I Do</a></li>
+          <li class="nav-item"><a class="nav-link" href="#method">How I Work</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fit">Who I Work With</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-lba" href="#contact">Start a conversation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container container-reading">
+        <div class="row">
+          <div class="col-lg-9 col-xl-8 hero-copy">
+            <div class="gold-line"></div>
+            <div class="eyebrow">For healthcare leaders and partnerships</div>
+            <h1 class="mb-4">Creating alignment through clarity, focus and purpose</h1>
+            <p class="lead-copy mb-3">Helping healthcare and public sector organisations move from strategy to coordinated action.</p>
+            <a href="#contact" class="btn btn-lba">Start a conversation</a>
+            <a href="#method" class="btn btn-lba">How I Work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-soft" id="problems">
+      <div class="container container-reading">
+        <div class="row">
+          <div class="col-lg-9 col-xl-8">
+            <div class="eyebrow">Where things tend to stall</div>
+            <h2>Does this sound familiar?</h2>
+            <div class="section-divider"></div>
+            <ul class="bullet-list">
+              <li>You agree on a shared strategy but struggle to make things happen on a daily basis.</li>
+              <li>A lack of ownership means decisions drift, and not acting becomes the safe choice.</li>
+              <li>Your team is engaged, but their actual behaviour and performance haven’t shifted.</li>
+              <li>Strategy is constantly derailed by reactive, day-to-day firefighting.</li>
+              <li>Multiple partnerships and limited time create bottlenecks and delivery pressures.</li>
+              <li>Your team’s progress depends on a few individuals – and they’re burning out.</li>
+            </ul>
+            <p class="bridge-line">Then I can help. Here’s how…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" id="work">
+      <div class="container container-reading">
+        <div class="row gy-4">
+          <div class="col-lg-7">
+            <div class="eyebrow">What I do</div>
+            <h2>Helping teams focus on what matters, remove friction, and turn intent into action.</h2>
+            <div class="section-divider"></div>
+            <p>I provide the connecting tissue that aligns organisations and keeps work moving.</p>
+            <ul class="bullet-list">
+              <li>No new programmes.</li>
+			  <li>No governance theatre.</li>
+			  <li>No unnecessary process.</li>
+            </ul>
+          </div>
+          <div class="col-lg-5">
+            <div class="plain-panel">
+              <div class="eyebrow mb-2" style="font-size:0.72rem;">Just practical work that helps teams move.</div>
+              <p>My work is focused on:</p>
+              <ul class="bullet-list">
+              	<li>Stripping away noise and defining core problems.</li>
+              	<li>Translating goals and intent into simple, executable actions.</li>
+              	<li>Getting partnerships to move in the same direction.</li>
+              	<li>Finding solutions that remain effective in the long run.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mb-0">If a project requires specialised support, I bring in trusted associates as an extension of my expertise, while retaining full accountability throughout the process.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-soft" id="method">
+      <div class="container container-reading">
+        <div class="row mb-5">
+          <div class="col-lg-8 col-xl-7">
+            <div class="eyebrow">The approach</div>
+            <h2>The Horizon Method</h2>
+            <div class="section-divider"></div>
+            <p class="section-intro">I use the Horizon Method – my unique methodology. A practical, workshop-based approach, it’s designed to define purpose, assess alignment, and identify how to facilitate change. It’s consistent, collaborative and highly effective.</p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="method-card">
+              <div class="method-step">Step 1</div>
+              <h3>Clarify</h3>
+              <p>Define purpose, priorities and boundaries.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="method-card">
+              <div class="method-step">Step 2</div>
+              <h3>Align</h3>
+              <p>Bring leaders and teams around a small number of shared decisions.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="method-card">
+              <div class="method-step">Step 3</div>
+              <h3>Act</h3>
+              <p>Translate those decisions into practical action and review progress regularly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!--
+    <section class="section-padding" id="outcomes">
+      <div class="container container-reading">
+        <div class="row">
+          <div class="col-lg-8 col-xl-7">
+            <div class="eyebrow">What this makes possible</div>
+            <h2>The Horizon Method helps you to:</h2>
+            <div class="section-divider"></div>
+            <ul class="bullet-list">
+              <li>Pinpoint what matters now - and what doesn’t.</li>
+              <li>Set clear boundaries so decisions don’t drift.</li>
+              <li>Remove friction between teams and processes.</li>
+              <li>Make a few shared decisions everyone can get behind.</li>
+              <li>Act, review and adjust, so momentum replaces meetings.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+-->
+    <section class="section-padding" id="credibility">
+      <div class="container container-reading">
+        <div class="row">
+          <div class="col-lg-9 col-xl-8">
+            <div class="eyebrow">What clients say</div>
+            <h2>Trusted in complex environments.</h2>
+            <div class="section-divider"></div>
+            <p class="small-note mb-4">My work is typically with GP practices, Clinical Directors and PCN Leaders, Integrated Neighbourhood Teams, and Healthcare and Public Sector organisationss navigating complexity, pressure and change.</p>
+            <div class="quote-panel">
+              <blockquote>“Lee's insightful and dynamic engagement with our team allowed him to quickly gain a deep understanding of the project. His extensive system expertise, combined with his enthusiasm for our strategic vision, was instrumental in guiding us through the business planning of our Primary Care Mental Health Service.”</blockquote>
+              <p class="mb-0"><strong>Dan O'Neil</strong><br>Clinical Director, Mental Health Hub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding section-soft" id="fit">
+      <div class="container container-reading">
+        <div class="row mb-4">
+          <div class="col-lg-8 col-xl-7">
+            <div class="eyebrow">Who this is for</div>
+            <h2>A good fit for focused, long-term change.</h2>
+            <div class="section-divider"></div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="fit-box">
+              <h3>A good fit if you want:</h3>
+              <ul class="bullet-list">
+                <li>A strategic partner who delivers long-term value.</li>
+                <li>Clear priorities outlined within a clear, disciplined strategy.</li>
+                <li>Shared leadership with greater clarity and vision.</li>
+                <li>Leaders who make decisions that stand up under pressure.</li>
+                <li>A culture of collaboration, where the best ideas can be adopted with ease.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" id="contact">
+      <div class="container container-reading">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="eyebrow">Start a conversation</div>
+            <h2>Let’s talk it through.</h2>
+            <div class="section-divider"></div>
+            <p class="mb-4">Do you have a sense that something isn’t quite working? Get in touch, and we’ll talk it through.</p>
+
+            <form action="#" method="post" novalidate>
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name <span aria-hidden="true">*</span></label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name <span aria-hidden="true">*</span></label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email <span aria-hidden="true">*</span></label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone <span class="small-note">(optional)</span></label>
+                <input type="tel" class="form-control" id="phone" name="phone">
+              </div>
+
+              <div class="mb-4">
+                <label for="message" class="form-label">Message <span aria-hidden="true">*</span></label>
+                <textarea class="form-control" id="message" name="message" required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-lba">Send message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-4">
+    <div class="container container-reading">
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+        <div><strong>Lee Button Associates</strong></div>
+        <div class="small-note">
+          <a href="#work" class="text-decoration-none me-3" style="color: inherit;">What I do</a>
+          <a href="#method" class="text-decoration-none me-3" style="color: inherit;">How I Work</a>
+          <a href="#fit" class="text-decoration-none me-3" style="color: inherit;">Who I Work With</a>
+          <a href="#contact" class="text-decoration-none" style="color: inherit;">Contact</a>
+          <p>Terms | Privacy | Cookies | &copy; Tel, Address, legal, company</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
