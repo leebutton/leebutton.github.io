@@ -69,6 +69,26 @@
       letter-spacing: -0.03em;
     }
 
+/*
+      Logo sizing guidance:
+      - Header logo: use the full horizontal logo/wordmark if available.
+      - Recommended source asset: SVG or transparent PNG.
+      - Ideal exported file: at least 520px wide, used visually at 180–220px wide.
+      - Mobile visual width: 150–170px.
+      - Keep the height constrained so the navbar remains calm and premium.
+    */
+    .site-logo-img {
+      width: clamp(150px, 18vw, 220px);
+      max-height: 52px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .site-logo-fallback {
+      display: none;
+    }
+
     .nav-link {
       color: var(--lba-dark);
       font-weight: 500;
@@ -253,13 +273,37 @@
       background: rgba(255, 255, 255, 0.45);
     }
 
-    .portrait-placeholder {
+  /*
+      Profile image guidance:
+      - Use one strong, natural portrait of Lee rather than stock imagery.
+      - Recommended crop: portrait 4:5 ratio.
+      - Suggested upload/export: 1200px x 1500px minimum.
+      - Homepage display: approximately 360–460px wide on desktop.
+      - Object-position can be adjusted if the crop needs better headroom.
+    */
+    .profile-photo-frame {
       aspect-ratio: 4 / 5;
       border-radius: 2rem;
+      overflow: hidden;
       background:
         linear-gradient(135deg, rgba(31, 146, 154, 0.14), rgba(151, 202, 61, 0.12)),
         var(--lba-soft);
       border: 1px solid rgba(67, 58, 78, 0.08);
+      box-shadow: 0 1.5rem 4rem rgba(67, 58, 78, 0.08);
+      position: relative;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+ .image-placeholder-note {
+      position: absolute;
+      inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -312,6 +356,27 @@
       border-color: #fff;
     }
 
+/*
+      Footer brand ident guidance:
+      - Use the compact icon/ident if you have one; otherwise use the full wordmark.
+      - Recommended compact ident display: 72–96px wide.
+      - Recommended source asset: SVG or transparent PNG, exported at least 240px wide.
+      - Keep it quiet; it should sign off the page, not compete with the CTA.
+    */
+    .footer-brand-ident {
+      width: clamp(72px, 8vw, 96px);
+      height: auto;
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-wordmark {
+      width: clamp(170px, 20vw, 240px);
+      height: auto;
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
     footer {
       padding: 3rem 0;
       border-top: 1px solid rgba(67, 58, 78, 0.1);
@@ -357,7 +422,11 @@
   <!-- Header -->
   <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Lee Button Associates</a>
+      <a class="navbar-brand" href="#" aria-label="Lee Button Associates home">
+        <!-- Replace this path with the final header logo asset. Preferred: horizontal SVG wordmark. -->
+        <img class="site-logo-img" src="img/Lee_Button_Logo_Wordmark.svg" alt="Lee Button Associates">
+        <span class="site-logo-fallback">Lee Button Associates</span>
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -596,9 +665,11 @@
       <div class="container">
         <div class="row g-5 align-items-center">
           <div class="col-lg-5">
-            <div class="portrait-placeholder">
-              Natural portrait of Lee or real workshop detail
-            </div>
+            <figure class="profile-photo-frame mb-0">
+              <!-- This can reuse the portrait or use a more candid facilitation image. Recommended crop: 1200x1500px, 4:5 ratio. -->
+              <img class="profile-photo" src="assets/lee-button-working.jpg" alt="Lee Button facilitating a session">
+              <!-- <div class="image-placeholder-note">Portrait or authentic working image<br>Recommended crop: 4:5<br>Minimum: 1200 × 1500px</div> -->
+            </figure>
           </div>
 
           <div class="col-lg-7">
@@ -646,6 +717,9 @@
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-lg-5">
+          <!-- Replace with final compact brand ident or footer wordmark. Preferred: SVG. -->
+          <img class="footer-brand-ident" src="img/Lee_Button_Logomark.svg" alt="" aria-hidden="true">
+          <!-- Alternative if no compact ident exists: <img class="footer-wordmark" src="assets/lee-button-associates-logo.svg" alt="Lee Button Associates"> -->
           <strong class="d-block text-dark mb-2">Lee Button Associates</strong>
           <p class="mb-0">
             Facilitation, organisational development and practical strategy for healthcare and public sector leaders.
