@@ -211,65 +211,47 @@
 
     /*
       Method break:
-      - Sits between hero and problem/recognition section.
-      - Gives the Horizon Method rhythm a distinct block-driven treatment.
-      - Keeps the hero shorter while retaining early visibility of the method.
+      - Intentionally simple three-column treatment.
+      - Designed as a clean placeholder that could later be replaced by a custom graphic.
     */
     .method-break {
       background: var(--lba-dark);
       color: #fff;
-      padding: clamp(1.75rem, 4vw, 3rem) 0;
+      padding: clamp(1.6rem, 3.5vw, 2.6rem) 0;
     }
 
-    .method-break .eyebrow {
-      color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 0.75rem;
+    .method-break-item {
+      padding: 0.35rem 0;
     }
 
-    .method-break-intro {
-      font-size: clamp(1.1rem, 2vw, 1.45rem);
-      line-height: 1.35;
-      font-weight: 650;
-      letter-spacing: -0.025em;
-      color: #fff;
-      margin-bottom: 0;
-    }
-
-    .method-break-card {
-      height: 100%;
-      border-radius: 1.15rem;
-      padding: 1.1rem 1.2rem;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .method-break-card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.9rem;
-      height: 1.9rem;
-      border-radius: 50%;
-      background: var(--lba-green);
-      color: var(--lba-dark);
-      font-size: 0.85rem;
+    .method-break-kicker {
+      display: block;
+      color: var(--lba-green);
+      font-size: 0.78rem;
       font-weight: 850;
-      margin-bottom: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
     }
 
-    .method-break-card h2,
-    .method-break-card h3 {
+    .method-break-title {
       color: #fff;
-      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-      margin-bottom: 0.35rem;
-      letter-spacing: -0.025em;
-    }
-
-    .method-break-card p {
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 0.95rem;
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
       margin-bottom: 0;
-      line-height: 1.45;
+    }
+    
+    @media (min-width: 768px) {
+      .method-break-item {
+        border-left: 1px solid rgba(255, 255, 255, 0.22);
+        padding-left: 1.5rem;
+      }
+
+      .method-break-item:first-child {
+        border-left: 0;
+        padding-left: 0;
+      }
     }
 
     .recognition-line {
