@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Lantern Trust | Homepage Prototype</title>
+  <meta name="description" content="Accessible Bootstrap homepage prototype for The Lantern Trust.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --lantern-black: #000000;
+      --lantern-white: #ffffff;
+      --lantern-grey: #63656A;
+      --lantern-light: #F4F4F2;
+      --lantern-yellow: #FFD400;
+      --lantern-yellow-soft: #FFF4B8;
+      --lantern-border: #D8D8D4;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--lantern-black);
+      background: var(--lantern-white);
+      line-height: 1.6;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--lantern-yellow);
+      color: var(--lantern-black);
+      padding: .75rem 1rem;
+      z-index: 9999;
+      font-weight: 700;
+    }
+    .skip-link:focus { left: 1rem; top: 1rem; }
+
+    .navbar { border-bottom: 1px solid var(--lantern-border); background: rgba(255,255,255,.97); }
+    .navbar-brand img, .brand-logo { max-height: 58px; width: auto; max-width: 210px; display: block; }
+    .nav-link { color: var(--lantern-black); font-weight: 650; }
+    .nav-link:hover, .nav-link:focus { text-decoration: underline; text-decoration-thickness: 2px; }
+
+    .btn { border-radius: 999px; font-weight: 750; padding: .78rem 1.05rem; }
+    .btn-lantern { background: var(--lantern-black); border-color: var(--lantern-black); color: var(--lantern-white); }
+    .btn-lantern:hover, .btn-lantern:focus { background: #272727; border-color: #272727; color: var(--lantern-white); }
+    .btn-yellow { background: var(--lantern-yellow); border-color: var(--lantern-yellow); color: var(--lantern-black); }
+    .btn-yellow:hover, .btn-yellow:focus { background: #e9c200; border-color: #e9c200; color: var(--lantern-black); }
+    .btn-outline-lantern { border-color: var(--lantern-black); color: var(--lantern-black); background: var(--lantern-white); }
+    .btn-outline-lantern:hover, .btn-outline-lantern:focus { background: var(--lantern-black); color: var(--lantern-white); }
+
+    .exit-site {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1030;
+      background: var(--lantern-yellow);
+      color: var(--lantern-black);
+      border: 3px solid var(--lantern-black);
+      border-radius: .75rem;
+      padding: .75rem 1rem;
+      font-weight: 800;
+      box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.2);
+    }
+    .exit-site:hover, .exit-site:focus { color: var(--lantern-black); background: #e9c200; }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.86), rgba(0,0,0,.68)),
+        radial-gradient(circle at top right, rgba(255,212,0,.22), transparent 35%),
+        var(--lantern-black);
+      color: var(--lantern-white);
+      padding: 5.5rem 0 4.5rem;
+    }
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      font-weight: 800;
+      font-size: .78rem;
+      color: var(--lantern-grey);
+    }
+    .hero .eyebrow { color: var(--lantern-yellow); }
+    .display-tight { letter-spacing: -0.04em; }
+    .lead-lg { font-size: clamp(1.1rem, 2vw, 1.35rem); }
+
+    .route-card {
+      height: 100%;
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.08);
+      color: var(--lantern-white);
+      border-radius: 1.25rem;
+      padding: 1.35rem;
+    }
+    .route-card strong { color: var(--lantern-yellow); }
+
+    .urgent-panel {
+      border: 3px solid var(--lantern-black);
+      background: var(--lantern-yellow-soft);
+      border-radius: 1.25rem;
+      box-shadow: 0 .45rem 0 var(--lantern-black);
+      transform: translateY(-2rem);
+      margin-bottom: -1rem;
+    }
+
+    .section-pad { padding: 4.5rem 0; }
+    .section-muted { background: var(--lantern-light); }
+    .card-soft {
+      border: 1px solid var(--lantern-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.04);
+      height: 100%;
+    }
+    .card-soft .card-title { letter-spacing: -0.02em; }
+    .icon-dot {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--lantern-yellow);
+      color: var(--lantern-black);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .stat {
+      border-left: .35rem solid var(--lantern-yellow);
+      padding-left: 1rem;
+    }
+    .stat-number { font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1; font-weight: 900; letter-spacing: -.04em; }
+    .grey-text { color: var(--lantern-grey); }
+
+    .location-card { border-top: .45rem solid var(--lantern-yellow); }
+
+    .footer { background: var(--lantern-black); color: var(--lantern-white); }
+    .footer a { color: var(--lantern-white); }
+    .footer a:hover, .footer a:focus { color: var(--lantern-yellow); }
+    .footer .small { color: #d7d7d7; }
+
+    .cover-tracks { border: 1px dashed var(--lantern-grey); background: #fff; border-radius: 1rem; }
+
+    @media (max-width: 991.98px) {
+      .hero { padding-top: 3.5rem; }
+      .navbar-brand img { max-height: 46px; }
+      .exit-site { left: 1rem; right: 1rem; text-align: center; bottom: .75rem; }
+      body { padding-bottom: 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <button class="exit-site" type="button" onclick="window.location.replace('https://www.bbc.co.uk/weather');">Exit site</button>
+
+  <nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#" aria-label="The Lantern Trust home">
+        <img src="lantern-logo-black.png" alt="The Lantern Trust" class="brand-logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#get-help">Get help</a></li>
+          <li class="nav-item"><a class="nav-link" href="#refer">Refer someone</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-outline-lantern btn-sm" href="#refer">Make a referral</a></li>
+          <li class="nav-item"><a class="btn btn-yellow btn-sm" href="#get-help">Get help now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <span class="eyebrow">Weymouth, Portland and Dorset</span>
+            <h1 class="display-3 fw-black display-tight mt-3 mb-4">Help, support and a safe place to be heard.</h1>
+            <p class="lead lead-lg mb-4">The Lantern Trust supports people facing homelessness, housing problems, financial hardship, mental health difficulties, addiction, isolation and crisis. We listen first, then help people find the right next step.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3">
+              <a class="btn btn-yellow btn-lg" href="#get-help">I need help</a>
+              <a class="btn btn-outline-light btn-lg rounded-pill fw-bold" href="#refer">I want to refer someone</a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="row g-3" aria-label="Choose the right route">
+              <div class="col-12">
+                <div class="route-card">
+                  <strong>For people needing support</strong>
+                  <p class="mb-0 mt-2">Drop in, call us, or use the form to tell us what is happening.</p>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="route-card">
+                  <strong>For professionals and referrers</strong>
+                  <p class="mb-0 mt-2">Make a referral, contact SPOA, or speak to the team before referring.</p>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="route-card">
+                  <strong>For supporters and funders</strong>
+                  <p class="mb-0 mt-2">See our impact, download governance information, or support our work.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="urgent-help-title">
+      <div class="urgent-panel p-4 p-lg-5">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h2 id="urgent-help-title" class="h3 fw-bold mb-2">Nowhere safe to stay tonight?</h2>
+            <p class="mb-0">If you are in immediate danger or at risk of violence, call <strong>999</strong>. If you have nowhere to stay outside normal working hours, contact Dorset Council’s emergency out-of-hours service on <strong>01305 221000</strong>. During Lantern opening hours, contact us or visit the drop-in and we will help you understand your options.</p>
+          </div>
+          <div class="col-lg-5 text-lg-end">
+            <a href="tel:01305221000" class="btn btn-lantern me-lg-2 mb-2 mb-lg-0">Call Dorset Council</a>
+            <a href="#get-help" class="btn btn-outline-lantern">Contact Lantern</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="get-help" class="section-pad" aria-labelledby="get-help-title">
+      <div class="container">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <span class="eyebrow">Get help</span>
+            <h2 id="get-help-title" class="display-6 fw-bold display-tight mt-2">Start with a conversation.</h2>
+            <p class="grey-text">You do not need to have everything worked out before speaking to us. Tell us what is happening and we will help you think through the next step.</p>
+            <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+              <a href="tel:01305787940" class="btn btn-lantern">Call 01305 787940</a>
+              <a href="mailto:info@lanterntrust.org.uk" class="btn btn-outline-lantern">Email the team</a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-md-6"><div class="card card-soft p-4"><span class="icon-dot">1</span><h3 class="h5 fw-bold">Visit a drop-in</h3><p class="mb-0">Come to one of our sites during opening hours and speak to the team.</p></div></div>
+              <div class="col-md-6"><div class="card card-soft p-4"><span class="icon-dot">2</span><h3 class="h5 fw-bold">Call or email</h3><p class="mb-0">Contact us if you are unsure where to start or cannot visit in person.</p></div></div>
+              <div class="col-md-6"><div class="card card-soft p-4"><span class="icon-dot">3</span><h3 class="h5 fw-bold">We listen</h3><p class="mb-0">We take time to understand your situation and what matters most now.</p></div></div>
+              <div class="col-md-6"><div class="card card-soft p-4"><span class="icon-dot">4</span><h3 class="h5 fw-bold">We agree next steps</h3><p class="mb-0">That might be practical support, emotional support, advice, referral or advocacy.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="locations" class="section-pad section-muted" aria-labelledby="locations-title">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-4">
+          <div class="col-lg-7">
+            <span class="eyebrow">Locations</span>
+            <h2 id="locations-title" class="display-6 fw-bold display-tight mt-2">Support across more than one site.</h2>
+            <p class="grey-text mb-0">This prototype treats Lantern as a multi-site operation, with space for the new hub and future outreach locations.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3"><div class="card card-soft location-card p-4"><h3 class="h5 fw-bold">Lantern main drop-in</h3><p class="mb-1">2 Ranelagh Road, Weymouth, DT4 7JD</p><p class="mb-0"><strong>Drop-in:</strong> Mon–Fri, 10am–2pm<br><strong>Phone/email:</strong> Mon–Fri, 9am–5pm</p></div></div>
+          <div class="col-md-6 col-xl-3"><div class="card card-soft location-card p-4"><h3 class="h5 fw-bold">New hub</h3><p class="mb-1">Location to confirm</p><p class="mb-0">Opening times, services and access route to be added after team review.</p></div></div>
+          <div class="col-md-6 col-xl-3"><div class="card card-soft location-card p-4"><h3 class="h5 fw-bold">Access Wellbeing</h3><p class="mb-1">Details to confirm</p><p class="mb-0">A visible space for wellbeing support, partner access and local service information.</p></div></div>
+          <div class="col-md-6 col-xl-3"><div class="card card-soft location-card p-4"><h3 class="h5 fw-bold">Outreach and partners</h3><p class="mb-1">Flexible locations</p><p class="mb-0">Use this for community sessions, partner sites or future satellite support.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section-pad" aria-labelledby="services-title">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <span class="eyebrow">Our services</span>
+            <h2 id="services-title" class="display-6 fw-bold display-tight mt-2">What we help with.</h2>
+            <p class="grey-text">These groupings use the current services but make them easier to understand for people looking for help.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="row g-3">
+              <div class="col-md-6"><div class="card card-soft p-4"><h3 class="h5 fw-bold">Housing and homelessness</h3><p>Housing Support, Homeless Support and help to understand immediate options.</p><a href="#refer" class="stretched-link fw-bold text-dark">Find support</a></div></div>
+              <div class="col-md-6"><div class="card card-soft p-4"><h3 class="h5 fw-bold">Money, benefits and practical advice</h3><p>Benefit Advice, forms, appointments and help with practical next steps.</p><a href="#refer" class="stretched-link fw-bold text-dark">Find support</a></div></div>
+              <div class="col-md-6"><div class="card card-soft p-4"><h3 class="h5 fw-bold">Mental health and emotional support</h3><p>Mental Health support, Emotional Support and a safe place to talk.</p><a href="#refer" class="stretched-link fw-bold text-dark">Find support</a></div></div>
+              <div class="col-md-6"><div class="card card-soft p-4"><h3 class="h5 fw-bold">Drop-in, wellbeing and community support</h3><p>Drop-in Support, Access Wellbeing and help to reconnect with community.</p><a href="#refer" class="stretched-link fw-bold text-dark">Find support</a></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="refer" class="section-pad section-muted" aria-labelledby="refer-title">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <span class="eyebrow">Refer someone</span>
+            <h2 id="refer-title" class="display-6 fw-bold display-tight mt-2">A clear route for professionals, families and partners.</h2>
+            <p class="grey-text">Use this section to add the referral form, phone route and Single Point of Access details. Keep it simple, safe and consent-led.</p>
+            <div class="cover-tracks p-3 mt-3">
+              <strong>Referral safety note</strong>
+              <p class="mb-0 small">Please only share personal information where you have consent to do so, unless there is an immediate safeguarding concern.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card card-soft p-4 p-lg-5">
+              <h3 class="h4 fw-bold">Referral routes</h3>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li class="mb-3"><strong>Referral form:</strong> secure form link to be added</li>
+                <li class="mb-3"><strong>Phone:</strong> <a href="tel:01305787940">01305 787940</a></li>
+                <li class="mb-3"><strong>SPOA:</strong> details to confirm</li>
+              </ul>
+              <a href="#" class="btn btn-lantern">Complete referral form</a>
+              <a href="tel:01305787940" class="btn btn-outline-lantern ms-sm-2 mt-2 mt-sm-0">Call first</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section-pad" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <span class="eyebrow">Impact</span>
+            <h2 id="impact-title" class="display-6 fw-bold display-tight mt-2">More than 40 years of local support.</h2>
+            <p class="grey-text">Lantern’s impact section should reassure funders and commissioners without pushing people needing help down the page.</p>
+            <a href="#support" class="btn btn-yellow">Support our work</a>
+          </div>
+          <div class="col-lg-7">
+            <div class="row g-4">
+              <div class="col-sm-6"><div class="stat"><div class="stat-number">1983</div><p class="mb-0 fw-bold">Founded in Weymouth</p></div></div>
+              <div class="col-sm-6"><div class="stat"><div class="stat-number">809</div><p class="mb-0 fw-bold">People supported this year</p></div></div>
+              <div class="col-sm-6"><div class="stat"><div class="stat-number">135</div><p class="mb-0 fw-bold">People housed with Lantern involvement</p></div></div>
+              <div class="col-sm-6"><div class="stat"><div class="stat-number">10,577</div><p class="mb-0 fw-bold">Interventions this year</p></div></div>
+            </div>
+            <p class="small grey-text mt-4 mb-0">Prototype figures should be checked and dated before launch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="support" class="section-pad section-muted" aria-labelledby="support-title">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="eyebrow">Support Lantern</span>
+          <h2 id="support-title" class="display-6 fw-bold display-tight mt-2">Help keep Lantern here for people who need us.</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4"><div class="card card-soft p-4 text-center"><h3 class="h5 fw-bold">Donate</h3><p>Your support helps us continue providing practical and emotional support.</p><a href="#" class="btn btn-yellow">Donate</a></div></div>
+          <div class="col-md-4"><div class="card card-soft p-4 text-center"><h3 class="h5 fw-bold">Volunteer</h3><p>Give time, skills or local knowledge to support people in the community.</p><a href="#" class="btn btn-outline-lantern">Volunteer</a></div></div>
+          <div class="col-md-4"><div class="card card-soft p-4 text-center"><h3 class="h5 fw-bold">Partner or fund</h3><p>Work with Lantern to strengthen local support across Dorset.</p><a href="#" class="btn btn-outline-lantern">Work with us</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" aria-labelledby="safe-online-title">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="cover-tracks p-4 p-lg-5">
+              <span class="eyebrow">Safety</span>
+              <h2 id="safe-online-title" class="h3 fw-bold mt-2">Stay safe online</h2>
+              <p class="mb-0">Use the <strong>Exit site</strong> button if you need to leave quickly. This does not delete your browser history or protect you from monitoring software. If it is safe to do so, consider using a safer device, private browsing, or deleting your history.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS40LjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA4NDEuODkgNTk1LjI4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA4NDEuODkgNTk1LjI4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zOTMuMTQsMjY3LjYzYzAuMDQsMC4xNCwwLjE4LDAuMiwwLjQxLDAuMmMwLjIzLDAsMC4zNC0wLjA3LDAuMzQtMC4yYzAtMS44LDAuMDgtNC4xOSwwLjI0LTcuMTcNCgkJYzAuMTYtMi45OCwwLjMtNS4xNCwwLjQ0LTYuNDljMC0wLjE4LTAuMTItMC4yNy0wLjM3LTAuMjdjLTAuMjUsMC0wLjQsMC4wOS0wLjQ0LDAuMjdjLTAuMjMsMC42OC0wLjczLDEuMTMtMS41MiwxLjM1DQoJCWMtMC43OSwwLjIzLTIuMDQsMC4zNC0zLjc1LDAuMzRsLTQuNiwwLjA3Yy0yLjk4LDAuMDktNS43OSwwLjE0LTguNDYsMC4xNGMtNS4xOSwwLTkuNzItMC4wNy0xMy42LTAuMmMtMi41NywwLTMuODYtMC41LTMuODYtMS40OQ0KCQljMC0wLjIzLTAuMTItMC4zNC0wLjM3LTAuMzRjLTAuMjUsMC0wLjM3LDAuMTEtMC4zNywwLjM0YzAsMS40NC0wLjExLDMuNi0wLjM0LDYuNDZjLTAuMjMsMi44Ni0wLjQzLDUuMi0wLjYxLDcNCgkJYzAsMC4xNCwwLjExLDAuMjEsMC4zNCwwLjI0YzAuMjIsMC4wMiwwLjM2LTAuMDMsMC40MS0wLjE3YzIuMzQtNi45OSw2LjItMTAuNDgsMTEuNTctMTAuNDhjMS4yNiwwLDIuMSwwLjI3LDIuNSwwLjgxDQoJCWMwLjQxLDAuNTQsMC42MSwxLjU4LDAuNjEsMy4xMXYzMS4zMmMwLDEuMzUtMC4xNSwyLjM2LTAuNDQsMy4wMWMtMC4yOSwwLjY1LTAuODMsMS4wOS0xLjYyLDEuMzJjLTAuNzksMC4yMy0yLDAuMzQtMy42MiwwLjM0DQoJCWMtMC4xMywwLTAuMiwwLjEzLTAuMiwwLjQxczAuMDcsMC40MSwwLjIsMC40MWMxLjY3LDAsMi45OC0wLjAyLDMuOTItMC4wN2w1LjQ4LTAuMDdsNS42MSwwLjA3YzAuOTUsMC4wNCwyLjIzLDAuMDcsMy44NiwwLjA3DQoJCWMwLjEzLDAsMC4yLTAuMTQsMC4yLTAuNDFzLTAuMDctMC40MS0wLjItMC40MWMtMS42NywwLTIuODktMC4xMS0zLjY1LTAuMzRzLTEuMjktMC42NS0xLjU2LTEuMjlzLTAuNDEtMS42NS0wLjQxLTMuMDR2LTMxLjE4DQoJCWMwLTEuNTgsMC4yMS0yLjY1LDAuNjQtMy4yMWMwLjQzLTAuNTYsMS4zLTAuODUsMi42LTAuODVjMi43MSwwLDQuOTgsMC44Nyw2LjgzLDIuNkMzOTEuMiwyNjEuNTUsMzkyLjQ2LDI2NC4xNiwzOTMuMTQsMjY3LjYzeiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MzEuNDksMjU1LjczbC0zLjMxLTAuMDdjLTAuMTMsMC0wLjIsMC4xNC0wLjIsMC40MWMwLDAuMjcsMC4wNywwLjQxLDAuMiwwLjQxYzEuNjcsMCwyLjg4LDAuMTQsMy42NSwwLjQxDQoJCWMwLjc3LDAuMjcsMS4yOSwwLjczLDEuNTYsMS4zOWMwLjI3LDAuNjUsMC40MSwxLjY2LDAuNDEsMy4wMVYyNzVoLTIxLjg1di0xMy43M2MwLTEuMzUsMC4xNS0yLjM2LDAuNDQtMy4wMQ0KCQljMC4yOS0wLjY1LDAuODItMS4xMiwxLjU5LTEuMzljMC43Ny0wLjI3LDEuOTYtMC40MSwzLjU4LTAuNDFjMC4wOSwwLDAuMTMtMC4xNCwwLjEzLTAuNDFjMC0wLjI3LTAuMDQtMC40MS0wLjEzLTAuNDFsLTMuNzIsMC4wNw0KCQljLTIuMjUsMC4wOS00LjI0LDAuMTQtNS45NSwwLjE0Yy0xLjI2LDAtMi45My0wLjA0LTUtMC4xNGwtMy42NS0wLjA3Yy0wLjEzLDAtMC4yLDAuMTQtMC4yLDAuNDFjMCwwLjI3LDAuMDcsMC40MSwwLjIsMC40MQ0KCQljMS41MywwLDIuNjUsMC4xMiwzLjM1LDAuMzdjMC43LDAuMjUsMS4xOCwwLjY5LDEuNDUsMS4zMmMwLjI3LDAuNjMsMC40MSwxLjYyLDAuNDEsMi45OHYzMS4zMmMwLDEuMzUtMC4xNCwyLjM2LTAuNDEsMy4wMQ0KCQljLTAuMjcsMC42NS0wLjc3LDEuMDktMS40OSwxLjMyYy0wLjcyLDAuMjMtMS44NywwLjM0LTMuNDUsMC4zNGMtMC4wOSwwLTAuMTQsMC4xMy0wLjE0LDAuNDFzMC4wNCwwLjQxLDAuMTQsMC40MQ0KCQljMS41OCwwLDIuODItMC4wMiwzLjcyLTAuMDdsNS4wNy0wLjA3bDUuODgsMC4wN2MwLjk1LDAuMDQsMi4yMSwwLjA3LDMuNzksMC4wN2MwLjA5LDAsMC4xMy0wLjE0LDAuMTMtMC40MXMtMC4wNC0wLjQxLTAuMTMtMC40MQ0KCQljLTEuNjcsMC0yLjg5LTAuMTEtMy42NS0wLjM0cy0xLjI5LTAuNjctMS41Ni0xLjMyYy0wLjI3LTAuNjUtMC40MS0xLjY2LTAuNDEtMy4wMVYyNzYuOWgyMS44NXYxNS41NmMwLDEuNC0wLjE0LDIuNDEtMC40MSwzLjA0DQoJCWMtMC4yNywwLjYzLTAuNzksMS4wNi0xLjU2LDEuMjlzLTEuOTgsMC4zNC0zLjY1LDAuMzRjLTAuMTMsMC0wLjIsMC4xMy0wLjIsMC40MXMwLjA3LDAuNDEsMC4yLDAuNDFjMS40LDAsMi41LTAuMDIsMy4zMS0wLjA3DQoJCWw2LjA5LTAuMDdsNS4yMSwwLjA3YzAuOTUsMC4wNCwyLjIxLDAuMDcsMy43OSwwLjA3YzAuMTMsMCwwLjItMC4xNCwwLjItMC40MXMtMC4wNy0wLjQxLTAuMi0wLjQxYy0xLjU4LDAtMi43My0wLjExLTMuNDUtMC4zNA0KCQljLTAuNzItMC4yMy0xLjIxLTAuNjctMS40Ni0xLjMyYy0wLjI1LTAuNjUtMC4zNy0xLjY2LTAuMzctMy4wMXYtMzEuMzJjMC0xLjM1LDAuMTItMi4zNCwwLjM3LTIuOThjMC4yNS0wLjYzLDAuNzQtMS4wNywxLjQ5LTEuMzINCgkJYzAuNzQtMC4yNSwxLjg4LTAuMzcsMy40Mi0wLjM3YzAuMTMsMCwwLjItMC4xNCwwLjItMC40MWMwLTAuMjctMC4wNy0wLjQxLTAuMi0wLjQxbC0zLjc5LDAuMDdjLTIuMjUsMC4wOS0zLjk5LDAuMTQtNS4yMSwwLjE0DQoJCUM0MzUuNzcsMjU1Ljg2LDQzMy43NCwyNTUuODIsNDMxLjQ5LDI1NS43M3oiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDU1Ljk3LDI5NS40NmMtMC4yMywwLjY1LTAuNjcsMS4wOS0xLjMyLDEuMzJjLTAuNjUsMC4yMy0xLjcsMC4zNC0zLjE0LDAuMzRjLTAuMTQsMC0wLjIsMC4xMy0wLjIsMC40MQ0KCQlzMC4wNywwLjQxLDAuMiwwLjQxaDI5LjljMC40LDAsMC42OC0wLjA4LDAuODEtMC4yNHMwLjItMC40MiwwLjItMC43OGMwLTIuODgsMC4yMi02LjA5LDAuNjgtOS42YzAtMC4wNC0wLjA2LTAuMS0wLjE3LTAuMTcNCgkJYy0wLjExLTAuMDctMC4yNC0wLjEtMC4zNy0wLjFjLTAuMTgsMC0wLjI3LDAuMDUtMC4yNywwLjE0Yy0wLjk5LDMuMDItMi41NSw1LjI1LTQuNjcsNi43Yy0yLjEyLDEuNDQtNC45NCwyLjE3LTguNDYsMi4xN2gtMi4yMw0KCQljLTEuMDgsMC0xLjg3LTAuMzItMi4zNy0wLjk1Yy0wLjUtMC42My0wLjc0LTEuNi0wLjc0LTIuOTFWMjc2LjloNS41NGMyLjY2LDAsNC43LDAuNTMsNi4xMiwxLjU5YzEuNDIsMS4wNiwyLjEzLDIuNTEsMi4xMyw0LjM2DQoJCWMwLDAuMDksMC4xNCwwLjE0LDAuNDEsMC4xNGMwLjI3LDAsMC40MS0wLjA0LDAuNDEtMC4xNGMwLTAuOS0wLjA0LTIuMTItMC4xMy0zLjY1bC0wLjA3LTMuMjVsMC4wNy02LjA5YzAtMC4xNC0wLjEyLTAuMi0wLjM3LTAuMg0KCQlzLTAuMzcsMC4wNy0wLjM3LDAuMmMwLDEuNjItMC43LDIuODktMi4xLDMuNzljLTEuNCwwLjktMy40LDEuMzUtNi4wMiwxLjM1aC01LjYxdi0xMy44YzAtMS4yMiwwLjMxLTIuMTIsMC45NS0yLjcxDQoJCWMwLjYzLTAuNTksMS42Mi0wLjg4LDIuOTgtMC44OGgyLjAzYzIuNzksMCw1LjA1LDAuNjMsNi43NiwxLjg5YzEuNzEsMS4yNiwyLjkzLDMuMiwzLjY1LDUuODJjMC4wNCwwLjE0LDAuMTksMC4xOCwwLjQ0LDAuMTQNCgkJYzAuMjUtMC4wNCwwLjM3LTAuMTEsMC4zNy0wLjJsLTAuMTMtOWMwLTAuNDEtMC4yMy0wLjYxLTAuNjgtMC42MWgtMjguNjhjLTAuMTQsMC0wLjIsMC4xNC0wLjIsMC40MWMwLDAuMjcsMC4wNywwLjQxLDAuMiwwLjQxDQoJCWMxLjQsMCwyLjQzLDAuMTIsMy4xMSwwLjM3YzAuNjgsMC4yNSwxLjEyLDAuNjksMS4zNSwxLjMyYzAuMjMsMC42MywwLjM0LDEuNjIsMC4zNCwyLjk4djMxLjMyDQoJCUM0NTYuMzEsMjkzLjgxLDQ1Ni4yLDI5NC44MSw0NTUuOTcsMjk1LjQ2eiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNjAuMDksMzQ5LjcyYy0wLjI1LDAuNjUtMC43LDEuMDktMS4zNSwxLjMyYy0wLjY1LDAuMjMtMS43LDAuMzQtMy4xNSwwLjM0Yy0wLjA5LDAtMC4xNCwwLjEzLTAuMTQsMC40MQ0KCQlzMC4wNCwwLjQxLDAuMTQsMC40MWgzMS45M2MwLjM2LDAsMC42Mi0wLjA4LDAuNzgtMC4yNHMwLjI0LTAuNDIsMC4yNC0wLjc4YzAtMi45OCwwLjItNi43LDAuNjEtMTEuMTZjMC0wLjA0LTAuMDYtMC4xLTAuMTctMC4xNw0KCQljLTAuMTEtMC4wNy0wLjIxLTAuMS0wLjMtMC4xYy0wLjE4LDAtMC4yNywwLjA0LTAuMjcsMC4xM2MtMC44NiwzLjItMi41Nyw1Ljc0LTUuMTQsNy42MWMtMi41NywxLjg3LTUuNjEsMi44MS05LjEzLDIuODFoLTIuMw0KCQljLTEuMTcsMC0yLjAyLTAuMDktMi41NC0wLjI3Yy0wLjUyLTAuMTgtMC44Ny0wLjUzLTEuMDUtMS4wNWMtMC4xOC0wLjUyLTAuMjctMS4zNi0wLjI3LTIuNTR2LTMwLjk4YzAtMS4zNSwwLjExLTIuMzYsMC4zNC0zLjAxDQoJCWMwLjIzLTAuNjUsMC42OC0xLjEsMS4zNS0xLjM1YzAuNjgtMC4yNSwxLjcxLTAuMzcsMy4xMS0wLjM3YzAuMTMsMCwwLjItMC4xMywwLjItMC40MXMtMC4wNy0wLjQxLTAuMi0wLjQxbC0zLjQ1LDAuMDcNCgkJYy0yLjA3LDAuMDktMy43OSwwLjE0LTUuMTQsMC4xNHMtMy4wNy0wLjA0LTUuMTQtMC4xNGwtMy40NS0wLjA3Yy0wLjA5LDAtMC4xNCwwLjE0LTAuMTQsMC40MXMwLjA0LDAuNDEsMC4xNCwwLjQxDQoJCWMxLjQsMCwyLjQzLDAuMTIsMy4xMSwwLjM3YzAuNjgsMC4yNSwxLjE0LDAuNjksMS4zOSwxLjMyYzAuMjUsMC42MywwLjM3LDEuNjIsMC4zNywyLjk4djMxLjMyDQoJCUMzNjAuNDcsMzQ4LjA3LDM2MC4zNCwzNDkuMDcsMzYwLjA5LDM0OS43MnoiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDA2LjI2LDM1Mi4xOWMwLjIzLDAsMC4zNC0wLjE0LDAuMzQtMC40MXMtMC4xMS0wLjQxLTAuMzQtMC40MWMtMS45NCwwLTMuNDgtMC40NS00LjYzLTEuMzUNCgkJYy0xLjE1LTAuOS0xLjcyLTIuMTctMS43Mi0zLjc5YzAtMS4xMywwLjI5LTIuMzQsMC44OC0zLjY1bDQuOC0xMC42MmgxMi4wNGw3LjA0LDEzLjg3YzAuOSwxLjgsMS4zNSwzLjA5LDEuMzUsMy44Ng0KCQljMCwwLjYzLTAuMjYsMS4wNy0wLjc4LDEuMzJjLTAuNTIsMC4yNS0xLjM3LDAuMzctMi41NCwwLjM3Yy0wLjE4LDAtMC4yNywwLjEzLTAuMjcsMC40MXMwLjA5LDAuNDEsMC4yNywwLjQxDQoJCWMwLjksMCwyLjEyLTAuMDQsMy42NS0wLjE0YzEuNjItMC4wOSwzLTAuMTMsNC4xMy0wLjEzYzAuODYsMCwyLjI4LDAuMDQsNC4yNiwwLjEzYzEuODksMC4wOSwzLjI5LDAuMTQsNC4xOSwwLjE0DQoJCWMwLjIyLDAsMC4zNC0wLjE0LDAuMzQtMC40MXMtMC4xMS0wLjQxLTAuMzQtMC40MWMtMS4xMywwLTIuMjEtMC42MS0zLjI1LTEuODNjLTEuMDQtMS4yMi0yLjM1LTMuNDMtMy45Mi02LjYzbC0xNi45MS0zMy4yOA0KCQljLTAuMDUtMC4xNC0wLjI1LTAuMi0wLjYxLTAuMmMtMC4zMiwwLTAuNTIsMC4wNy0wLjYxLDAuMmwtMTQuNjgsMzIuMjZjLTEuMTcsMi42Mi0yLjE5LDQuNTktMy4wNCw1Ljkycy0xLjcxLDIuMjUtMi41NywyLjc3DQoJCWMtMC44NiwwLjUyLTEuOTIsMC43OC0zLjE4LDAuNzhjLTAuMTgsMC0wLjI3LDAuMTMtMC4yNywwLjQxczAuMDksMC40MSwwLjI3LDAuNDFjMC45NSwwLDIuMTktMC4wNCwzLjcyLTAuMTQNCgkJYzEuNzEtMC4wOSwzLjE4LTAuMTMsNC40LTAuMTNjMS4yNiwwLDIuNzUsMC4wNCw0LjQ2LDAuMTNDNDA0LjI3LDM1Mi4xNSw0MDUuNDUsMzUyLjE5LDQwNi4yNiwzNTIuMTl6IE00MTEuMjYsMzE5LjM5bDUuNDEsMTAuNjkNCgkJaC0xMC4yMUw0MTEuMjYsMzE5LjM5eiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00ODQuNzIsMzA5Ljk4Yy0xLjYyLDAuMDktMi44OSwwLjE0LTMuNzksMC4xNGMtMC45OSwwLTIuMjEtMC4wNC0zLjY1LTAuMTRsLTIuOTEtMC4wNw0KCQljLTAuMDksMC0wLjEzLDAuMTQtMC4xMywwLjQxczAuMDQsMC40MSwwLjEzLDAuNDFjMS43NiwwLDMuMTMsMC43LDQuMTMsMi4xYzAuOTksMS40LDEuNDksMy4zMSwxLjQ5LDUuNzV2MjEuODVsLTIzLjQtMjYuOTkNCgkJYy0wLjMyLTAuMzYtMC44Ni0xLjA2LTEuNjItMi4xYy0wLjQ1LTAuNTgtMC43Ny0wLjk3LTAuOTUtMS4xNWMtMC4xOC0wLjE4LTAuNDUtMC4yNy0wLjgxLTAuMjdjLTAuOSwwLTEuNjcsMC4wMi0yLjMsMC4wNw0KCQlsLTUuMTQsMC4wN2MtMS4xMywwLTEuOTgtMC4wMi0yLjU3LTAuMDdsLTIuODQtMC4wN2MtMC4wOSwwLTAuMTQsMC4xNC0wLjE0LDAuNDFzMC4wNCwwLjQxLDAuMTQsMC40MWMxLjEyLDAsMi4yMiwwLjMsMy4yOCwwLjkxDQoJCWMxLjA2LDAuNjEsMi4zMywxLjcyLDMuODIsMy4zNXYyOC42MWMwLDIuMzktMC41Nyw0LjI4LTEuNzIsNS42OHMtMi43MiwyLjEtNC43LDIuMWMtMC4xMywwLTAuMiwwLjEzLTAuMiwwLjQxczAuMDcsMC40MSwwLjIsMC40MQ0KCQljMS40NCwwLDIuNTUtMC4wMiwzLjMxLTAuMDdsNC4xOS0wLjA3bDMuNjUsMC4wN2MwLjY4LDAuMDQsMS42NSwwLjA3LDIuOTEsMC4wN2MwLjA5LDAsMC4xNC0wLjE0LDAuMTQtMC40MXMtMC4wNS0wLjQxLTAuMTQtMC40MQ0KCQljLTEuNzYsMC0zLjEzLTAuNy00LjEyLTIuMWMtMC45OS0xLjQtMS40OS0zLjI5LTEuNDktNS42OHYtMjYuMzFsMzEuNzIsMzYuMTJjMC4wOSwwLjA5LDAuMjQsMC4xMSwwLjQ0LDAuMDcNCgkJYzAuMi0wLjA1LDAuMy0wLjE0LDAuMy0wLjI3di0zNC42M2MwLTIuMzksMC41Mi00LjMsMS41NS01LjcyYzEuMDQtMS40MiwyLjQ2LTIuMTMsNC4yNi0yLjEzYzAuMDksMCwwLjEzLTAuMTMsMC4xMy0wLjQxDQoJCXMtMC4wNC0wLjQxLTAuMTMtMC40MUw0ODQuNzIsMzA5Ljk4eiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MTQuOTIsMzEyLjMyYzAuNDMtMC41NiwxLjMtMC44NSwyLjYtMC44NWMyLjcxLDAsNC45OCwwLjg3LDYuODMsMi42YzEuODUsMS43NCwzLjExLDQuMzQsMy43OSw3LjgxDQoJCWMwLjA0LDAuMTQsMC4xOCwwLjIsMC40LDAuMnMwLjM0LTAuMDcsMC4zNC0wLjJjMC0xLjgsMC4wOC00LjE5LDAuMjQtNy4xN2MwLjE2LTIuOTgsMC4zLTUuMTQsMC40NC02LjQ5DQoJCWMwLTAuMTgtMC4xMi0wLjI3LTAuMzctMC4yN3MtMC4zOSwwLjA5LTAuNDQsMC4yN2MtMC4yMywwLjY4LTAuNzMsMS4xMy0xLjUyLDEuMzVzLTIuMDQsMC4zNC0zLjc1LDAuMzRsLTQuNiwwLjA3DQoJCWMtMi45OCwwLjA5LTUuNzksMC4xNC04LjQ2LDAuMTRjLTUuMTksMC05LjcyLTAuMDctMTMuNi0wLjJjLTIuNTcsMC0zLjg2LTAuNS0zLjg2LTEuNDljMC0wLjIyLTAuMTItMC4zNC0wLjM3LTAuMzQNCgkJYy0wLjI1LDAtMC4zNywwLjExLTAuMzcsMC4zNGMwLDEuNDQtMC4xMSwzLjYtMC4zNCw2LjQ2Yy0wLjIzLDIuODYtMC40Myw1LjItMC42MSw3YzAsMC4xNCwwLjExLDAuMjEsMC4zNCwwLjI0DQoJCWMwLjIyLDAuMDIsMC4zNi0wLjAzLDAuNC0wLjE3YzIuMzUtNi45OSw2LjItMTAuNDgsMTEuNTctMTAuNDhjMS4yNiwwLDIuMSwwLjI3LDIuNSwwLjgxczAuNjEsMS41OCwwLjYxLDMuMTF2MzEuMzINCgkJYzAsMS4zNS0wLjE1LDIuMzYtMC40NCwzLjAxYy0wLjI5LDAuNjUtMC44MywxLjA5LTEuNjIsMS4zMnMtMS45OSwwLjM0LTMuNjIsMC4zNGMtMC4xMywwLTAuMiwwLjEzLTAuMiwwLjQxczAuMDcsMC40MSwwLjIsMC40MQ0KCQljMS42NywwLDIuOTgtMC4wMiwzLjkyLTAuMDdsNS40OC0wLjA3bDUuNjIsMC4wN2MwLjk1LDAuMDQsMi4yMywwLjA3LDMuODYsMC4wN2MwLjEzLDAsMC4yLTAuMTQsMC4yLTAuNDFzLTAuMDctMC40MS0wLjItMC40MQ0KCQljLTEuNjcsMC0yLjg5LTAuMTEtMy42NS0wLjM0Yy0wLjc3LTAuMjMtMS4yOS0wLjY1LTEuNTUtMS4yOWMtMC4yNy0wLjYzLTAuNDEtMS42NS0wLjQxLTMuMDR2LTMxLjE4DQoJCUM1MTQuMjgsMzEzLjk1LDUxNC40OSwzMTIuODgsNTE0LjkyLDMxMi4zMnoiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTY2LjI2LDM0MS40Yy0wLjExLTAuMDctMC4yNC0wLjEtMC4zNy0wLjFjLTAuMTgsMC0wLjI3LDAuMDQtMC4yNywwLjEzYy0wLjk5LDMuMDItMi41NSw1LjI1LTQuNjcsNi43DQoJCWMtMi4xMiwxLjQ0LTQuOTQsMi4xNy04LjQ2LDIuMTdoLTIuMjNjLTEuMDgsMC0xLjg3LTAuMzItMi4zNy0wLjk1Yy0wLjUtMC42My0wLjc0LTEuNi0wLjc0LTIuOTF2LTE1LjI5aDUuNTQNCgkJYzIuNjYsMCw0LjcsMC41Myw2LjEyLDEuNTljMS40MiwxLjA2LDIuMTMsMi41MSwyLjEzLDQuMzZjMCwwLjA5LDAuMTQsMC4xNCwwLjQxLDAuMTRjMC4yNywwLDAuNDEtMC4wNCwwLjQxLTAuMTQNCgkJYzAtMC45LTAuMDQtMi4xMi0wLjEzLTMuNjVsLTAuMDctMy4yNWwwLjA3LTYuMDljMC0wLjEzLTAuMTItMC4yLTAuMzctMC4ycy0wLjM3LDAuMDctMC4zNywwLjJjMCwxLjYyLTAuNywyLjg5LTIuMSwzLjc5DQoJCWMtMS40LDAuOS0zLjQsMS4zNS02LjAyLDEuMzVoLTUuNjF2LTEzLjhjMC0xLjIyLDAuMzEtMi4xMiwwLjk1LTIuNzFjMC42My0wLjU5LDEuNjItMC44OCwyLjk4LTAuODhoMi4wMw0KCQljMi43OSwwLDUuMDUsMC42Myw2Ljc2LDEuODljMS43MSwxLjI2LDIuOTMsMy4yLDMuNjUsNS44MmMwLjA0LDAuMTMsMC4xOSwwLjE4LDAuNDQsMC4xM2MwLjI1LTAuMDQsMC4zNy0wLjExLDAuMzctMC4ybC0wLjEzLTkNCgkJYzAtMC40MS0wLjIzLTAuNjEtMC42OC0wLjYxaC0yOC42OGMtMC4xNCwwLTAuMiwwLjE0LTAuMiwwLjQxczAuMDcsMC40MSwwLjIsMC40MWMxLjQsMCwyLjQzLDAuMTIsMy4xMSwwLjM3DQoJCWMwLjY4LDAuMjUsMS4xMiwwLjY5LDEuMzUsMS4zMmMwLjIzLDAuNjMsMC4zNCwxLjYyLDAuMzQsMi45OHYzMS4zMmMwLDEuMzUtMC4xMSwyLjM2LTAuMzQsMy4wMWMtMC4yMywwLjY1LTAuNjcsMS4wOS0xLjMyLDEuMzINCgkJYy0wLjY1LDAuMjMtMS43LDAuMzQtMy4xNCwwLjM0Yy0wLjE0LDAtMC4yLDAuMTMtMC4yLDAuNDFzMC4wNywwLjQxLDAuMiwwLjQxaDI5LjljMC40LDAsMC42OC0wLjA4LDAuODEtMC4yNHMwLjItMC40MiwwLjItMC43OA0KCQljMC0yLjg4LDAuMjItNi4wOSwwLjY4LTkuNkM1NjYuNDIsMzQxLjUzLDU2Ni4zNywzNDEuNDcsNTY2LjI2LDM0MS40eiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02MTEuNzEsMzQ5LjE4Yy0xLjkyLTEuNDYtNC4xMS0zLjgtNi41Ni03Yy0yLjQ2LTMuMi01LjQ5LTcuNjQtOS4xLTEzLjMzYzIuMDMtMS4xNywzLjY4LTIuNzEsNC45NC00LjYNCgkJYzEuMjYtMS44OSwxLjg5LTMuODgsMS44OS01Ljk1YzAtMi43MS0xLjE0LTQuODEtMy40Mi02LjMzYy0yLjI4LTEuNTEtNS40OS0yLjI3LTkuNjQtMi4yN2MtMS4wOCwwLTIuMDIsMC4wMi0yLjgxLDAuMDcNCgkJYy0wLjc5LDAuMDUtMS40MywwLjA5LTEuOTMsMC4xNGMtMS41OCwwLjE0LTMuMDIsMC4yLTQuMzMsMC4yYy0xLjIyLDAtMi44Ny0wLjA0LTQuOTQtMC4xNGwtMy41OS0wLjA3DQoJCWMtMC4wOSwwLTAuMTMsMC4xNC0wLjEzLDAuNDFzMC4wNCwwLjQxLDAuMTMsMC40MWMxLjQsMCwyLjQ0LDAuMTIsMy4xMSwwLjM3YzAuNjgsMC4yNSwxLjEzLDAuNjksMS4zNSwxLjMyDQoJCWMwLjIyLDAuNjMsMC4zNCwxLjYyLDAuMzQsMi45OHYzMS4zMmMwLDEuMzUtMC4xMiwyLjM2LTAuMzcsMy4wMWMtMC4yNSwwLjY1LTAuNywxLjA5LTEuMzUsMS4zMmMtMC42NSwwLjIzLTEuNywwLjM0LTMuMTQsMC4zNA0KCQljLTAuMTQsMC0wLjIsMC4xMy0wLjIsMC40MXMwLjA3LDAuNDEsMC4yLDAuNDFjMS41MywwLDIuNzUtMC4wMiwzLjY1LTAuMDdsNC45NC0wLjA3bDUuMTQsMC4wN2MwLjg2LDAuMDQsMi4wMywwLjA3LDMuNTIsMC4wNw0KCQljMC4wOSwwLDAuMTMtMC4xNCwwLjEzLTAuNDFzLTAuMDQtMC40MS0wLjEzLTAuNDFjLTEuNDUsMC0yLjQ5LTAuMTEtMy4xNS0wLjM0cy0xLjA5LTAuNjUtMS4zMi0xLjI5DQoJCWMtMC4yMy0wLjYzLTAuMzQtMS42NS0wLjM0LTMuMDR2LTE1LjY5YzAuNzIsMC4wNCwxLjk2LDAuMDcsMy43MiwwLjA3YzAuNjgsMCwxLjItMC4wMiwxLjU2LTAuMDdjMy44Myw2LjY3LDcuMSwxMS44Nyw5LjgxLDE1LjU5DQoJCWMyLjcxLDMuNzIsNC41NSw1LjU4LDUuNTQsNS41OGgxMi4wNGMwLjA5LDAsMC4xMy0wLjE0LDAuMTMtMC40MXMtMC4wNC0wLjQxLTAuMTMtMC40MUM2MTUuNDgsMzUxLjM4LDYxMy42MiwzNTAuNjUsNjExLjcxLDM0OS4xOA0KCQl6IE01OTQuNDYsMzI2LjAxYy0wLjQzLDEuMjItMS4xMiwyLjA4LTIuMDYsMi41N2MtMC45NSwwLjUtMi4yMywwLjc0LTMuODYsMC43NGMtMS41MywwLTIuODQtMC4wOS0zLjkyLTAuMjd2LTEzLjUzDQoJCWMwLTEuNTgsMC4zMS0yLjcxLDAuOTUtMy4zOGMwLjYzLTAuNjgsMS43MS0xLjAxLDMuMjUtMS4wMWMyLjAzLDAsMy41OCwwLjcsNC42NywyLjFjMS4wOCwxLjQsMS42MiwzLjk1LDEuNjIsNy42NA0KCQlDNTk1LjEsMzIzLjA4LDU5NC44OSwzMjQuOCw1OTQuNDYsMzI2LjAxeiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02NjUuNTIsMzA5LjkybC0zLjA0LDAuMDdjLTEuNjIsMC4wOS0yLjg5LDAuMTQtMy43OSwwLjE0Yy0wLjk5LDAtMi4yMS0wLjA0LTMuNjUtMC4xNGwtMi45MS0wLjA3DQoJCWMtMC4wOSwwLTAuMTQsMC4xNC0wLjE0LDAuNDFzMC4wNCwwLjQxLDAuMTQsMC40MWMxLjc2LDAsMy4xMywwLjcsNC4xMiwyLjFjMC45OSwxLjQsMS40OSwzLjMxLDEuNDksNS43NXYyMS44NWwtMjMuNC0yNi45OQ0KCQljLTAuMzItMC4zNi0wLjg2LTEuMDYtMS42Mi0yLjFjLTAuNDUtMC41OC0wLjc3LTAuOTctMC45NS0xLjE1Yy0wLjE4LTAuMTgtMC40NS0wLjI3LTAuODEtMC4yN2MtMC45LDAtMS42NywwLjAyLTIuMywwLjA3DQoJCWwtNS4xNCwwLjA3Yy0xLjEzLDAtMS45OS0wLjAyLTIuNTctMC4wN2wtMi44NC0wLjA3Yy0wLjA5LDAtMC4xMywwLjE0LTAuMTMsMC40MXMwLjA0LDAuNDEsMC4xMywwLjQxYzEuMTMsMCwyLjIyLDAuMywzLjI4LDAuOTENCgkJYzEuMDYsMC42MSwyLjMzLDEuNzIsMy44MiwzLjM1djI4LjYxYzAsMi4zOS0wLjU3LDQuMjgtMS43Miw1LjY4Yy0xLjE1LDEuNC0yLjcyLDIuMS00LjcsMi4xYy0wLjEzLDAtMC4yLDAuMTMtMC4yLDAuNDENCgkJczAuMDcsMC40MSwwLjIsMC40MWMxLjQ0LDAsMi41NS0wLjAyLDMuMzEtMC4wN2w0LjItMC4wN2wzLjY1LDAuMDdjMC42OCwwLjA0LDEuNjQsMC4wNywyLjkxLDAuMDdjMC4wOSwwLDAuMTMtMC4xNCwwLjEzLTAuNDENCgkJcy0wLjA0LTAuNDEtMC4xMy0wLjQxYy0xLjc2LDAtMy4xMy0wLjctNC4xMy0yLjFzLTEuNDktMy4yOS0xLjQ5LTUuNjh2LTI2LjMxbDMxLjcyLDM2LjEyYzAuMDksMC4wOSwwLjI0LDAuMTEsMC40NCwwLjA3DQoJCWMwLjItMC4wNSwwLjMtMC4xNCwwLjMtMC4yN3YtMzQuNjNjMC0yLjM5LDAuNTItNC4zLDEuNTYtNS43MmMxLjA0LTEuNDIsMi40Ni0yLjEzLDQuMjYtMi4xM2MwLjA5LDAsMC4xMy0wLjEzLDAuMTMtMC40MQ0KCQlTNjY1LjYxLDMwOS45Miw2NjUuNTIsMzA5LjkyeiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zOTQuMTgsMzYyLjIxYy0wLjI1LDAtMC40LDAuMDktMC40NCwwLjI3Yy0wLjIzLDAuNjgtMC43MywxLjEzLTEuNTIsMS4zNXMtMi4wNCwwLjM0LTMuNzUsMC4zNGwtNC42LDAuMDcNCgkJYy0yLjk4LDAuMDktNS43OSwwLjE0LTguNDYsMC4xNGMtNS4xOSwwLTkuNzItMC4wNy0xMy42LTAuMmMtMi41NywwLTMuODYtMC41LTMuODYtMS40OWMwLTAuMjItMC4xMi0wLjM0LTAuMzctMC4zNA0KCQljLTAuMjUsMC0wLjM3LDAuMTEtMC4zNywwLjM0YzAsMS40NC0wLjExLDMuNi0wLjM0LDYuNDZjLTAuMjMsMi44Ni0wLjQzLDUuMi0wLjYxLDdjMCwwLjE0LDAuMTEsMC4yMSwwLjM0LDAuMjQNCgkJYzAuMjIsMC4wMiwwLjM2LTAuMDMsMC40MS0wLjE3YzIuMzQtNi45OSw2LjItMTAuNDgsMTEuNTctMTAuNDhjMS4yNiwwLDIuMSwwLjI3LDIuNSwwLjgxczAuNjEsMS41OCwwLjYxLDMuMTF2MzEuMzINCgkJYzAsMS4zNS0wLjE1LDIuMzYtMC40NCwzLjAxYy0wLjI5LDAuNjUtMC44MywxLjA5LTEuNjIsMS4zMmMtMC43OSwwLjIzLTIsMC4zNC0zLjYyLDAuMzRjLTAuMTMsMC0wLjIsMC4xMy0wLjIsMC40MQ0KCQlzMC4wNywwLjQxLDAuMiwwLjQxYzEuNjcsMCwyLjk4LTAuMDIsMy45Mi0wLjA3bDUuNDgtMC4wN2w1LjYxLDAuMDdjMC45NSwwLjA0LDIuMjMsMC4wNywzLjg2LDAuMDdjMC4xMywwLDAuMi0wLjE0LDAuMi0wLjQxDQoJCXMtMC4wNy0wLjQxLTAuMi0wLjQxYy0xLjY3LDAtMi44OS0wLjExLTMuNjUtMC4zNHMtMS4yOS0wLjY1LTEuNTYtMS4yOXMtMC40MS0xLjY1LTAuNDEtMy4wNHYtMzEuMThjMC0xLjU4LDAuMjEtMi42NSwwLjY0LTMuMjENCgkJYzAuNDMtMC41NiwxLjMtMC44NSwyLjYtMC44NWMyLjcxLDAsNC45OCwwLjg3LDYuODMsMi42YzEuODUsMS43NCwzLjExLDQuMzQsMy43OSw3LjgxYzAuMDQsMC4xNCwwLjE4LDAuMiwwLjQxLDAuMg0KCQljMC4yMywwLDAuMzQtMC4wNywwLjM0LTAuMmMwLTEuOCwwLjA4LTQuMTksMC4yNC03LjE3YzAuMTYtMi45OCwwLjMtNS4xNCwwLjQ0LTYuNDlDMzk0LjU2LDM2Mi4zMSwzOTQuNDMsMzYyLjIxLDM5NC4xOCwzNjIuMjF6Ig0KCQkvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MzkuMzcsNDAzLjQ0Yy0xLjkyLTEuNDYtNC4xMS0zLjgtNi41Ni03Yy0yLjQ2LTMuMi01LjQ5LTcuNjQtOS4xLTEzLjMzYzIuMDMtMS4xNywzLjY3LTIuNzEsNC45NC00LjYNCgkJYzEuMjYtMS44OSwxLjg5LTMuODgsMS44OS01Ljk1YzAtMi43MS0xLjE0LTQuODEtMy40Mi02LjMzYy0yLjI4LTEuNTEtNS40OS0yLjI3LTkuNjQtMi4yN2MtMS4wOCwwLTIuMDIsMC4wMi0yLjgxLDAuMDcNCgkJYy0wLjc5LDAuMDUtMS40MywwLjA5LTEuOTMsMC4xNGMtMS41OCwwLjE0LTMuMDIsMC4yLTQuMzMsMC4yYy0xLjIyLDAtMi44Ni0wLjA0LTQuOTQtMC4xNGwtMy41OC0wLjA3DQoJCWMtMC4wOSwwLTAuMTQsMC4xNC0wLjE0LDAuNDFzMC4wNCwwLjQxLDAuMTQsMC40MWMxLjQsMCwyLjQzLDAuMTIsMy4xMSwwLjM3YzAuNjgsMC4yNSwxLjEzLDAuNjksMS4zNSwxLjMyDQoJCWMwLjIzLDAuNjMsMC4zNCwxLjYyLDAuMzQsMi45OHYzMS4zMmMwLDEuMzUtMC4xMiwyLjM2LTAuMzcsMy4wMWMtMC4yNSwwLjY1LTAuNywxLjA5LTEuMzUsMS4zMnMtMS43LDAuMzQtMy4xNCwwLjM0DQoJCWMtMC4xNCwwLTAuMiwwLjEzLTAuMiwwLjQxczAuMDcsMC40MSwwLjIsMC40MWMxLjUzLDAsMi43NS0wLjAyLDMuNjUtMC4wN2w0Ljk0LTAuMDdsNS4xNCwwLjA3YzAuODYsMC4wNCwyLjAzLDAuMDcsMy41MiwwLjA3DQoJCWMwLjA5LDAsMC4xMy0wLjE0LDAuMTMtMC40MXMtMC4wNC0wLjQxLTAuMTMtMC40MWMtMS40NCwwLTIuNDktMC4xMS0zLjE1LTAuMzRjLTAuNjUtMC4yMy0xLjA5LTAuNjUtMS4zMi0xLjI5DQoJCXMtMC4zNC0xLjY1LTAuMzQtMy4wNHYtMTUuNjljMC43MiwwLjA0LDEuOTYsMC4wNywzLjcyLDAuMDdjMC42OCwwLDEuMTktMC4wMiwxLjU2LTAuMDdjMy44Myw2LjY3LDcuMSwxMS44Nyw5LjgxLDE1LjU5DQoJCWMyLjcxLDMuNzIsNC41NSw1LjU4LDUuNTUsNS41OGgxMi4wNGMwLjA5LDAsMC4xMy0wLjE0LDAuMTMtMC40MXMtMC4wNC0wLjQxLTAuMTMtMC40MUM0NDMuMTQsNDA1LjY0LDQ0MS4yOCw0MDQuOTEsNDM5LjM3LDQwMy40NA0KCQl6IE00MjIuMTIsMzgwLjI3Yy0wLjQzLDEuMjItMS4xMiwyLjA4LTIuMDYsMi41N2MtMC45NSwwLjUtMi4yMywwLjc0LTMuODYsMC43NGMtMS41MywwLTIuODQtMC4wOS0zLjkyLTAuMjd2LTEzLjUzDQoJCWMwLTEuNTgsMC4zMi0yLjcxLDAuOTUtMy4zOGMwLjYzLTAuNjgsMS43MS0xLjAxLDMuMjUtMS4wMWMyLjAzLDAsMy41OCwwLjcsNC42NywyLjFjMS4wOCwxLjQsMS42MiwzLjk1LDEuNjIsNy42NA0KCQlDNDIyLjc2LDM3Ny4zNCw0MjIuNTUsMzc5LjA2LDQyMi4xMiwzODAuMjd6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQ4NC4xMSwzNjQuMjRjLTEuNjIsMC4wOS0yLjg2LDAuMTQtMy43MiwwLjE0Yy0xLjA0LDAtMi40MS0wLjA0LTQuMTMtMC4xNGwtMy4yNS0wLjA3DQoJCWMtMC4wOSwwLTAuMTMsMC4xNC0wLjEzLDAuNDFzMC4wNCwwLjQxLDAuMTMsMC40MWMxLjk4LDAsMy41MywwLjcsNC42MywyLjFjMS4xMSwxLjQsMS42NiwzLjMxLDEuNjYsNS43NXYxOC44Nw0KCQljMCw0LjI0LTEuMDYsNy41LTMuMTgsOS43N2MtMi4xMiwyLjI4LTUuMDUsMy40Mi04Ljc5LDMuNDJjLTMuODgsMC02Ljg4LTEuMjktOS0zLjg2cy0zLjE4LTYuNTQtMy4xOC0xMS45di0xOS4zNA0KCQljMC0xLjM1LDAuMTItMi4zNiwwLjM3LTMuMDFjMC4yNS0wLjY1LDAuNy0xLjEyLDEuMzUtMS4zOXMxLjY4LTAuNDEsMy4wOC0wLjQxYzAuMTMsMCwwLjItMC4xMywwLjItMC40MXMtMC4wNy0wLjQxLTAuMi0wLjQxDQoJCWwtMy40NSwwLjA3Yy0yLjA3LDAuMDktMy43OSwwLjE0LTUuMTQsMC4xNGMtMS4yMiwwLTIuODYtMC4wNC00Ljk0LTAuMTRsLTMuNTktMC4wN2MtMC4xMywwLTAuMiwwLjE0LTAuMiwwLjQxczAuMDcsMC40MSwwLjIsMC40MQ0KCQljMS40LDAsMi40MiwwLjEyLDMuMDgsMC4zN2MwLjY1LDAuMjUsMS4xMSwwLjY5LDEuMzUsMS4zMmMwLjI1LDAuNjMsMC4zNywxLjYyLDAuMzcsMi45OHYyMS44NWMwLDMuMjUsMC43Myw2LjA4LDIuMiw4LjQ5DQoJCWMxLjQ2LDIuNDEsMy40OCw0LjI1LDYuMDUsNS41MWMyLjU3LDEuMjYsNS41MiwxLjg5LDguODYsMS44OWMzLjM0LDAsNi4yOC0wLjY0LDguODMtMS45M3M0LjUyLTMuMTIsNS45Mi01LjUxDQoJCWMxLjQtMi4zOSwyLjEtNS4xNiwyLjEtOC4zMnYtMTguOGMwLTIuNDQsMC41LTQuMzUsMS40OS01Ljc1YzAuOTktMS40LDIuMzctMi4xLDQuMTMtMi4xYzAuMDksMCwwLjEzLTAuMTMsMC4xMy0wLjQxDQoJCXMtMC4wNC0wLjQxLTAuMTMtMC40MUw0ODQuMTEsMzY0LjI0eiIvPg0KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MTMuODcsMzg1Ljg5Yy0xLjM1LTEuMDgtMy4xNi0yLjM0LTUuNDEtMy43OWMtMi4wOC0xLjM1LTMuNzItMi41LTQuOTQtMy40NWMtMS4yMi0wLjk1LTIuMjQtMi4wNS0zLjA4LTMuMzENCgkJYy0wLjg0LTEuMjYtMS4yNS0yLjcxLTEuMjUtNC4zM2MwLTEuOTgsMC41Ny0zLjQ5LDEuNzItNC41M2MxLjE1LTEuMDQsMi42My0xLjU2LDQuNDMtMS41NmMyLjcxLDAsNC44MSwwLjk5LDYuMzIsMi45OA0KCQljMS41MSwxLjk5LDIuODMsNC40LDMuOTYsNy4yNGwwLjU0LDEuMjljMC4wNCwwLjE0LDAuMTgsMC4xNywwLjQsMC4xYzAuMjMtMC4wNywwLjM0LTAuMTcsMC4zNC0wLjN2LTkuOTQNCgkJYzAtMC4zMS0wLjA3LTAuNTgtMC4yLTAuNzhjLTAuMTQtMC4yLTAuNDEtMC4zOS0wLjgxLTAuNThjLTAuOTktMC40MS0yLjMtMC43NS0zLjkyLTEuMDVjLTEuNjItMC4yOS0zLjIyLTAuNDQtNC44LTAuNDQNCgkJYy0yLjM5LDAtNC42NywwLjQtNi44MywxLjE4Yy0yLjE2LDAuNzktMy45NCwyLjAxLTUuMzEsMy42NWMtMS4zOCwxLjY1LTIuMDYsMy42Ni0yLjA2LDYuMDVjMCwxLjg5LDAuNDMsMy41NCwxLjI5LDQuOTQNCgkJYzAuODYsMS40LDEuODgsMi41OSwzLjA4LDMuNThjMS4xOSwwLjk5LDIuODgsMi4xOSw1LjA0LDMuNThjMi4yMSwxLjQ0LDMuOTUsMi42OCw1LjIxLDMuNzJzMi4zMywyLjMsMy4yMSwzLjc5DQoJCWMwLjg4LDEuNDksMS4zMiwzLjIyLDEuMzIsNS4yMWMwLDIuMzQtMC41OSw0LTEuNzYsNC45N2MtMS4xNywwLjk3LTIuNjYsMS40Ni00LjQ2LDEuNDZjLTEuOTksMC0zLjc1LTAuNjUtNS4zMS0xLjk2DQoJCWMtMS41NS0xLjMxLTIuODQtMi44Mi0zLjg2LTQuNTNjLTEuMDEtMS43MS0yLjItMy45NS0zLjU1LTYuN2MtMC4wNC0wLjE4LTAuMTgtMC4yNi0wLjQxLTAuMjRjLTAuMjMsMC4wMi0wLjM0LDAuMTItMC4zNCwwLjN2MC4wNw0KCQlsMC4yLDEwLjc1YzAsMC4zNiwwLjA2LDAuNjIsMC4xNywwLjc4YzAuMTEsMC4xNiwwLjI4LDAuMzMsMC41MSwwLjUxYzAuNzcsMC42OCwyLjI1LDEuMyw0LjQ2LDEuODZjMi4yMSwwLjU2LDQuMzMsMC44NSw2LjM2LDAuODUNCgkJYzIuNzUsMCw1LjI0LTAuNTEsNy40Ny0xLjUyczMuOTgtMi40NCw1LjI0LTQuMjZjMS4yNi0xLjgzLDEuODktMy45MSwxLjg5LTYuMjZjMC0yLjAzLTAuNDctMy44Mi0xLjQyLTUuMzgNCgkJUzUxNS4yMiwzODYuOTcsNTEzLjg3LDM4NS44OXoiLz4NCgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTYyLjg3LDM2Mi4yMWMtMC4yNSwwLTAuMzksMC4wOS0wLjQ0LDAuMjdjLTAuMjMsMC42OC0wLjczLDEuMTMtMS41MiwxLjM1cy0yLjA0LDAuMzQtMy43NSwwLjM0bC00LjYsMC4wNw0KCQljLTIuOTgsMC4wOS01Ljc5LDAuMTQtOC40NiwwLjE0Yy01LjE5LDAtOS43Mi0wLjA3LTEzLjYtMC4yYy0yLjU3LDAtMy44Ni0wLjUtMy44Ni0xLjQ5YzAtMC4yMi0wLjEyLTAuMzQtMC4zNy0wLjM0DQoJCWMtMC4yNSwwLTAuMzcsMC4xMS0wLjM3LDAuMzRjMCwxLjQ0LTAuMTEsMy42LTAuMzQsNi40NmMtMC4yMywyLjg2LTAuNDMsNS4yLTAuNjEsN2MwLDAuMTQsMC4xMSwwLjIxLDAuMzQsMC4yNA0KCQljMC4yMiwwLjAyLDAuMzYtMC4wMywwLjQtMC4xN2MyLjM1LTYuOTksNi4yLTEwLjQ4LDExLjU3LTEwLjQ4YzEuMjYsMCwyLjEsMC4yNywyLjUsMC44MXMwLjYxLDEuNTgsMC42MSwzLjExdjMxLjMyDQoJCWMwLDEuMzUtMC4xNSwyLjM2LTAuNDQsMy4wMWMtMC4yOSwwLjY1LTAuODMsMS4wOS0xLjYyLDEuMzJzLTEuOTksMC4zNC0zLjYyLDAuMzRjLTAuMTMsMC0wLjIsMC4xMy0wLjIsMC40MXMwLjA3LDAuNDEsMC4yLDAuNDENCgkJYzEuNjcsMCwyLjk4LTAuMDIsMy45Mi0wLjA3bDUuNDgtMC4wN2w1LjYyLDAuMDdjMC45NSwwLjA0LDIuMjMsMC4wNywzLjg2LDAuMDdjMC4xMywwLDAuMi0wLjE0LDAuMi0wLjQxcy0wLjA3LTAuNDEtMC4yLTAuNDENCgkJYy0xLjY3LDAtMi44OS0wLjExLTMuNjUtMC4zNGMtMC43Ny0wLjIzLTEuMjktMC42NS0xLjU1LTEuMjljLTAuMjctMC42My0wLjQxLTEuNjUtMC40MS0zLjA0di0zMS4xOGMwLTEuNTgsMC4yMS0yLjY1LDAuNjQtMy4yMQ0KCQljMC40My0wLjU2LDEuMy0wLjg1LDIuNi0wLjg1YzIuNzEsMCw0Ljk4LDAuODcsNi44MywyLjZjMS44NSwxLjc0LDMuMTEsNC4zNCwzLjc5LDcuODFjMC4wNCwwLjE0LDAuMTgsMC4yLDAuNCwwLjINCgkJczAuMzQtMC4wNywwLjM0LTAuMmMwLTEuOCwwLjA4LTQuMTksMC4yNC03LjE3YzAuMTYtMi45OCwwLjMtNS4xNCwwLjQ0LTYuNDlDNTYzLjI1LDM2Mi4zMSw1NjMuMTIsMzYyLjIxLDU2Mi44NywzNjIuMjF6Ii8+DQoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI5MC42OCw0MjQuODNjMC4xOC0xLjAxLDAuOTEtNC4zMywyLjkxLTUuN2MyLjM3LTEuNjMsNS42NC05LjA4LDQuOTktMTMuMzRjLTAuNjUtNC4yNS00LjgzLTEuODgtNy40NS0zLjM2DQoJCWMtMi42Mi0xLjQ3LTEuNzItMTAuMTUtMS43Mi0xMC4xNXMxMC44LTEuNDcsMTUuMDYtMS42NGM0LjI1LTAuMTYsOC4xLTQuNTgsOC4xLTQuNThzLTI3LjA5LDAtMzEuMTgsMA0KCQljLTQuMDksMC03LjA0LTYuOTUtNy4wNC02Ljk1czM5LjkzLDAsNDUuNSwwYzUuNTYsMCw1Ljg5LTYuNTUsNS44OS02LjU1aC0zMi4zN1YyNjMuOTJoNTEuNzljMi43OCwwLDIuMjktMC44MiwyLjQ2LTIuNzgNCgkJYzAuMTYtMS45Ni02LjM4LTQuNDEtNi4zOC00LjQxcy03NC40MiwwLTc5LjE2LDBjLTQuNzUsMC0zLjQ0LTMuNi0wLjE2LTUuNzNjMy4yNy0yLjEzLDc5LjM4LTAuMTYsODEuNS0wLjk4DQoJCWMyLjEzLTAuODItMi45NS0zLjQ0LTUuODktNC4wOWMtMi45NS0wLjY1LTczLjgxLTAuODItNzUuMTItMi43OGMtMS4zMS0xLjk3LDkuOTgtMTEuNDYsMTguMzMtMTQuNzMNCgkJYzguMzUtMy4yNywzOC42MiwyLjEyLDM0LjUzLTEuNjRjLTQuMDktMy43Ni0yMy40LTExLjI5LTIzLjQtMTkuMzFjMC04LjAyLDAuNzMtMjQuODcsMy4zNS0yNi43NWMxLjctMS4yMiw0Ljg2LTMuNTcsNi40Ni01LjY0DQoJCWM3Ljc5LTEuNDgsMTUuODMtMi4yNiwyNC4wNS0yLjI2YzUxLjQsMCw5NS43NSwzMC4yLDExNi4yNyw3My44MmMtMjAuMjctNTAuODMtNjkuOTQtODYuNzUtMTI4LTg2Ljc1DQoJCWMtNzYuMDgsMC0xMzcuNzUsNjEuNjgtMTM3Ljc1LDEzNy43NWMwLDc2LjA4LDYxLjY4LDEzNy43NSwxMzcuNzUsMTM3Ljc1YzI4LjU4LDAsNTUuMTItOC43LDc3LjEyLTIzLjYNCgkJYy0xOS4xNiwxMS4zNi00MS41MSwxNy44OC02NS4zOSwxNy44OEMzMTMuNTcsNDI5LjY3LDMwMS44Miw0MjcuOTksMjkwLjY4LDQyNC44M3ogTTI4Ny40OCwyNjMuOTJ2MTA4LjY2aC0xNy43MQ0KCQljLTQuOTEsMC02LjA1LTMuMTEtNi4wNS0zLjExbC0yMi41OS0xMDUuNTVIMjg3LjQ4eiBNMTk3LjI5LDMwMS4yNGMwLTU0LjY2LDM0LjE1LTEwMS4zMyw4Mi4yNy0xMTkuODgNCgkJYzAuMzcsMS44NiwwLjkzLDMuODcsMS41OCw1Ljk3YzIuNjIsOC41MSwwLjMyLDIyLjU5LTQuMjYsMjguNDhjLTQuNTgsNS44OS0xNy42OCw5LjE2LTI0LjU1LDE0LjQNCgkJYy02Ljg3LDUuMjMtMTMuMDksMTguOTktMTYuNjksMjMuMjRjLTMuNiw0LjI2LTE0LjczLDMuOTMtMTQuNCw3LjUzYzAuMzMsMy42LDExLjc4LDIuNjIsMTEuNzgsMi42MnMyMi4yNiw5OC4zNiwyMy41NywxMDMuNTkNCgkJYzEuMzEsNS4yNC0wLjMzLDQuOTEsMC44Miw5LjQ5czYuNTUsOC4zNSwxMi42LDkuNjZjNi4wNSwxLjMxLDMuMjcsMi43OCw1LjU2LDYuMjJjMi4yOSwzLjQ0LDEwLjE0LDQuMjYsMTAuMTQsNC4yNg0KCQlzMC4zMyw0Ljc1LTEuOCw1LjljLTIuMTMsMS4xNS0zLjI3LDMuMTEtMi4xMyw3LjA0YzEuMTUsMy45MywyLjQ2LDcuNjksNS4yNCw5LjgyYzIuMjUsMS43MiwzLjIyLDQuMywzLjUsNS4yMg0KCQlDMjM2LjcxLDQwOS40OSwxOTcuMjksMzU5Ljk3LDE5Ny4yOSwzMDEuMjR6Ii8+DQo8L2c+DQo8L3N2Zz4NCg==" alt="The Lantern Trust" style="max-width: 210px; filter: invert(1);" class="mb-3">
+          <p class="small mb-0">Supporting people through housing problems, homelessness, financial hardship, mental health difficulties, addiction, isolation and crisis.</p>
+        </div>
+        <div class="col-6 col-lg-2"><h2 class="h6 text-uppercase">Get help</h2><ul class="list-unstyled small"><li><a href="#get-help">Get help</a></li><li><a href="#refer">Make a referral</a></li><li><a href="#locations">Locations</a></li><li><a href="#">Urgent help</a></li></ul></div>
+        <div class="col-6 col-lg-2"><h2 class="h6 text-uppercase">Services</h2><ul class="list-unstyled small"><li><a href="#services">Housing</a></li><li><a href="#services">Benefits</a></li><li><a href="#services">Mental health</a></li><li><a href="#services">Access Wellbeing</a></li></ul></div>
+        <div class="col-6 col-lg-2"><h2 class="h6 text-uppercase">Support us</h2><ul class="list-unstyled small"><li><a href="#support">Donate</a></li><li><a href="#support">Volunteer</a></li><li><a href="#support">Partner</a></li><li><a href="#impact">Impact</a></li></ul></div>
+        <div class="col-6 col-lg-2"><h2 class="h6 text-uppercase">Governance</h2><ul class="list-unstyled small"><li><a href="#">Annual report</a></li><li><a href="#">Accounts</a></li><li><a href="#">Safeguarding</a></li><li><a href="#">Privacy</a></li><li><a href="#">Accessibility</a></li></ul></div>
+      </div>
+      <hr class="border-secondary my-4">
+      <p class="small mb-0">Registered charity and company details to be confirmed in final build. Prototype for discussion only.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.shiftKey && event.key === 'Escape') {
+        window.location.replace('https://www.bbc.co.uk/weather');
+      }
+    });
+  </script>
+</body>
+</html>
