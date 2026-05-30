@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Lantern Trust | Homepage Prototype B</title>
+  <meta name="description" content="RNIB-inspired accessible Bootstrap homepage prototype for The Lantern Trust.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --lt-black: #000000;
+      --lt-white: #ffffff;
+      --lt-grey: #63656A;
+      --lt-light: #F5F5F2;
+      --lt-yellow: #FFD400;
+      --lt-yellow-dark: #E4BD00;
+      --lt-border: #D7D7D2;
+      --lt-soft-yellow: #FFF5BD;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--lt-black);
+      background: var(--lt-white);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    a { color: var(--lt-black); text-underline-offset: .2em; }
+    a:hover, a:focus { color: var(--lt-black); text-decoration-thickness: 3px; }
+    :focus-visible { outline: 4px solid var(--lt-yellow); outline-offset: 3px; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--lt-yellow);
+      color: var(--lt-black);
+      padding: .75rem 1rem;
+      z-index: 9999;
+      font-weight: 800;
+    }
+    .skip-link:focus { left: 1rem; top: 1rem; }
+
+    .top-strip {
+      background: var(--lt-black);
+      color: var(--lt-white);
+      font-size: .95rem;
+    }
+    .top-strip a { color: var(--lt-white); font-weight: 700; }
+    .top-strip .urgent-pill {
+      background: var(--lt-yellow);
+      color: var(--lt-black);
+      border-radius: 999px;
+      padding: .25rem .65rem;
+      font-weight: 900;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .main-nav {
+      background: var(--lt-white);
+      border-bottom: 1px solid var(--lt-border);
+    }
+    .navbar-brand img { max-height: 64px; width: auto; max-width: 220px; }
+    .nav-link { color: var(--lt-black); font-weight: 750; }
+    .nav-link:hover, .nav-link:focus { text-decoration: underline; text-decoration-thickness: 3px; }
+
+    .btn { border-radius: 999px; font-weight: 850; padding: .8rem 1.1rem; }
+    .btn-yellow { background: var(--lt-yellow); border: 2px solid var(--lt-yellow); color: var(--lt-black); }
+    .btn-yellow:hover, .btn-yellow:focus { background: var(--lt-yellow-dark); border-color: var(--lt-yellow-dark); color: var(--lt-black); }
+    .btn-black { background: var(--lt-black); border: 2px solid var(--lt-black); color: var(--lt-white); }
+    .btn-black:hover, .btn-black:focus { background: #252525; border-color: #252525; color: var(--lt-white); }
+    .btn-outline-black { background: var(--lt-white); border: 2px solid var(--lt-black); color: var(--lt-black); }
+    .btn-outline-black:hover, .btn-outline-black:focus { background: var(--lt-black); color: var(--lt-white); }
+
+    .exit-site {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1030;
+      background: var(--lt-yellow);
+      color: var(--lt-black);
+      border: 3px solid var(--lt-black);
+      border-radius: .8rem;
+      padding: .75rem 1rem;
+      font-weight: 900;
+      box-shadow: 0 .75rem 1.5rem rgba(0,0,0,.25);
+    }
+    .exit-site:hover, .exit-site:focus { background: var(--lt-yellow-dark); color: var(--lt-black); }
+
+    .hero {
+      background: var(--lt-light);
+      border-bottom: 1px solid var(--lt-border);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 900;
+      color: var(--lt-grey);
+      font-size: .85rem;
+    }
+    h1, h2, h3, h4 { line-height: 1.1; font-weight: 900; }
+    h1 { font-size: clamp(2.35rem, 6vw, 5rem); letter-spacing: -.04em; }
+    h2 { font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -.03em; }
+    .lead { font-size: clamp(1.15rem, 2vw, 1.35rem); }
+
+    .photo-card, .photo-banner, .photo-square {
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--lt-border);
+      background: var(--lt-light);
+      box-shadow: 0 .75rem 1.75rem rgba(0,0,0,.08);
+    }
+    .photo-card svg, .photo-banner svg, .photo-square svg { display: block; width: 100%; height: auto; }
+    .photo-card figcaption, .photo-square figcaption {
+      padding: .75rem 1rem;
+      font-size: .9rem;
+      background: #fff;
+      color: #333;
+    }
+
+    .route-card, .service-card, .stat-card, .location-card {
+      border: 1px solid var(--lt-border);
+      border-radius: 1.25rem;
+      background: var(--lt-white);
+      height: 100%;
+      box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.05);
+    }
+    .route-card { border-top: .55rem solid var(--lt-yellow); }
+    .route-card .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--lt-black);
+      color: var(--lt-white);
+      border-radius: 50%;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .urgent-panel {
+      background: var(--lt-black);
+      color: var(--lt-white);
+      border-radius: 1.25rem;
+      border-left: .7rem solid var(--lt-yellow);
+    }
+    .urgent-panel a { color: var(--lt-yellow); font-weight: 800; }
+
+    .section-pad { padding: 5rem 0; }
+    .section-pad-sm { padding: 3.5rem 0; }
+    .bg-light-lt { background: var(--lt-light); }
+    .bg-yellow-lt { background: var(--lt-yellow); }
+    .bg-black-lt { background: var(--lt-black); color: var(--lt-white); }
+    .bg-black-lt a { color: var(--lt-white); }
+
+    .donate-feature {
+      background: var(--lt-yellow);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,.15);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .footer { background: var(--lt-black); color: var(--lt-white); }
+    .footer a { color: var(--lt-white); }
+    .footer .small { color: #DADADA; }
+
+    .image-note {
+      background: rgba(255,212,0,.9);
+      color: #000;
+      font-weight: 800;
+      padding: .5rem .75rem;
+      border-radius: .6rem;
+      display: inline-block;
+      margin-top: .75rem;
+    }
+
+    @media (max-width: 991px) {
+      .top-strip .container { gap: .5rem; }
+      .navbar-brand img { max-height: 54px; }
+      .section-pad { padding: 3.5rem 0; }
+      .exit-site { left: 1rem; right: 1rem; bottom: .75rem; text-align: center; }
+      body { padding-bottom: 4.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <button class="exit-site" type="button" onclick="window.location.replace('https://www.bbc.co.uk/weather')" aria-label="Exit this site quickly and go to BBC Weather">Exit site</button>
+
+  <header>
+    <div class="top-strip py-2" aria-label="Useful links">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <a class="urgent-pill" href="#urgent">Need urgent help?</a>
+          <span>Drop-in: Mon–Fri, 10am–2pm</span>
+          <span>Call: <a href="tel:01305787940">01305 787940</a></span>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <a href="#refer">Make a referral</a>
+          <a href="#donate">Donate</a>
+          <a href="#safety">Stay safe online</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg main-nav" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#" aria-label="The Lantern Trust homepage">
+          <img src="lantern-logo-black.png" alt="The Lantern Trust">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#help">Get help</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#locations">Locations</a></li>
+            <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item ms-lg-2"><a class="btn btn-yellow" href="#help">Get help now</a></li>
+            <li class="nav-item"><a class="btn btn-outline-black" href="#donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section-pad">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p class="eyebrow mb-3">The Lantern Trust · Weymouth, Portland and Dorset</p>
+            <h1>Help, support and a safe place to be heard.</h1>
+            <p class="lead mt-4">We support people facing homelessness, housing problems, financial hardship, mental health difficulties, addiction, isolation and crisis.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="#help" class="btn btn-yellow btn-lg">I need help</a>
+              <a href="#refer" class="btn btn-black btn-lg">Refer someone</a>
+              <a href="#donate" class="btn btn-outline-black btn-lg">Support Lantern</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <figure class="photo-card mb-0">
+              <svg viewBox="0 0 900 620" role="img" aria-labelledby="hero-title hero-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="hero-title">Placeholder photograph of a welcoming support conversation</title>
+                <desc id="hero-desc">A warm placeholder image showing two people sitting together in a supportive setting. Replace with approved Lantern photography.</desc>
+                <rect width="900" height="620" fill="#f5f5f2"/>
+                <rect x="0" y="420" width="900" height="200" fill="#63656A" opacity=".18"/>
+                <circle cx="280" cy="210" r="74" fill="#63656A"/>
+                <circle cx="600" cy="225" r="74" fill="#000"/>
+                <path d="M150 560c25-130 100-200 215-200s185 70 210 200" fill="#FFD400"/>
+                <path d="M475 560c20-115 88-180 190-180s166 65 185 180" fill="#000" opacity=".9"/>
+                <rect x="85" y="70" width="730" height="55" rx="28" fill="#FFD400"/>
+                <text x="120" y="107" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#000">Approved Lantern photo here</text>
+              </svg>
+              <figcaption>Use a real, consented photo that feels calm, human and non-stigmatising.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="urgent" class="section-pad-sm">
+      <div class="container">
+        <div class="urgent-panel p-4 p-lg-5">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <h2 class="h1">Nowhere safe to stay tonight?</h2>
+              <p class="lead mb-0">If you are in immediate danger or at risk of violence, call <strong>999</strong>. If you have nowhere to stay outside normal working hours, call Dorset Council’s emergency out-of-hours service on <strong>01305 221000</strong>. During Lantern opening hours, contact us or visit the drop-in and we will help you understand your options.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a class="btn btn-yellow btn-lg" href="#locations">Find contact details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="help" class="section-pad bg-light-lt">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-lg-8">
+            <p class="eyebrow">Choose the route you need</p>
+            <h2>Start in the right place.</h2>
+            <p class="lead">The homepage should work for people in crisis, professionals making referrals, and supporters who want Lantern to keep being here.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="route-card p-4">
+              <span class="number">1</span>
+              <h3>I need help</h3>
+              <p>For people facing homelessness, housing worries, money problems, mental health difficulties, addiction, isolation or crisis.</p>
+              <a class="btn btn-yellow" href="#locations">Get help now</a>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="route-card p-4">
+              <span class="number">2</span>
+              <h3>Refer someone</h3>
+              <p>For professionals, partner organisations, family members or friends who want to connect someone with support.</p>
+              <a class="btn btn-black" href="#refer">Make a referral</a>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="route-card p-4">
+              <span class="number">3</span>
+              <h3>Support Lantern</h3>
+              <p>Donate, volunteer, fund our work, or partner with us to keep practical and emotional support available locally.</p>
+              <a class="btn btn-outline-black" href="#donate">Donate or support</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section-pad">
+      <div class="container">
+        <div class="row align-items-end mb-4 g-4">
+          <div class="col-lg-7">
+            <p class="eyebrow">What we help with</p>
+            <h2>Practical help, emotional support and trusted relationships.</h2>
+          </div>
+          <div class="col-lg-5">
+            <p class="lead mb-0">Services are grouped by need first, so people do not have to understand internal service names before asking for help.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="service-card p-4">
+              <h3 class="h4">Housing and homelessness</h3>
+              <p>Housing support, homeless support, drop-in support and help understanding immediate options.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="service-card p-4">
+              <h3 class="h4">Money and benefits</h3>
+              <p>Benefit advice, practical forms, appointments, money worries and signposting to specialist advice.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="service-card p-4">
+              <h3 class="h4">Mental health and emotional support</h3>
+              <p>A calm space to be listened to, stabilise, build trust and work through what is happening.</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="service-card p-4">
+              <h3 class="h4">Access Wellbeing and community</h3>
+              <p>Support to reconnect, build confidence, reduce isolation and move forward at a safe pace.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad bg-light-lt">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <figure class="photo-square mb-0">
+              <svg viewBox="0 0 760 620" role="img" aria-labelledby="services-img-title services-img-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="services-img-title">Placeholder photograph of the Lantern drop-in space</title>
+                <desc id="services-img-desc">A placeholder image showing a welcoming indoor support space. Replace with approved Lantern photography.</desc>
+                <rect width="760" height="620" fill="#ffffff"/>
+                <rect x="50" y="80" width="660" height="390" rx="28" fill="#63656A" opacity=".18"/>
+                <rect x="90" y="130" width="240" height="180" rx="20" fill="#FFD400"/>
+                <rect x="390" y="130" width="260" height="180" rx="20" fill="#000" opacity=".9"/>
+                <rect x="130" y="380" width="500" height="45" rx="22" fill="#63656A"/>
+                <text x="100" y="545" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#000">Drop-in / hub photo here</text>
+              </svg>
+              <figcaption>Image slot: drop-in, hub, doorway, team or neutral community setting.</figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-6">
+            <p class="eyebrow">How support works</p>
+            <h2>People do not need to have everything worked out before they come to us.</h2>
+            <div class="mt-4">
+              <div class="d-flex gap-3 mb-4">
+                <strong class="number bg-black-lt rounded-circle d-inline-flex align-items-center justify-content-center" style="width:2.4rem;height:2.4rem;min-width:2.4rem;">1</strong>
+                <div><h3 class="h5">Contact us or visit</h3><p class="mb-0">People can call, email, use the referral route or visit the drop-in during opening hours.</p></div>
+              </div>
+              <div class="d-flex gap-3 mb-4">
+                <strong class="number bg-black-lt rounded-circle d-inline-flex align-items-center justify-content-center" style="width:2.4rem;height:2.4rem;min-width:2.4rem;">2</strong>
+                <div><h3 class="h5">We listen first</h3><p class="mb-0">We take time to understand what is happening and what feels most urgent.</p></div>
+              </div>
+              <div class="d-flex gap-3 mb-4">
+                <strong class="number bg-black-lt rounded-circle d-inline-flex align-items-center justify-content-center" style="width:2.4rem;height:2.4rem;min-width:2.4rem;">3</strong>
+                <div><h3 class="h5">We agree the next step</h3><p class="mb-0">This may be practical help, emotional support, advocacy, referral or connection to another service.</p></div>
+              </div>
+              <div class="d-flex gap-3">
+                <strong class="number bg-black-lt rounded-circle d-inline-flex align-items-center justify-content-center" style="width:2.4rem;height:2.4rem;min-width:2.4rem;">4</strong>
+                <div><h3 class="h5">We stay alongside people where we can</h3><p class="mb-0">Support is shaped around the person, their safety and the services available.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="locations" class="section-pad">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-lg-8">
+            <p class="eyebrow">Locations and contact</p>
+            <h2>A multi-site front door for Lantern support.</h2>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="location-card p-4">
+              <h3 class="h4">Lantern main drop-in</h3>
+              <p>2 Ranelagh Road, Weymouth, DT4 7JD</p>
+              <p><strong>Drop-in:</strong><br>Mon–Fri, 10am–2pm</p>
+              <p><strong>Phone/email:</strong><br>Mon–Fri, 9am–5pm</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="location-card p-4">
+              <h3 class="h4">New hub</h3>
+              <p>Location and opening times to be confirmed.</p>
+              <p class="image-note">Placeholder for team review</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="location-card p-4">
+              <h3 class="h4">Access Wellbeing</h3>
+              <p>Access route, location and opening times to be confirmed.</p>
+              <p class="image-note">Placeholder for team review</p>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="location-card p-4">
+              <h3 class="h4">Outreach and partners</h3>
+              <p>Use this card for outreach, partner locations or future community support points.</p>
+              <p class="image-note">Expandable later</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="refer" class="section-pad bg-black-lt">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <p class="eyebrow text-white-50">Professionals, partners, family and friends</p>
+            <h2>Refer someone to Lantern.</h2>
+            <p class="lead">Use the referral form, call us, or use the Single Point of Access details once confirmed. If you are unsure whether Lantern is the right support, contact us and we will help you think through the next step.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a class="btn btn-yellow btn-lg" href="#">Complete referral form</a>
+              <a class="btn btn-outline-light btn-lg" href="tel:01305787940">Call 01305 787940</a>
+            </div>
+            <p class="mt-4 mb-0"><strong>SPOA:</strong> details to confirm. Please only share personal information where you have consent, unless there is an immediate safeguarding concern.</p>
+          </div>
+          <div class="col-lg-5">
+            <figure class="photo-card mb-0">
+              <svg viewBox="0 0 720 520" role="img" aria-labelledby="refer-img-title refer-img-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="refer-img-title">Placeholder image for professional referral support</title>
+                <desc id="refer-img-desc">A placeholder image showing documents and a conversation, to be replaced with approved Lantern photography.</desc>
+                <rect width="720" height="520" fill="#F5F5F2"/>
+                <rect x="90" y="80" width="260" height="330" rx="22" fill="#fff" stroke="#63656A" stroke-width="6"/>
+                <rect x="130" y="130" width="180" height="20" rx="10" fill="#000"/>
+                <rect x="130" y="180" width="150" height="18" rx="9" fill="#63656A"/>
+                <rect x="130" y="225" width="185" height="18" rx="9" fill="#63656A"/>
+                <circle cx="500" cy="185" r="62" fill="#FFD400"/>
+                <path d="M390 450c18-100 75-155 160-155s142 55 160 155" fill="#000"/>
+              </svg>
+              <figcaption class="text-dark">Image slot: referral, professional conversation or service coordination.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section-pad">
+      <div class="container">
+        <div class="row align-items-end mb-4 g-4">
+          <div class="col-lg-7">
+            <p class="eyebrow">Impact and assurance</p>
+            <h2>Trusted local support for more than 40 years.</h2>
+          </div>
+          <div class="col-lg-5">
+            <p class="lead mb-0">This section gives commissioners, funders and supporters confidence without taking priority away from people seeking help.</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-3"><div class="stat-card p-4"><strong>1983</strong><span>Founded in Weymouth</span></div></div>
+          <div class="col-md-3"><div class="stat-card p-4"><strong>809</strong><span>People supported this year</span></div></div>
+          <div class="col-md-3"><div class="stat-card p-4"><strong>135</strong><span>People housed with Lantern involvement</span></div></div>
+          <div class="col-md-3"><div class="stat-card p-4"><strong>10,577</strong><span>Interventions this year</span></div></div>
+        </div>
+        <p class="mt-3 mb-0 small">Prototype figures based on existing website content; refresh and approve before launch.</p>
+      </div>
+    </section>
+
+    <section id="donate" class="section-pad-sm">
+      <div class="container">
+        <div class="donate-feature">
+          <div class="row g-0 align-items-center">
+            <div class="col-lg-7 p-4 p-lg-5">
+              <p class="eyebrow text-dark">Donate and support</p>
+              <h2>Help keep Lantern here for people who need us.</h2>
+              <p class="lead">Your support helps Lantern provide practical help, emotional support and trusted relationships for people facing crisis and complex challenges.</p>
+              <div class="d-flex flex-wrap gap-3 mt-4">
+                <a href="#" class="btn btn-black btn-lg">Donate now</a>
+                <a href="#" class="btn btn-outline-black btn-lg">Volunteer</a>
+                <a href="#" class="btn btn-outline-black btn-lg">Fund our work</a>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <svg viewBox="0 0 760 520" role="img" aria-labelledby="donate-img-title donate-img-desc" xmlns="http://www.w3.org/2000/svg">
+                <title id="donate-img-title">Placeholder image for donating to Lantern</title>
+                <desc id="donate-img-desc">A graphic placeholder showing people and a heart, to be replaced with approved photography or campaign artwork.</desc>
+                <rect width="760" height="520" fill="#FFD400"/>
+                <circle cx="265" cy="175" r="62" fill="#000"/>
+                <circle cx="475" cy="175" r="62" fill="#63656A"/>
+                <path d="M135 470c23-125 95-195 210-195s185 70 210 195" fill="#fff" opacity=".9"/>
+                <path d="M360 470c18-105 82-165 180-165s158 60 180 165" fill="#000" opacity=".88"/>
+                <path d="M380 110c25-45 95-32 95 22 0 50-95 105-95 105s-95-55-95-105c0-54 70-67 95-22z" fill="#FFD400" stroke="#000" stroke-width="8"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-pad bg-light-lt">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <p class="eyebrow">About Lantern</p>
+            <h2>We listen first, then help people take the next step.</h2>
+            <p class="lead">The Lantern Trust has supported people in Weymouth and Portland since 1983. We work with people facing complex challenges, offering practical support, emotional support and trusted relationships that help people move forward.</p>
+            <a href="#" class="btn btn-outline-black">Read more about Lantern</a>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-4 p-lg-5 bg-white rounded-4 border">
+              <h3 class="h4">Future pages to add after approval</h3>
+              <ul class="mb-0">
+                <li>Detailed service pages</li>
+                <li>Referral form and SPOA details</li>
+                <li>Impact and annual reports</li>
+                <li>Safeguarding and accessibility statements</li>
+                <li>Partner and funder information</li>
+                <li>News, stories and campaigns</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety" class="section-pad-sm">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="border rounded-4 p-4 p-lg-5">
+              <h2 class="h3">Stay safe online</h2>
+              <p>If you are worried someone may see that you have visited this website, use the <strong>Exit site</strong> button to leave quickly. This does not delete your browser history or protect you from monitoring software. Use a safer device or private browsing when it is safe to do so.</p>
+              <p class="mb-0">Prototype behaviour: click <strong>Exit site</strong> or press <strong>Shift + Esc</strong> to leave for BBC Weather.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-pad-sm">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3">
+          <h2 class="h5">Get help</h2>
+          <ul class="list-unstyled">
+            <li><a href="#help">Get help</a></li>
+            <li><a href="#refer">Make a referral</a></li>
+            <li><a href="#urgent">Urgent help</a></li>
+            <li><a href="#locations">Locations</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h5">Services</h2>
+          <ul class="list-unstyled">
+            <li><a href="#services">Housing and homelessness</a></li>
+            <li><a href="#services">Benefit advice</a></li>
+            <li><a href="#services">Mental health</a></li>
+            <li><a href="#services">Access Wellbeing</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h5">Support us</h2>
+          <ul class="list-unstyled">
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#donate">Volunteer</a></li>
+            <li><a href="#donate">Partner with us</a></li>
+            <li><a href="#donate">Fund our work</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h2 class="h5">Governance</h2>
+          <ul class="list-unstyled">
+            <li><a href="#">Annual report</a></li>
+            <li><a href="#">Accounts</a></li>
+            <li><a href="#">Safeguarding</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Accessibility statement</a></li>
+            <li><a href="#">Complaints</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-secondary my-4">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-8">
+          <p class="small mb-0">The Lantern Trust. Charity and company details to be confirmed in final build. Prototype for discussion only.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <p class="small mb-0">Website prototype · Version B</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('keydown', function(event) {
+      if (event.shiftKey && event.key === 'Escape') {
+        window.location.replace('https://www.bbc.co.uk/weather');
+      }
+    });
+  </script>
+</body>
+</html>
