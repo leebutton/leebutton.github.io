@@ -3,814 +3,92 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lee Button Associates | Healthcare Strategy, Facilitation and Organisational Development</title>
-  <meta name="description" content="Lee Button works with healthcare and public sector leaders to turn shared strategy into coordinated action through facilitation, organisational development and the Horizon Method.">
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+  <title>Lee Button — Ideas, observations &amp; conversations</title>
+  <meta name="description" content="Lee Button on shared responsibility, creating health and everyday life. A personal home for writing, ideas and conversations.">
+  <meta name="theme-color" content="#FAF8F3">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512.0000%20512.0000%22%20role%3D%22img%22%20aria-labelledby%3D%22title%22%3E%3Ctitle%20id%3D%22title%22%3ELee%20Button%3C%2Ftitle%3E%0A%3Cpath%20fill%3D%22%23FAF8F3%22%20d%3D%22M0%200H512V512H0Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23A65E00%22%20d%3D%22M195.9472295514512%20415.99999999999994%20285.6569920844327%2095.99999999999994H316.0527704485488L226.55408970976254%20415.99999999999994Z%22%2F%3E%0A%3C%2Fsvg%3E">
   <style>
-    :root {
-      --lba-dark: #434a4e;
-      --lba-green: #97ca3d;
-      --lba-blue: #1f929a;
-      --lba-turquoise: #56c2b6;
-      --lba-grey: #868d88;
-      --lba-light: #c5c5bd;
-      --lba-soft: #f7f7f3;
-      --lba-white: #ffffff;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--lba-dark);
-      background: var(--lba-white);
-      line-height: 1.6;
-    }
-
-    h1, h2, h3, h4 {
-      color: var(--lba-dark);
-      letter-spacing: -0.035em;
-      line-height: 1.05;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 8vw, 6.25rem);
-      max-width: 980px;
-    }
-
-    h2 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      max-width: 900px;
-    }
-
-    h3 {
-      font-size: clamp(1.35rem, 2vw, 1.8rem);
-    }
-
-    p {
-      font-size: 1.05rem;
-    }
-
-    .lead {
-      font-size: clamp(1.15rem, 2vw, 1.45rem);
-      line-height: 1.55;
-    }
-
-    .navbar {
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(67, 58, 78, 0.08);
-    }
-
-    .navbar-brand {
-      color: var(--lba-dark);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.35rem 0;
-    }
-
-    /*
-      Logo sizing guidance:
-      - Header logo: use the full horizontal logo/wordmark if available.
-      - Recommended source asset: SVG or transparent PNG.
-      - Ideal exported file: at least 520px wide, used visually at 180–220px wide.
-      - Mobile visual width: 150–170px.
-      - Keep the height constrained so the navbar remains calm and premium.
-    */
-    .site-logo-img {
-      width: clamp(150px, 18vw, 220px);
-      max-height: 52px;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-
-    .site-logo-fallback {
-      display: none;
-    }
-
-    .nav-link {
-      color: var(--lba-dark);
-      font-weight: 500;
-    }
-
-    .nav-link:hover,
-    .nav-link:focus {
-      color: var(--lba-blue);
-    }
-
-    .btn-lba {
-      background: var(--lba-dark);
-      color: #fff;
-      border-radius: 999px;
-      padding: 0.85rem 1.35rem;
-      font-weight: 650;
-      border: 2px solid var(--lba-dark);
-    }
-
-    .btn-lba:hover,
-    .btn-lba:focus {
-      background: transparent;
-      color: var(--lba-dark);
-      border-color: var(--lba-dark);
-    }
-
-    .btn-lba-outline {
-      background: transparent;
-      color: var(--lba-dark);
-      border: 2px solid rgba(67, 58, 78, 0.22);
-      border-radius: 999px;
-      padding: 0.85rem 1.35rem;
-      font-weight: 650;
-    }
-
-    .btn-lba-outline:hover,
-    .btn-lba-outline:focus {
-      border-color: var(--lba-blue);
-      color: var(--lba-blue);
-    }
-
-    .eyebrow {
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--lba-blue);
-      margin-bottom: 1rem;
-    }
-
-    .section {
-      padding: clamp(4rem, 9vw, 8rem) 0;
-    }
-
-    .section-soft {
-      background: var(--lba-soft);
-    }
-
-    .hero {
-      padding: clamp(6.5rem, 12vw, 11rem) 0 clamp(4rem, 8vw, 7rem);
-      min-height: 92vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      right: -180px;
-      top: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(86, 194, 182, 0.22), rgba(151, 202, 61, 0.08), transparent 68%);
-      z-index: 0;
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-copy {
-      max-width: 780px;
-    }
-
-    .method-line {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-top: 2rem;
-      color: var(--lba-dark);
-    }
-
-    .method-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(31, 146, 154, 0.08);
-      font-weight: 650;
-      font-size: 0.95rem;
-    }
-
-    .method-pill span {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background: var(--lba-green);
-      display: inline-block;
-    }
-
-
-    /*
-      Method break:
-      - Intentionally simple three-column treatment.
-      - Designed as a clean placeholder that could later be replaced by a custom graphic.
-    */
-    .method-break {
-      background: var(--lba-dark);
-      color: #fff;
-      padding: clamp(1.6rem, 3.5vw, 2.6rem) 0;
-    }
-
-    .method-break-item {
-      padding: 0.35rem 0;
-    }
-
-    .method-break-kicker {
-      display: block;
-      color: var(--lba-green);
-      font-size: 0.78rem;
-      font-weight: 850;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 0.45rem;
-    }
-
-    .method-break-title {
-      color: #fff;
-      font-size: clamp(1.25rem, 2vw, 1.65rem);
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-      margin-bottom: 0;
-    }
-    
-    @media (min-width: 768px) {
-      .method-break-item {
-        border-left: 1px solid rgba(255, 255, 255, 0.22);
-        padding-left: 1.5rem;
-      }
-
-      .method-break-item:first-child {
-        border-left: 0;
-        padding-left: 0;
-      }
-    }
-
-    .recognition-line {
-      border-left: 4px solid var(--lba-green);
-      padding-left: 1rem;
-      margin-bottom: 1rem;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--lba-dark);
-    }
-
-    .card-lba {
-      border: 1px solid rgba(67, 58, 78, 0.1);
-      border-radius: 1.5rem;
-      padding: clamp(1.5rem, 3vw, 2.25rem);
-      height: 100%;
-      background: #fff;
-      box-shadow: 0 1rem 3rem rgba(67, 58, 78, 0.05);
-    }
-
-    .method-number {
-      width: 2.6rem;
-      height: 2.6rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--lba-dark);
-      color: #fff;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-    }
-
-    .service-card {
-      border-top: 3px solid var(--lba-turquoise);
-      background: #fff;
-      padding: 1.5rem;
-      height: 100%;
-      border-radius: 0 0 1.2rem 1.2rem;
-      box-shadow: 0 1rem 2.5rem rgba(67, 58, 78, 0.045);
-    }
-
-    .quote {
-      font-size: clamp(1.35rem, 3vw, 2.25rem);
-      line-height: 1.25;
-      letter-spacing: -0.04em;
-      color: var(--lba-dark);
-    }
-
-    .logo-strip {
-      border-top: 1px solid rgba(67, 58, 78, 0.12);
-      border-bottom: 1px solid rgba(67, 58, 78, 0.12);
-      padding: 1.5rem 0;
-      margin: 2rem 0;
-    }
-
-    .logo-placeholder {
-      min-height: 56px;
-      border: 1px dashed rgba(67, 58, 78, 0.22);
-      border-radius: 0.75rem;
-      color: var(--lba-grey);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(255, 255, 255, 0.45);
-    }
-
-  /*
-      Profile image guidance:
-      - Use one strong, natural portrait of Lee rather than stock imagery.
-      - Recommended crop: portrait 4:5 ratio.
-      - Suggested upload/export: 1200px x 1500px minimum.
-      - Homepage display: approximately 360–460px wide on desktop.
-      - Object-position can be adjusted if the crop needs better headroom.
-    */
-    .profile-photo-frame {
-      aspect-ratio: 4 / 5;
-      border-radius: 2rem;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(31, 146, 154, 0.14), rgba(151, 202, 61, 0.12)),
-        var(--lba-soft);
-      border: 1px solid rgba(67, 58, 78, 0.08);
-      box-shadow: 0 1.5rem 4rem rgba(67, 58, 78, 0.08);
-      position: relative;
-    }
-
-    .profile-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
- .image-placeholder-note {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--lba-grey);
-      font-weight: 700;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .cta-panel {
-      background: var(--lba-dark);
-      color: #fff;
-      border-radius: 2rem;
-      padding: clamp(2rem, 6vw, 5rem);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-panel::after {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      right: -100px;
-      bottom: -130px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(151, 202, 61, 0.30), rgba(86, 194, 182, 0.12), transparent 70%);
-    }
-
-    .cta-panel h2,
-    .cta-panel p,
-    .cta-panel .eyebrow {
-      color: #fff;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-panel .btn {
-      position: relative;
-      z-index: 1;
-      background: #fff;
-      color: var(--lba-dark);
-      border-color: #fff;
-    }
-
-    .cta-panel .btn:hover,
-    .cta-panel .btn:focus {
-      background: transparent;
-      color: #fff;
-      border-color: #fff;
-    }
-
-/*
-      Footer brand ident guidance:
-      - Use the compact icon/ident if you have one; otherwise use the full wordmark.
-      - Recommended compact ident display: 72–96px wide.
-      - Recommended source asset: SVG or transparent PNG, exported at least 240px wide.
-      - Keep it quiet; it should sign off the page, not compete with the CTA.
-    */
-    .footer-brand-ident {
-      width: clamp(72px, 8vw, 96px);
-      height: auto;
-      display: block;
-      margin-bottom: 1.25rem;
-    }
-
-    .footer-wordmark {
-      width: clamp(170px, 20vw, 240px);
-      height: auto;
-      display: block;
-      margin-bottom: 1.25rem;
-    }
-
-    footer {
-      padding: 3rem 0;
-      border-top: 1px solid rgba(67, 58, 78, 0.1);
-      color: var(--lba-grey);
-      font-size: 0.95rem;
-    }
-
-    footer a {
-      color: var(--lba-dark);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      color: var(--lba-blue);
-    }
-
-    @media (max-width: 991px) {
-      .hero {
-        min-height: auto;
-      }
-
-      .navbar .btn {
-        margin-top: 1rem;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .method-line {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero {
-        padding-top: 6rem;
-      }
+    :root { color-scheme: light; --paper: #FAF8F3; --ink: #282A29; --amber: #A65E00; --rule: #d5d3ce; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1.125rem/1.6 Arial, Helvetica, sans-serif; }
+    .page { width: min(100% - 3rem, 64rem); margin-inline: auto; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+    .skip { position: absolute; top: -6rem; left: 1.5rem; padding: .5rem; background: var(--paper); }
+    .skip:focus { top: 1rem; }
+    header { padding-block: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .wordmark { display: block; width: 220px; height: auto; }
+    nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; font-size: .9375rem; }
+    nav a { display: inline-flex; align-items: center; min-height: 44px; }
+    h1, h2, h3, p { margin: 0; }
+    h1 { max-width: 17ch; font-size: clamp(2rem, 4.4vw, 3.5rem); line-height: 1.12; letter-spacing: -.035em; font-weight: 400; }
+    h2 { font-size: 1.125rem; line-height: 1.5; }
+    h3 { font-size: 1.25rem; line-height: 1.4; font-weight: 400; }
+    p + p { margin-top: 1rem; }
+    .intro { padding-block: 3rem 4rem; }
+    .intro p { max-width: 39rem; margin-top: 1.5rem; }
+    .eyebrow { font-size: .875rem; margin-bottom: 1.5rem; color: var(--amber); }
+    .section { border-top: 1px solid var(--rule); padding-block: 2rem; display: grid; grid-template-columns: 13rem 1fr; gap: 2rem; }
+    .section > div { max-width: 40rem; }
+    .themes { list-style: none; margin: 0; padding: 0; }
+    .themes li + li { margin-top: 1.25rem; }
+    .themes p { margin-top: .25rem; }
+    .channels { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .channels p { margin-top: .5rem; }
+    .status { display: block; margin-top: 1rem; font-size: .875rem; color: var(--amber); }
+    footer { border-top: 1px solid var(--rule); margin-top: 1rem; padding-block: 1.5rem 3rem; font-size: .875rem; }
+    @media (max-width: 640px) {
+      header { align-items: flex-start; flex-direction: column; gap: 1.5rem; padding-block: 2.5rem 1rem; }
+      .intro { padding-block: 2rem 3rem; }
+      .section { grid-template-columns: 1fr; gap: 1rem; }
+      .channels { grid-template-columns: 1fr; gap: 1.5rem; }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#" aria-label="Lee Button Associates home">
-        <!-- Replace this path with the final header logo asset. Preferred: horizontal SVG wordmark. -->
-        <img class="site-logo-img" src="img/Lee_Button_Logo_Wordmark.svg" alt="Lee Button Associates">
-        <span class="site-logo-fallback">Lee Button Associates</span>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div id="mainNav" class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav align-items-lg-center gap-lg-3">
-          <li class="nav-item"><a class="nav-link" href="#method">The Method</a></li>
-          <li class="nav-item"><a class="nav-link" href="#how-i-help">How I Help</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item ms-lg-2"><a class="btn btn-lba btn-sm" href="#contact">Start a conversation</a></li>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header>
+      <img class="wordmark" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2010294.1600%201925.6000%22%20role%3D%22img%22%20aria-labelledby%3D%22title%22%3E%3Ctitle%20id%3D%22title%22%3ELee%20Button%3C%2Ftitle%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M204.8%201695.8V229.79999999999995H384.8V1695.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M1390.8%201353.8%201576.8%201376.8Q1532.8%201539.8%201413.8%201629.8Q1294.8%201719.8%201109.8%201719.8Q876.8%201719.8%20740.3%201576.3Q603.8%201432.8%20603.8%201173.8Q603.8%20905.8%20741.8%20757.8Q879.8%20609.8%201099.8%20609.8Q1312.8%20609.8%201447.8%20754.8Q1582.8%20899.8%201582.8%201162.8Q1582.8%201178.8%201581.8%201210.8H789.8Q799.8%201385.8%20888.8%201478.8Q977.8%201571.8%201110.8%201571.8Q1209.8%201571.8%201279.8%201519.8Q1349.8%201467.8%201390.8%201353.8ZM799.8%201062.8H1392.8Q1380.8%20928.8%201324.8%20861.8Q1238.8%20757.8%201101.8%20757.8Q977.8%20757.8%20893.3%20840.8Q808.8%20923.8%20799.8%201062.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M2529.8%201353.8%202715.8%201376.8Q2671.8%201539.8%202552.8%201629.8Q2433.8%201719.8%202248.8%201719.8Q2015.8%201719.8%201879.3%201576.3Q1742.8%201432.8%201742.8%201173.8Q1742.8%20905.8%201880.8%20757.8Q2018.8%20609.8%202238.8%20609.8Q2451.8%20609.8%202586.8%20754.8Q2721.8%20899.8%202721.8%201162.8Q2721.8%201178.8%202720.8%201210.8H1928.8Q1938.8%201385.8%202027.8000000000002%201478.8Q2116.8%201571.8%202249.8%201571.8Q2348.8%201571.8%202418.8%201519.8Q2488.8%201467.8%202529.8%201353.8ZM1938.8%201062.8H2531.8Q2519.8%20928.8%202463.8%20861.8Q2377.8%20757.8%202240.8%20757.8Q2116.8%20757.8%202032.3000000000002%20840.8Q1947.8%20923.8%201938.8%201062.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M3676.8%201695.8H3509.8V229.79999999999995H3689.8V752.8Q3803.8%20609.8%203980.8%20609.8Q4078.8%20609.8%204166.3%20649.3Q4253.8%20688.8%204310.3%20760.3Q4366.8%20831.8%204398.8%20932.8Q4430.8%201033.8%204430.8%201148.8Q4430.8%201421.8%204295.8%201570.8Q4160.8%201719.8%203971.8%201719.8Q3783.8%201719.8%203676.8%201562.8ZM3674.8%201156.8Q3674.8%201347.8%203726.8%201432.8Q3811.8%201571.8%203956.8%201571.8Q4074.8%201571.8%204160.8%201469.3Q4246.8%201366.8%204246.8%201163.8Q4246.8%20955.8%204164.3%20856.8Q4081.8%20757.8%203964.8%20757.8Q3846.8%20757.8%203760.8%20860.3Q3674.8%20962.8%203674.8%201156.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M5345.8%201695.8V1539.8Q5221.8%201719.8%205008.8%201719.8Q4914.8%201719.8%204833.3%201683.8Q4751.8%201647.8%204712.3%201593.3Q4672.8%201538.8%204656.8%201459.8Q4645.8%201406.8%204645.8%201291.8V633.8H4825.8V1222.8Q4825.8%201363.8%204836.8%201412.8Q4853.8%201483.8%204908.8%201524.3Q4963.8%201564.8%205044.8%201564.8Q5125.8%201564.8%205196.8%201523.3Q5267.8%201481.8%205297.3%201410.3Q5326.8%201338.8%205326.8%201202.8V633.8H5506.8V1695.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M6181.8%201534.8%206207.8%201693.8Q6131.8%201709.8%206071.8%201709.8Q5973.8%201709.8%205919.8%201678.8Q5865.8%201647.8%205843.8%201597.3Q5821.8%201546.8%205821.8%201384.8V773.8H5689.8V633.8H5821.8V370.79999999999995L6000.8%20262.79999999999995V633.8H6181.8V773.8H6000.8V1394.8Q6000.8%201471.8%206010.3%201493.8Q6019.8%201515.8%206041.3%201528.8Q6062.8%201541.8%206102.8%201541.8Q6132.8%201541.8%206181.8%201534.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M6750.8%201534.8%206776.8%201693.8Q6700.8%201709.8%206640.8%201709.8Q6542.8%201709.8%206488.8%201678.8Q6434.8%201647.8%206412.8%201597.3Q6390.8%201546.8%206390.8%201384.8V773.8H6258.8V633.8H6390.8V370.79999999999995L6569.8%20262.79999999999995V633.8H6750.8V773.8H6569.8V1394.8Q6569.8%201471.8%206579.3%201493.8Q6588.8%201515.8%206610.3%201528.8Q6631.8%201541.8%206671.8%201541.8Q6701.8%201541.8%206750.8%201534.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M6859.8%201164.8Q6859.8%20869.8%207023.8%20727.8Q7160.8%20609.8%207357.8%20609.8Q7576.8%20609.8%207715.8%20753.3Q7854.8%20896.8%207854.8%201149.8Q7854.8%201354.8%207793.3%201472.3Q7731.8%201589.8%207614.3%201654.8Q7496.8%201719.8%207357.8%201719.8Q7134.8%201719.8%206997.3%201576.8Q6859.8%201433.8%206859.8%201164.8ZM7044.8%201164.8Q7044.8%201368.8%207133.8%201470.3Q7222.8%201571.8%207357.8%201571.8Q7491.8%201571.8%207580.8%201469.8Q7669.8%201367.8%207669.8%201158.8Q7669.8%20961.8%207580.3%20860.3Q7490.8%20758.8%207357.8%20758.8Q7222.8%20758.8%207133.8%20859.8Q7044.8%20960.8%207044.8%201164.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23282A29%22%20d%3D%22M8065.8%201695.8V633.8H8227.8V784.8Q8344.8%20609.8%208565.8%20609.8Q8661.8%20609.8%208742.3%20644.3Q8822.8%20678.8%208862.8%20734.8Q8902.8%20790.8%208918.8%20867.8Q8928.8%20917.8%208928.8%201042.8V1695.8H8748.8V1049.8Q8748.8%20939.8%208727.8%20885.3Q8706.8%20830.8%208653.3%20798.3Q8599.8%20765.8%208527.8%20765.8Q8412.8%20765.8%208329.3%20838.8Q8245.8%20911.8%208245.8%201115.8V1695.8Z%22%2F%3E%0A%3Cpath%20fill%3D%22%23A65E00%22%20d%3D%22M9520.359999999999%201720.8%209945.359999999999%20204.79999999999995H10089.359999999999L9665.359999999999%201720.8Z%22%2F%3E%0A%3C%2Fsvg%3E" width="220" height="44" alt="Lee Button">
+      <nav aria-label="Main navigation">
+        <a href="#ideas">Ideas</a>
+        <a href="#writing-speaking">Writing &amp; speaking</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="intro" aria-labelledby="intro-title">
+        <p class="eyebrow">Ideas, observations &amp; conversations</p>
+        <h1 id="intro-title">Make progress where responsibility is shared.</h1>
+        <p>I’m Lee Button. I’m interested in how we work together, what helps people stay well, and how good ideas become useful in everyday life.</p>
+        <p>This is my personal home for thinking out loud. Work is part of it. So are books, media, bags, gear and whatever else catches my attention.</p>
+      </section>
+      <section class="section" id="ideas" aria-labelledby="ideas-title">
+        <h2 id="ideas-title">What I keep coming back to</h2>
+        <ul class="themes">
+          <li><h3>Working together</h3><p>Shared responsibility, systems and the practical work of making progress when no one person holds all the answers.</p></li>
+          <li><h3>Creating health</h3><p>The places, services and everyday conditions that shape our health, and how we might make them better.</p></li>
+          <li><h3>Everyday curiosities</h3><p>Things I read, watch, carry and use. Small observations, useful objects and ideas worth following.</p></li>
         </ul>
-      </div>
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-8">
-            <div class="hero-copy">
-              <p class="eyebrow">For healthcare leaders, teams and partnerships</p>
-              <h1>Find your horizon. Move towards it together.</h1>
-              <p class="lead mt-4">
-                When the strategy is clear but the movement is not, I help leaders create the clarity, alignment, and rhythm to move forward.
-              </p>
-
-              <div class="d-flex flex-wrap gap-3 mt-4">
-                <a href="#contact" class="btn btn-lba">Start a conversation</a>
-              </div>
-      </div>
-    </section>
-    
-    <!-- Method Break -->
-    <section class="method-break" aria-label="The Horizon Method summary">
-      <div class="container">
-        <!-- Simple three-column placeholder. This can later be replaced with a bespoke Horizon Method graphic. -->
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="method-break-item">
-              <span class="method-break-kicker">01</span>
-              <h2 class="method-break-title">Clarify the horizon</h2>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="method-break-item">
-              <span class="method-break-kicker">02</span>
-              <h2 class="method-break-title">Align the system</h2>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="method-break-item">
-              <span class="method-break-kicker">03</span>
-              <h2 class="method-break-title">Act with rhythm</h2>
-            </div>
-          </div>
+      </section>
+      <section class="section" id="writing-speaking" aria-labelledby="sharing-title">
+        <h2 id="sharing-title">Writing &amp; speaking</h2>
+        <div class="channels">
+          <div><h3>Notes &amp; observations</h3><p>A place for short pieces, questions and things I’m learning along the way.</p><span class="status">First pieces to come.</span></div>
+          <div><h3>In conversation</h3><p>I’m making room for spoken ideas, video and talks, including a future home on YouTube.</p><span class="status">Videos &amp; speaker profile to come.</span></div>
         </div>
-      </div>
-    </section>
-    
-    <!-- Problem / Recognition -->
-    <section class="section section-soft">
-      <div class="container">
-        <div class="row g-5 align-items-start">
-          <div class="col-lg-5">
-            <p class="eyebrow">When progress stalls</p>
-            <h2>Shared responsibility does not always create shared direction.</h2>
-          </div>
-
-          <div class="col-lg-7">
-            <p class="lead">
-              In healthcare and public service, progress often depends on people who do not sit in the same team, report to the same manager, or see the work from the same angle.
-            </p>
-            <p>
-              That is where strategy can start to drift.
-            </p>
-
-            <div class="mt-4 mb-4">
-              <div class="recognition-line">Decisions are made, but not always held.</div>
-              <div class="recognition-line">People agree in principle, but act differently in practice.</div>
-              <div class="recognition-line">Good intentions get pulled back into operational pressure.</div>
-            </div>
-
-            <p>
-              My work helps leaders create the clarity, alignment and rhythm needed to move forward together.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Horizon Method -->
-    <section id="method" class="section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-9">
-            <p class="eyebrow">The Horizon Method</p>
-            <h2>A practical way to move from shared intent to coordinated action.</h2>
-            <p class="lead mt-4">
-              The Horizon Method is a simple structure for complex work. It helps teams and partnerships create movement without adding unnecessary noise, bureaucracy or another strategy document.
-            </p>
-          </div>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <article class="card-lba">
-              <div class="method-number">1</div>
-              <h3>Clarify the horizon</h3>
-              <p class="fw-semibold mt-3">
-                Define the direction clearly enough for people to make better decisions.
-              </p>
-              <p>
-                We cut through complexity, surface what matters now, and establish what progress needs to look like in practice.
-              </p>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card-lba">
-              <div class="method-number">2</div>
-              <h3>Align the system</h3>
-              <p class="fw-semibold mt-3">
-                Bring the right people into the right conversation.
-              </p>
-              <p>
-                We make gaps visible between strategy, behaviour, ownership and delivery — then create the conditions for decisions to hold.
-              </p>
-            </article>
-          </div>
-
-          <div class="col-md-4">
-            <article class="card-lba">
-              <div class="method-number">3</div>
-              <h3>Act with rhythm</h3>
-              <p class="fw-semibold mt-3">
-                Turn agreement into practical movement.
-              </p>
-              <p>
-                We focus action, test what works, learn quickly, and build a rhythm of progress that keeps people moving together.
-              </p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How I Help -->
-    <section id="how-i-help" class="section section-soft">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-9">
-            <p class="eyebrow">How I help</p>
-            <h2>Facilitation, strategy and organisational development for complex healthcare work.</h2>
-          </div>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <h3>Strategy into action</h3>
-              <p>
-                For teams and partnerships that know the direction but need help turning it into practical movement.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <h3>Leadership and alignment</h3>
-              <p>
-                For leadership teams who need stronger ownership, better conversations and clearer decision-making.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <h3>Service and neighbourhood development</h3>
-              <p>
-                For primary care, neighbourhood and system partners developing new models of care or collaborative ways of working.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="service-card">
-              <h3>Workshops and facilitated programmes</h3>
-              <p>
-                For teams that need structured space to think, decide, test and move.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trust -->
-    <section class="section">
-      <div class="container">
-        <div class="row g-5 align-items-start">
-          <div class="col-lg-5">
-            <p class="eyebrow">Trusted in complex healthcare settings</p>
-            <h2>Experience across primary care, public service and community health.</h2>
-            <p class="mt-4">
-              I have worked with GP practices, Primary Care Networks, federations, charities and public sector partners to support strategy, improvement, leadership and service development.
-            </p>
-          </div>
-
-          <div class="col-lg-7">
-            <div class="logo-strip">
-              <div class="row g-3">
-                <div class="col-6 col-md-4"><div class="logo-placeholder">Logo</div></div>
-                <div class="col-6 col-md-4"><div class="logo-placeholder">Logo</div></div>
-                <div class="col-6 col-md-4"><div class="logo-placeholder">Logo</div></div>
-                <div class="col-6 col-md-4"><div class="logo-placeholder">Logo</div></div>
-                <div class="col-6 col-md-4"><div class="logo-placeholder">Logo</div></div>
-                <div class="col-6 col-md-4"><div class="logo-placeholder">Logo</div></div>
-              </div>
-            </div>
-
-            <figure class="mt-4">
-              <blockquote class="quote">
-                “Lee’s ability to help teams solve complex strategic issues has been invaluable. He provides fresh insights, new perspectives, and experience from a wide range of disciplines and contexts.”
-              </blockquote>
-              <figcaption class="mt-3 text-secondary">
-                — Testimonial attribution
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Working With Me -->
-    <section id="about" class="section section-soft">
-      <div class="container">
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-5">
-            <figure class="profile-photo-frame mb-0">
-              <!-- This can reuse the portrait or use a more candid facilitation image. Recommended crop: 1200x1500px, 4:5 ratio. -->
-              <img class="profile-photo" src="img/lee-button-working.jpeg" alt="Lee Button facilitating a session">
-              <!-- <div class="image-placeholder-note">Portrait or authentic working image<br>Recommended crop: 4:5<br>Minimum: 1200 × 1500px</div> -->
-            </figure>
-          </div>
-
-          <div class="col-lg-7">
-            <p class="eyebrow">Working with me</p>
-            <h2>A calm, structured space to think clearly and move well.</h2>
-            <p class="lead mt-4">
-              My work sits between facilitation, organisational development and practical strategy.
-            </p>
-            <p>
-              I create the conditions for people to think clearly, speak honestly and move together — especially where the work is important, the system is complex, and progress depends on more than one person or organisation.
-            </p>
-            <p>
-              I do not arrive with a pre-written answer. I help leaders, teams and partnerships find the direction that fits their context, then build the alignment and rhythm needed to move towards it.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="cta-panel">
-          <div class="row">
-            <div class="col-lg-9">
-              <p class="eyebrow">Start a conversation</p>
-              <h2>If the strategy is clear but the movement is not, let’s talk.</h2>
-              <p class="lead mt-4">
-                A short conversation is usually enough to understand what is stuck, what needs to move, and whether I am the right person to help.
-              </p>
-              <div class="d-flex flex-wrap gap-3 mt-4">
-                <a href="mailto:hello@leebutton.co.uk" class="btn btn-lba">hello@leebutton.co.uk</a>
-                <a href="tel:+447747488310" class="btn btn-lba-outline">+44 (0) 7747 488 310</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row g-4 align-items-start">
-        <div class="col-lg-5">
-          <!-- Replace with final compact brand ident or footer wordmark. Preferred: SVG. -->
-          <img class="footer-brand-ident" src="img/Lee_Button_Logomark.svg" alt="" aria-hidden="true">
-          <!-- Alternative if no compact ident exists: <img class="footer-wordmark" src="assets/lee-button-associates-logo.svg" alt="Lee Button Associates"> -->
-          <strong class="d-block text-dark mb-2">Lee Button Associates Limited</strong>
-          <p class="mb-0">
-            Registered Office: Tagus House, 9 Ocean Way, Southampton, Hampshire, England, SO14 3TJ 
-          </p>
-          <p>Registered in England and Wales No. 16332517</p>
-          
-        </div>
-
-        <div class="col-lg-4">
-         <p class="mb-2">
-            Facilitation, organisational development and practical strategy for healthcare and public sector leaders.
-          </p>
-        </div>
-
-        <div class="col-lg-3">
-          <div class="d-flex flex-column gap-2">
-            <a href="#">Home</a>
-            <a href="#method">The Method</a>
-            <a href="#how-i-help">How I Help</a>
-            <a href="#about">About</a>
-            <a href="#contact">Start a conversation</a></li>
-            <a href="#">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="d-flex flex-wrap justify-content-between gap-3 mt-5 pt-4 border-top">
-        <small>© Lee Button Associates 2026</small>
-        <small>
-          <a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a> . <a href="#">Terms & Conditions</a>
-        </small>
-      </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      </section>
+      <section class="section" aria-labelledby="work-title">
+        <h2 id="work-title">My work</h2>
+        <div><p>I also lead <a href="https://leebutton.co.uk/">Lee Button Associates</a>, where my consultancy work lives. For professional support or a conversation about working together, start there.</p></div>
+      </section>
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Get in touch</h2>
+        <div><p>For speaking invitations or work enquiries, you can reach me through Lee Button Associates.</p><p><a href="mailto:hello@leebutton.co.uk">hello@leebutton.co.uk</a></p></div>
+      </section>
+    </main>
+    <footer>Lee Button · leebutton.me</footer>
+  </div>
 </body>
 </html>
